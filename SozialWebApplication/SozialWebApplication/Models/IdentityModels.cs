@@ -3,6 +3,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using SozialWebApplication.Models;
+using SozialWebApplication.Models.Entities;
 
 namespace SozialWebApplication.Models
 {
@@ -15,14 +17,19 @@ namespace SozialWebApplication.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+		public DbSet<Post> Posts { get; set; }
+		public DbSet<Comment> Comments { get; set; }
+		public DbSet<Group> Groups { get; set; }
+		public DbSet<FollowerConnection> FollowerConnections { get; set; }
+		public DbSet<MatchConnection> MatchConnections { get; set; }
+		public DbSet<GroupConnection> GroupConnections { get; set; }
+		public DbSet<PostConnection> PostConnections { get; set; }
+		public DbSet<CommentConnection> CommentConnections { get; set; }
+
 		public ApplicationDbContext()
 			: base("DefaultConnection")
 		{
 		}
-		
-		public DbSet<Post> Posts { get; set; }
-		public DbSet<Comment> Comments { get; set; }
-		public DbSet<Group> Groups { get; set; }
 
 		public static ApplicationDbContext Create()
 		{
