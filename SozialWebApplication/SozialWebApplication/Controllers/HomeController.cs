@@ -26,6 +26,9 @@ namespace SozialWebApplication.Controllers
 			// var userService = new UserService();
 			// userService.ChangeFullName(User.Identity.Name, "Perla Osk");
 			// userService.ChangeLineOfStudy(User.Identity.Name, "Computer Science");
+			var groupService = new GroupService();
+			groupService.AddNewGroup("Group 1");
+			groupService.ChangeGroupName(1, "New Group Name");
 			 
 			return View();
 		}
