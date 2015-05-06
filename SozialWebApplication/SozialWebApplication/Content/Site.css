@@ -35,14 +35,12 @@ h2 {
 
 .login-button,
 .register-button {
-  background-color: #ffd600;
   border-radius: 4px;
-  border-color: #ffd600;
+  border-color: #faa61f;
   line-height: 25px;
   width: 70px;
   font-weight: bold;
- /* background-image: url(https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpa1/v/t34.0-12/11225859_10152739096582047_366563651_n.jpg?oh=78a1816f2a9bc81420d6844f2007c759&oe=554C9375&__gda__=1431082340_98c5f793c84f4994b9c670126935b8de);
-*/
+  background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11136784_10152739372817047_3965445374771875884_n.jpg?oh=b1c9db12fd324f42eb53bc33e682042c&oe=55D35DC0)
 }
 
 .register {
@@ -73,4 +71,12 @@ h2 {
 
 .front-logo {
     height: 250px;
+}
+
+.register-group .input{
+    /*display: block;*/
+}
+
+.register-button{
+    margin-top: 15px;
 }
