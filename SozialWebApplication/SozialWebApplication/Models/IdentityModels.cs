@@ -28,5 +28,10 @@ namespace SozialWebApplication.Models
 		{
 			return new ApplicationDbContext();
 		}
+
+        internal void SaveChanges()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

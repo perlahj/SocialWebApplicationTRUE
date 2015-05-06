@@ -12,5 +12,10 @@ namespace SozialWebApplication.Models
 	{
 		public int Id { get; set; }
 		public string GroupName { get; set; }
-	}
+
+        internal static object Add(Group s)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
