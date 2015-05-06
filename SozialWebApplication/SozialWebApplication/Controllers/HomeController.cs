@@ -6,6 +6,7 @@ using System.Web.Mvc;
 // Stefana
 // Perla - Test
 // Asta 
+// Karlotta
 namespace SozialWebApplication.Controllers
 {
 	public class HomeController : Controller
