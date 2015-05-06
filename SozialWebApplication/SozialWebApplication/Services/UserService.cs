@@ -10,13 +10,22 @@ namespace SozialWebApplication.Services
 	{
 		private ApplicationDbContext db = new ApplicationDbContext();
 
-		public void UpdateFullName(string userName, string newFullName)
+		public void ChangeFullName(string userName, string newFullName)
 		{
 			var userWithUserName = (from user in db.Users
 						where user.UserName == userName
 						select user).FirstOrDefault();
 			userWithUserName.FullName = newFullName;
 			db.SaveChanges();						 
+		}
+		
+		public void ChangeLineOfStudy(string userName, string newLineOfStudy)
+		{
+			var userWithUserName = (from user in db.Users
+									where user.UserName == userName
+									select user).FirstOrDefault();
+			userWithUserName.LineOfStudy = newLineOfStudy;
+			db.SaveChanges();
 		}
 	}
 }

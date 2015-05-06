@@ -26,7 +26,9 @@ namespace SozialWebApplication.Controllers
 			/*var userService = new UserService();
 			var newFullName = "Perla Osk";
 			var userName = User.Identity.Name;
-			userService.UpdateFullName(userName, newFullName); */
+			userService.ChangeFullName(userName, newFullName); */
+			var userService = new UserService();
+			userService.ChangeLineOfStudy(User.Identity.Name, "Computer Science");
 			 
 			return View();
 		}
