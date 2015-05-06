@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SozialWebApplication.Services;
+using SozialWebApplication.Models;
 // Stefana
 // Perla - Test
 // Asta 
@@ -12,6 +14,7 @@ namespace SozialWebApplication.Controllers
 {
 	public class HomeController : Controller
 	{
+		
 		public ActionResult Index()
 		{
 			return View();
@@ -20,7 +23,11 @@ namespace SozialWebApplication.Controllers
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";
-
+			/*var userService = new UserService();
+			var newFullName = "Perla Osk";
+			var userName = User.Identity.Name;
+			userService.UpdateFullName(userName, newFullName); */
+			 
 			return View();
 		}
 
