@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//klklkl
+// Stefana
+// Perla
 namespace SozialWebApplication.Controllers
 {
 	public class HomeController : Controller
