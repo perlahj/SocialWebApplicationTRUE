@@ -27,5 +27,12 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
+		// Eftir ad profa
+		public List<Group> GetAllGroups()
+		{
+			var groups = (from g in db.Groups
+						  select g).ToList();
+			return groups;
+		}
 	}
 }
