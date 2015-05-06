@@ -10,7 +10,7 @@ namespace SozialWebApplication.Models
 {
 	public class Group
 	{
-		public int ID { get; set; }
+		public int Id { get; set; }
 		public string GroupName { get; set; }
 	}
 }

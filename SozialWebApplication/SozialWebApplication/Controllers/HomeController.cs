@@ -5,8 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 // Stefana
 // Perla - Test
-// Asta
-//Audur 
+// Asta 
+// Karlotta
+// Audur
 namespace SozialWebApplication.Controllers
 {
 	public class HomeController : Controller
