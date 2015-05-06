@@ -24,6 +24,15 @@ namespace SozialWebApplication.Controllers
 		{
 			ViewBag.Message = "Your application description page.";
 
+			//var userService = new UserService();
+			//userService.ChangeFullName(User.Identity.Name, "Jane Johnson");
+			//userService.ChangeLineOfStudy(User.Identity.Name, "Computer Science");
+			var groupService = new GroupService();
+			groupService.AddNewGroup("SomeGroup");
+			//groupService.ChangeGroupName(1, "New Group Name");
+			//groupService.AddUserToGroup(1, User.Identity.Name);
+
+
 			return View();
 		}
 
