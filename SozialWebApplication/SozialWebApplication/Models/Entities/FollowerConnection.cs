@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
-
 
 namespace SozialWebApplication.Models.Entities
 {
-	public class Group
+	public class FollowerConnection
 	{
 		public int Id { get; set; }
-		public string GroupName { get; set; }
+		public string UserFollowing { get; set; }
+		public string UserToFollow { get; set; }
 	}
 }
