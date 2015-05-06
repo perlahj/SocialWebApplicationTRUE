@@ -4,55 +4,75 @@
     ViewBag.Title = "Log in";
 }
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                @Html.ValidationSummary(true)
-                <div class="form-group">
-                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.UserName)
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password)
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
-                    </div>
-                </div>
-                <p>
-                    @Html.ActionLink("Register", "Register") if you don't have a local account.
-                </p>
-            }
-        </section>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
+<div>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="login-group">
+
+            <div class="login">
+                @Html.LabelFor(m => m.UserName, new { @class = "login-label" })
+                @Html.TextBoxFor(m => m.UserName, new { @class = "input" })
+                @Html.ValidationMessageFor(m => m.UserName)
+
+                @Html.LabelFor(m => m.Password, new { @class = "login-label" })
+                @Html.PasswordFor(m => m.Password, new { @class = "input" })
+                @Html.ValidationMessageFor(m => m.Password)
+
+                <input type="submit" value="Log in" class="login-button" />
+            </div>
+        </div>
+
+        <div class="checkbox-group">
+            <div class="checkbox">
+                @Html.CheckBoxFor(m => m.RememberMe)
+            </div>
+
+            <div class="checkbox-label">
+                @Html.LabelFor(m => m.RememberMe)
+            </div>
+        </div>
+    }
 </div>
+
+<div class="register-group">
+    <h2>Create new account!</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+
+        <div>
+            <div class="register">
+
+                <!-- "at"Html.LabelFor(m => m.Email, new { "at"class = "register-label" })
+                "at"Html.PasswordFor(m => m.ConfirmPassword, new { "at"class = "input" }) -->
+                @Html.LabelFor(m => m.UserName, new { @class = "register-label" })
+                @Html.TextBoxFor(m => m.UserName, new { @class = "input" })
+            </div>
+
+            <div class="register">
+                @Html.LabelFor(m => m.Password, new { @class = "register-label" })
+                @Html.PasswordFor(m => m.Password, new { @class = "input" })
+            </div>
+
+            <!-- "at"Html.LabelFor(m => m.ConfirmPassword, new { "at"class = "register-label" })
+             "at"Html.PasswordFor(m => m.ConfirmPassword, new { "at"class = "input" }) -->
+        </div>
+
+        <div class="register">
+            <input type="submit" class="register-button" value="Sign Up" />
+        </div>
+    }
+</div>
+
+<div class="logo">
+    <img src="https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11188406_10152738112412047_3185149741492135647_n.jpg?oh=bd18d6c4edcf797bc2f00d993b15b910&oe=55E23459" alt="logo">
+</div>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
