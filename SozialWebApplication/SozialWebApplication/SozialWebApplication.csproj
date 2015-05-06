@@ -223,6 +223,7 @@
     <Folder Include="Models\ViewModel\" />
     <Folder Include="Repositories\" />
     <Folder Include="Services\" />
+    <Folder Include="Views\LoginRegister\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

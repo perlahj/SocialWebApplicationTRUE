@@ -10,6 +10,8 @@ using System.Web.Mvc;
 // Audur
 namespace SozialWebApplication.Controllers
 {
+
+
 	public class HomeController : Controller
 	{
 		public ActionResult Index()
