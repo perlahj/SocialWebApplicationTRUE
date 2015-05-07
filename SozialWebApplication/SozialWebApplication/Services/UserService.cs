@@ -27,5 +27,6 @@ namespace SozialWebApplication.Services
 			userWithUserName.LineOfStudy = newLineOfStudy;
 			db.SaveChanges();
 		}
+
 	}
 }
