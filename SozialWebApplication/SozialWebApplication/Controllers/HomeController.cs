@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SozialWebApplication.Services;
 using SozialWebApplication.Models;
 using SozialWebApplication.Models.Entities;
+using SozialWebApplication.Models.Initializers;
 
 namespace SozialWebApplication.Controllers
 {
@@ -20,6 +21,8 @@ namespace SozialWebApplication.Controllers
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";
+			GroupInitializer gi = new GroupInitializer();
+			gi.InitializeGroups();
 
 			return View();
 		}
