@@ -61,8 +61,8 @@ namespace SozialWebApplication.Models
         public string ConfirmPassword { get; set; }
     }
 
-    /*
-    public class LoginRegisterViewModel
+    
+    /*public class ViewModel
     {
         public LoginViewModel LoginViewModel { get; set; }
         public RegisterViewModel RegisterViewModel { get; set; }

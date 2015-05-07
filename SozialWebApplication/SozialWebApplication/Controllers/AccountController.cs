@@ -50,7 +50,10 @@ namespace SozialWebApplication.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+                   /* return RedirectToLocal(returnUrl); */
+                   /* Response.Redirect("~/Newsfeed.aspx");*/
+                    return RedirectToLocal("~/Index.aspx");
+                    
                 }
                 else
                 {
