@@ -27,8 +27,8 @@ namespace SozialWebApplication.Services
 			groupWithId.GroupName = newGroupName;
 			db.SaveChanges();
 		}
-
-		// Eftir ad profa
+		
+		// Has not been tested.
 		public List<Group> GetAllGroups()
 		{
 			var groups = (from g in db.Groups
@@ -36,7 +36,6 @@ namespace SozialWebApplication.Services
 			return groups;
 		}
 
-		// Eftir ad profa
 		public void AddUserToGroup(int groupId, string userName)
 		{
 			GroupConnection gc = new GroupConnection();
@@ -45,6 +44,36 @@ namespace SozialWebApplication.Services
 			db.GroupConnections.Add(gc);
 			db.SaveChanges();
 		}
+
+		public void RemoveUserFromGroup(int groupId, string userName)
+		{
+			var groupConnection = (from gc in db.GroupConnections
+									 where gc.GroupId == groupId
+									select gc).FirstOrDefault();
+		
+			db.GroupConnections.Remove(groupConnection);
+			db.SaveChanges();
+		}
+
+		public List<Group> GetAllGroupsForUser(string userName)
+		{
+			List<int> groupIds = (from gc in db.GroupConnections
+									where gc.UserName == userName
+									select gc.GroupId).ToList();
+			
+			List<Group> groups = new List<Group>();
+			foreach(var gId in groupIds)
+			{
+				var group = (from g in db.Groups
+							where g.Id == gId
+							select g).FirstOrDefault();
+				groups.Add(group);
+			}
+	
+			return groups;
+		}
+
+
 
 	}
 }

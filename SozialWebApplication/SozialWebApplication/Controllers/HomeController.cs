@@ -5,11 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using SozialWebApplication.Services;
 using SozialWebApplication.Models;
-// Stefana
-// Perla - Test
-// Asta 
-// Karlotta
-// Audur
+using SozialWebApplication.Models.Entities;
+
 namespace SozialWebApplication.Controllers
 {
 	public class HomeController : Controller
@@ -28,10 +25,16 @@ namespace SozialWebApplication.Controllers
 			//userService.ChangeFullName(User.Identity.Name, "Jane Johnson");
 			//userService.ChangeLineOfStudy(User.Identity.Name, "Computer Science");
 			var groupService = new GroupService();
-			groupService.AddNewGroup("SomeGroup");
+			//groupService.AddNewGroup("SomeGroup");
 			//groupService.ChangeGroupName(1, "New Group Name");
-			//groupService.AddUserToGroup(1, User.Identity.Name);
-
+			//List<Group> groups = groupService.GetAllGroups();
+			//groupService.AddUserToGroup(2, User.Identity.Name);
+			//List<Group> userGroups = groupService.GetAllGroupsForUser(User.Identity.Name);
+			/*foreach (var g in userGroups)
+			{
+				groupService.AddUserToGroup(g.Id, User.Identity.Name);
+			} */
+			groupService.RemoveUserFromGroup(2, User.Identity.Name);
 
 			return View();
 		}
