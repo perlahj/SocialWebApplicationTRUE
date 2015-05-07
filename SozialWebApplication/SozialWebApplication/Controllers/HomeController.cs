@@ -14,7 +14,7 @@ namespace SozialWebApplication.Controllers
 
 	public class HomeController : Controller
 	{
-		public ActionResult Index()
+		public ActionResult Newsfeed()
 		{
 			return View();
 		}
