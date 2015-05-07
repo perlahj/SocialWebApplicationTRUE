@@ -20,9 +20,9 @@ namespace SozialWebApplication.Models.Initializers
 			db.Groups.Add(group1);
 			db.Groups.Add(group2);
 			db.Groups.Add(group3);
-			db.SaveChanges();
-
-			
+			db.SaveChanges();	
 		}
+
+
 	}
 }

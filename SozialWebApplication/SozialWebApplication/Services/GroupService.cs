@@ -88,8 +88,6 @@ namespace SozialWebApplication.Services
 		//	groupService.AddUserToGroup(g.Id, User.Identity.Name);
 		//} 
 		//groupService.RemoveUserFromGroup(2, User.Identity.Name);
-	
-
 
 	}
 }
