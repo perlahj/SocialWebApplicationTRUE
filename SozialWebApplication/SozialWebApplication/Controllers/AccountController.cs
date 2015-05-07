@@ -86,7 +86,7 @@ namespace SozialWebApplication.Controllers
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Newsfeed", "Home");
+                    return RedirectToAction("Login", "Account");
                 }
                 else
                 {
