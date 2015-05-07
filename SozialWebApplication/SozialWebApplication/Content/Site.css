@@ -82,28 +82,4 @@ h2 {
     margin-top: 15px;
 }
 
-.bc{
-    background: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/10426127_10152740384227047_119338495523974373_n.jpg?oh=7c645bb2a3e7176117f2b049f1a047ff&oe=55C721B3) center;
-    background-size: 100%;
-    /*background-color: #ffd600;*/
-    /*background-repeat: no-repeat;*/
-}
 
-.namecard-button, .feed-body{
-    background-color: white;
-    margin-left: 2%;
-    margin-right: 2%;
-    border-radius: 25px;
-
-}
-.name-logo{
-    height: 150px;
-    margin: 1%;
-}
-
-h3{
-    display: inline;
-    font-size: 66px;
-    position: absolute;
-    margin-left: 25%;
-}
