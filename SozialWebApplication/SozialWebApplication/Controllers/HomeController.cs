@@ -22,6 +22,11 @@ namespace SozialWebApplication.Controllers
             return View();
         }
 
+        public ActionResult OthersNameCard()
+        {
+            return View();
+        }
+
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";

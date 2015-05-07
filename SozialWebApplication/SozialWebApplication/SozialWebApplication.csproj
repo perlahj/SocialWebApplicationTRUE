@@ -222,10 +222,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Newsfeed.cshtml" />
     <Content Include="Views\Home\NameCard.cshtml" />
+    <Content Include="Views\Home\OthersNameCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\ViewModel\" />
+    <Folder Include="Pictures\" />
     <Folder Include="Repositories\" />
     <Folder Include="Services\" />
     <Folder Include="Views\LoginRegister\" />

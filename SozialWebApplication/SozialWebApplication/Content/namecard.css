@@ -63,3 +63,28 @@
    width: 50px;
    height: 39px;
 }
+
+.follow-others {
+   margin-left: 67%;
+   margin-top: 2%;
+   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11206110_10152737854147047_5601387987113563115_n.jpg?oh=9d031ce60aeb7a11e98c7dc789a8cf1a&oe=560BF63D);
+   background-repeat: no-repeat;
+   background-size: 100%;
+   cursor: pointer;
+   border: none;
+   width: 51px;
+   height: 39px;
+}
+
+.match-others {
+   margin-left: 68%;
+   margin-top: 16%;
+   margin-bottom: 4%;
+   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11182369_10152737854217047_170899979653894999_n.jpg?oh=fb443a931f6151b9b3a3a9159ead92bb&oe=55D94093);
+   background-repeat: no-repeat;
+   background-size: 100%;
+   cursor: pointer;
+   border: none;
+   width: 48px;
+   height: 39px;
+}
