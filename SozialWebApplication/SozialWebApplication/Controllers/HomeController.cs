@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-// Stefana
-// Perla - Test
-// Asta 
-// Karlotta
-// Audur
+using SozialWebApplication.Services;
+using SozialWebApplication.Models;
+using SozialWebApplication.Models.Entities;
+
 namespace SozialWebApplication.Controllers
 {
 	public class HomeController : Controller
 	{
+		
 		public ActionResult Index()
 		{
 			return View();
