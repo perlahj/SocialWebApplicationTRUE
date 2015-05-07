@@ -29,6 +29,7 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
+
 		// Has not been tested
 		public void AddNewFollow(string userFollowing, string userToFollow)
 		{
@@ -49,7 +50,27 @@ namespace SozialWebApplication.Services
 			db.FollowerConnections.Remove(followerConnection);
 			db.SaveChanges();
 		}
+
+		// Has not been tested
+		public List<ApplicationUser> GetAllFollowing(string userName)
+		{
+			List<string> userNames = (from un in db.FollowerConnections
+									  where un.UserFollowing == userName
+									  select un.UserFollowing).ToList();
+
+			List<ApplicationUser> userFollowingList = new List<ApplicationUser>();
+			foreach (var item in userNames)
+			{
+				var userToAddToList = (from u in db.Users
+									   where u.UserName == item
+									   select u).FirstOrDefault();
+				userFollowingList.Add(userToAddToList);
+			}
+
+			return userFollowingList;
+		}
 		
+		// Has not been tested
 		public void AddMatch(string userMatching, string userMatched)
 		{
 			MatchConnection mc = new MatchConnection();
@@ -59,11 +80,66 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
-		/*public void RemoveMatch(string userRemoving, string userRemoved)
+		// Has not been tested
+		public void RemoveMatch(string userRemoving, string userToRemove)
 		{
 			var matchConnection = (from mc in db.MatchConnections
-									   where mc.UserMatching == userRemoved &&
-									   mc.UserMatched)
-		}  */
+								   where mc.UserMatching == userRemoving &&
+								   mc.UserMatched == userToRemove
+								   select mc).FirstOrDefault();
+			db.MatchConnections.Remove(matchConnection);
+			db.SaveChanges();
+
+		}
+
+		// Has not been tested
+		public bool IsSingleMatch(string userMatching, string userMatched)
+		{
+			var matchConnection = (from mc in db.MatchConnections
+								   where mc.UserMatching == userMatching &&
+								   mc.UserMatched == userMatched
+								   select mc).FirstOrDefault();
+			return matchConnection != null;
+		}
+
+		// Has not been tested
+		public bool IsDoubleMatch(string userMatching, string userMatched)
+		{
+			if (!IsSingleMatch(userMatching, userMatched))
+			{
+				return false;
+			}
+
+			var matchConnection = (from mc in db.MatchConnections
+								   where mc.UserMatching == userMatched &&
+								   mc.UserMatched == userMatching
+								   select mc).FirstOrDefault();
+			
+			return matchConnection != null;
+		}
+
+		// Has not been tested
+		public List<ApplicationUser> GetAllDoubleMatches(string userName)
+		{
+			// Make a list of single matches
+			var singleMatches = (from sm in db.MatchConnections
+								 where sm.UserMatching == userName
+								 select sm).ToList();
+			
+			// Make a list of double matches
+			List<MatchConnection> doubleMatches = new List<MatchConnection>();
+			foreach(var item in singleMatches)
+			{
+				if (IsSingleMatch(item.UserMatched, userName) != null)
+				{
+					doubleMatches.Add(item);
+				}
+			}
+
+			// Make a list of users
+			List<ApplicationUser> doubleMatchesUsers = new List<ApplicationUser>();
+
+			return doubleMatchesUsers;
+		}
 	}
 }
