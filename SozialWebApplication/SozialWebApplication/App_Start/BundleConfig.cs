@@ -20,12 +20,12 @@ namespace SozialWebApplication
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/CSS/bootstrap.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css", "~/Content/namecard.css", "~/Content/Banner.css"));
+                      "~/Content/CSS/bootstrap.css",
+                      "~/Content/CSS/site.css", "~/Content/CSS/namecard.css", "~/Content/CSS/Banner.css"));
         }
     }
 }
