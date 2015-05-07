@@ -29,8 +29,6 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
-
-		// Has not been tested
 		public void AddNewFollow(string userFollowing, string userToFollow)
 		{
 			FollowerConnection fc = new FollowerConnection();
@@ -40,7 +38,6 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 	 
-		// Has not been tested
 		public void RemoveFollow(string userFollowing, string userToFollow)
 		{
 			var followerConnection = (from dc in db.FollowerConnections
@@ -70,7 +67,6 @@ namespace SozialWebApplication.Services
 			return userFollowingList;
 		}
 		
-		// Has not been tested
 		public void AddMatch(string userMatching, string userMatched)
 		{
 			MatchConnection mc = new MatchConnection();
@@ -80,7 +76,6 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
-		// Has not been tested
 		public void RemoveMatch(string userRemoving, string userToRemove)
 		{
 			var matchConnection = (from mc in db.MatchConnections
@@ -92,7 +87,6 @@ namespace SozialWebApplication.Services
 
 		}
 
-		// Has not been tested
 		public bool IsSingleMatch(string userMatching, string userMatched)
 		{
 			var matchConnection = (from mc in db.MatchConnections
@@ -102,7 +96,6 @@ namespace SozialWebApplication.Services
 			return matchConnection != null;
 		}
 
-		// Has not been tested
 		public bool IsDoubleMatch(string userMatching, string userMatched)
 		{
 			if (!IsSingleMatch(userMatching, userMatched))
@@ -130,7 +123,7 @@ namespace SozialWebApplication.Services
 			List<MatchConnection> doubleMatches = new List<MatchConnection>();
 			foreach(var item in singleMatches)
 			{
-				if (IsSingleMatch(item.UserMatched, userName) != null)
+				if (IsSingleMatch(item.UserMatched, userName))
 				{
 					doubleMatches.Add(item);
 				}
@@ -141,5 +134,21 @@ namespace SozialWebApplication.Services
 
 			return doubleMatchesUsers;
 		}
+
+		// TEST
+			/*UserService us = new UserService();
+			us.AddNewFollow(User.Identity.Name, "user1");
+			us.RemoveFollow(User.Identity.Name, "user1");
+			us.AddMatch(User.Identity.Name, "user1");
+			us.RemoveMatch(User.Identity.Name, "user1");
+			if (us.IsSingleMatch(User.Identity.Name, "user1"))
+			{
+				us.AddMatch("user1", User.Identity.Name);
+			}
+			if (us.IsDoubleMatch(User.Identity.Name, "user100"))
+			{
+				us.AddMatch("user99", "user98");
+			}
+			 */
 	}
 }
