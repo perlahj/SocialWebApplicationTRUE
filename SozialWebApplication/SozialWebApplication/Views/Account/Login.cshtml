@@ -1,11 +1,11 @@
-﻿@model SozialWebApplication.Models.LoginViewModel
+﻿@model SozialWebApplication.Models.LandingPageModel
 
 @{
     ViewBag.Title = "Log in";
 }
 
 <div>
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = "/Home/Newsfeed" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
@@ -13,13 +13,13 @@
         <div class="login-group">
 
             <div class="login">
-                @Html.LabelFor(m => m.UserName, new { @class = "login-label" })
-                @Html.TextBoxFor(m => m.UserName, new { @class = "input" })
-                @Html.ValidationMessageFor(m => m.UserName)
+                @Html.LabelFor(m => m.LoginViewModel.UserName, new { @class = "login-label" })
+                @Html.TextBoxFor(m => m.LoginViewModel.UserName, new { @class = "input" })
+                @Html.ValidationMessageFor(m => m.LoginViewModel.UserName)
 
-                @Html.LabelFor(m => m.Password, new { @class = "login-label" })
-                @Html.PasswordFor(m => m.Password, new { @class = "input" })
-                @Html.ValidationMessageFor(m => m.Password)
+                @Html.LabelFor(m => m.LoginViewModel.Password, new { @class = "login-label" })
+                @Html.PasswordFor(m => m.LoginViewModel.Password, new { @class = "input" })
+                @Html.ValidationMessageFor(m => m.LoginViewModel.Password)
 
                 <input type="submit" value="Log in" class="login-button" />
             </div>
@@ -27,11 +27,11 @@
 
         <div class="checkbox-group">
             <div class="checkbox">
-                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.CheckBoxFor(m => m.LoginViewModel.RememberMe)
             </div>
 
             <div class="checkbox-label">
-                @Html.LabelFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.LoginViewModel.RememberMe)
             </div>
         </div>
     }
@@ -50,17 +50,20 @@
 
                 <!-- "at"Html.LabelFor(m => m.Email, new { "at"class = "register-label" })
                 "at"Html.PasswordFor(m => m.Email, new { "at"class = "input" }) -->
-                @Html.LabelFor(m => m.UserName, new { @class = "register-label" })
-                @Html.TextBoxFor(m => m.UserName, new { @class = "input" })
+
+                @Html.LabelFor(m => m.RegisterViewModel.UserName, new { @class = "register-label" })
+                @Html.TextBoxFor(m => m.RegisterViewModel.UserName, new { @class = "input" })
             </div>
 
             <div class="register">
-                @Html.LabelFor(m => m.Password, new { @class = "register-label" })
-                @Html.PasswordFor(m => m.Password, new { @class = "input" })
+                @Html.LabelFor(m => m.RegisterViewModel.Password, new { @class = "register-label" })
+                @Html.PasswordFor(m => m.RegisterViewModel.Password, new { @class = "input" })
             </div>
 
-               <!-- "at"Html.LabelFor(m => m.ConfirmPassword, new { "at"class = "register-label" })
-                "at"Html.PasswordFor(m => m.ConfirmPassword, new { "at"class = "input" })-->
+            <div class="register">
+                @Html.LabelFor(m => m.RegisterViewModel.ConfirmPassword, new { @class = "register-label" })
+                @Html.PasswordFor(m => m.RegisterViewModel.ConfirmPassword, new { @class = "input" })
+            </div>
         </div>
 
         <div class="register">
