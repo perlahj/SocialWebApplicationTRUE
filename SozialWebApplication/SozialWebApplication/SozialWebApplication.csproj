@@ -168,8 +168,6 @@
     <Compile Include="Models\Entities\Group.cs" />
     <Compile Include="Models\Entities\Post.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Initialize\CommentContext.cs" />
-    <Compile Include="Models\Initialize\CommentInitializer.cs" />
     <Compile Include="Models\Initialize\GroupInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
