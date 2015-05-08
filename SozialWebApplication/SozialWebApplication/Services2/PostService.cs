@@ -37,13 +37,13 @@ namespace SozialWebApplication.Services
             db.SaveChanges();
         }
         
-        public void AddLike()
+      /*  public void AddLike()
         {
-            Like l = new Like;
+            Like l = new Like();
             db.Likes.Add(1);
-            db.SaveChanges();
-                
+            db.SaveChanges();     
         }
+	   */
 
         public void RemoveLike()
         {
