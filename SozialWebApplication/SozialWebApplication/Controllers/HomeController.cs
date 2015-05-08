@@ -30,5 +30,15 @@ namespace SozialWebApplication.Controllers
 
 			return View();
 		}
+
+        
+        /*public ActionResult Group()
+        {
+            ViewModelService vms;
+            var model = vms.InitializeGroupViewModel(int group);
+            return View(model);
+        }*/
+        
+        
 	}
 }
