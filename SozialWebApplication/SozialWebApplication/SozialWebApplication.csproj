@@ -178,6 +178,7 @@
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\ViewModelService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\CommentViewModel.cs" />
     <Compile Include="ViewModel\GroupViewModel.cs" />
     <Compile Include="ViewModel\OtherUserProfileViewModel.cs" />
     <Compile Include="ViewModel\UserProfileViewModel.cs" />

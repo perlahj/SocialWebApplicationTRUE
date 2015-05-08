@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SozialWebApplication.Services;
 using SozialWebApplication.Models;
 using SozialWebApplication.Models.Entities;
+using SozialWebApplication.ViewModel;
 
 namespace SozialWebApplication.Controllers
 {
@@ -31,14 +32,61 @@ namespace SozialWebApplication.Controllers
 			return View();
 		}
 
-        
-        /*public ActionResult Group()
+        public ActionResult Group(string? s)
         {
-            ViewModelService vms;
-            var model = vms.InitializeGroupViewModel(int group);
+            GroupViewModel model = new GroupViewModel();
+
+            // ATH: Smida fall sem saekir allt
+            //Group g = Initialize(s);
+            
+            model.GroupName = g.GroupName;
+            
+            // smida fall sem saekir post listann
+            //model.GroupPost = g.GroupPost;
+
             return View(model);
-        }*/
+        }
+
+        public ActionResult OtherUserProfile(string? s)
+        {
+            OtherUserProfileViewModel model = new OtherUserProfileViewModel();
+            
+            // Smida fall sem saekir allar uppl sem tharf her
+            //ApplicationUser u = Initialize(s);
+            model.FullName = u.FullName;
+            model.LineOfStudy = u.LineOfStudy;
+            
+            // Vantar email breytu? Hun er i VM
+            //model.Email = u.Email;
+
+            return View(model);
+        }
         
-        
+        public ActionResult UserProfile(string? s)
+        {
+            UserProfileViewModel model = new UserProfileViewModel();
+            
+            // Smida fall sem saekir allar uppl
+            //ApplicationUser u = Initialize(s);
+            model.FullName = u.FullName;
+            model.LineOfStudy = u.LineOfStudy;
+
+            // Vantar email breytu? Hun er i VM
+            //model.Email = u.Email;
+
+            return View(model);
+        }
+
+        public ActionResult Comment(string? s)
+        {
+            CommentViewModel model = new CommentViewModel();
+            
+            // Smida fall sem saekir allar uppl sem tharf
+            //Comment c = Initialize(s);
+            model.UserName = c.UserName;
+            model.Body = c.Body;
+
+            return View(model);
+        }
 	}
 }
