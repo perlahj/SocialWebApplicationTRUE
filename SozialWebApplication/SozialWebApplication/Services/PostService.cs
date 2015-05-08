@@ -24,18 +24,19 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
-		// TO DO: Get latest posts for group0, only show posts from followingUsers
-
 		// Has not been tested
 		public List<Post> GetLatestPostsForGroup(int groupId)
 		{
 			var posts = (from p in db.Posts
 						 where p.GroupId == groupId
+						 orderby p.DateCreated descending
 						 select p).Take(25).ToList();
 			return posts;
 		}
 
 		// Has not been tested
+		// TO DO: select number of posts and how to choose
+		// TO DO: order by dateCreated
 		public List<Post> GetLatestPostsForNewsFeed(string userName)
 		{
 			UserService us = new UserService();
@@ -96,7 +97,8 @@ namespace SozialWebApplication.Services
 		{
 			var comments = (from c in db.Comments
 							where c.PostId == postId
-							select c).ToList();
+							orderby c.DateCreated descending
+							select c).Take(25).ToList();
 			return comments;
 		}
     }
