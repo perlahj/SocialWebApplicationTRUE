@@ -10,59 +10,76 @@ namespace SozialWebApplication.Services
     public class PostService
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-		
 
-        public void ChangeBody(string body, string newBody)
-        {
-            var postWithBody = (from b in db.Posts
-                                where b.Body == body
-                                select b).FirstOrDefault();
-            postWithBody.Body = newBody;
-            db.SaveChanges();
+		// Has not been tested
+		public void AddNewPost(string userName, int groupId, string body)
+		{
+			Post p = new Post();
+			p.UserName = userName;
+			p.GroupId = groupId;
+			p.DateCreated = DateTime.Now;
+			p.Body = body;
+			p.Like = 0;
+			db.Posts.Add(p);
+			db.SaveChanges();
+		}
 
-        }
+		// TO DO: Get latest posts for group0, only show posts from followingUsers
 
-        public List<Post> GetLatestPosts()
-        {
-            var posts = (from p in db.Posts
-                         select p).ToList();
-            return posts;
-        }
+		// Has not been tested
+		public List<Post> GetLatestPostsForGroup(int groupId)
+		{
+			var posts = (from p in db.Posts
+						 where p.GroupId == groupId
+						 select p).Take(25).ToList();
+			return posts;
+		}
 
-        public void AddNewPost(string post)
-        {
-            Post p = new Post();
-            p.Body = post;
-            db.Posts.Add(p);
-            db.SaveChanges();
-        }
-        
-      /*  public void AddLike()
-        {
-            Like l = new Like();
-            db.Likes.Add(1);
-            db.SaveChanges();     
-        }
-	   */
+		// Has not been tested
+		public void AddLike(int postId)
+		{
+			var post = (from p in db.Posts
+							  where p.Id == postId
+							  select p).FirstOrDefault();
 
-        public void RemoveLike()
-        {
-        }
+			post.Like++;
+			db.SaveChanges();
+		}
 
-        public List<Comment> GetAllComments()
-        {
-            var comments = (from c in db.Comments
-                            select c).ToList();
-            return comments;
-        }
+		// Has not been tested 
+		public void RemoveLike(int postId)
+		{
+			var post = (from p in db.Posts
+						where p.Id == postId
+						select p).FirstOrDefault();
 
-        public void AddNewComment(string comment)
-        {
-            Comment c = new Comment();
-            c.Body = comment;
-            db.Comments.Add(c);
-            db.SaveChanges();
-        }
+			if (post.Like > 0)
+			{
+				post.Like--;
+			}
+			
+			db.SaveChanges();
+		}
 
+		// Has not been tested
+		public void AddNewComment(string userName, int postId,string body)
+		{
+			Comment c = new Comment();
+			c.UserName = userName;
+			c.PostId = postId;
+			c.DateCreated = DateTime.Now;
+			c.Body = body;
+			db.Comments.Add(c);
+			db.SaveChanges();
+		}
+
+		// Has not been tested
+		public List<Comment> GetAllCommentsForPost(int postId)
+		{
+			var comments = (from c in db.Comments
+							where c.PostId == postId
+							select c).ToList();
+			return comments;
+		}
     }
 }
