@@ -8,18 +8,20 @@
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = "/Home/Newsfeed" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
+    <div class="errorMessage">
         @Html.ValidationSummary(true)
+    </div>
 
         <div class="login-group">
 
             <div class="login">
                 @Html.LabelFor(m => m.LoginViewModel.UserName, new { @class = "login-label" })
                 @Html.TextBoxFor(m => m.LoginViewModel.UserName, new { @class = "input" })
-                @Html.ValidationMessageFor(m => m.LoginViewModel.UserName)
+                <!--"att"Html.ValidationMessageFor(m => m.LoginViewModel.UserName)-->
 
                 @Html.LabelFor(m => m.LoginViewModel.Password, new { @class = "login-label" })
                 @Html.PasswordFor(m => m.LoginViewModel.Password, new { @class = "input" })
-                @Html.ValidationMessageFor(m => m.LoginViewModel.Password)
+                <!--"att"Html.ValidationMessageFor(m => m.LoginViewModel.Password)-->
 
                 <input type="submit" value="Log in" class="login-button" />
             </div>
