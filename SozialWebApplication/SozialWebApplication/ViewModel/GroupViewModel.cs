@@ -10,6 +10,7 @@ namespace SozialWebApplication.ViewModel
     {
         public string GroupName { get; set; }
         public List<Post> GroupPost { get; set; }
-        public List<ApplicationUser> GroupUser { get; set; }
+        // Asta: Sleppa thessu? 
+        //public List<ApplicationUser> GroupUser { get; set; }
     }
 }
