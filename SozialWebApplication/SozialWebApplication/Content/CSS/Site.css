@@ -1,0 +1,85 @@
+﻿* {
+    font-family: Calibri;
+    font-size: 14px;
+}
+
+h2 {
+    font-size: 30px;
+}
+.checkbox-group {
+    margin-left: 63%;
+    margin-top: 1%;
+}
+
+.checkbox {
+    position: absolute;
+    width: 20px;
+    height: 19px;
+    background: transparent;
+    margin-left: -1%
+}
+
+.checkbox-label {
+    margin-left: 2%;
+}
+
+.register-group {
+    margin-left: 61%;
+    margin-top: 6%;
+}
+
+.login-group {
+   display: inline-flexbox;
+   margin-left: 15%;
+   margin-top: 5%;
+}
+
+.login-button,
+.register-button {
+  border-radius: 4px;
+  border-color: #faa61f;
+  line-height: 25px;
+  width: 70px;
+  font-weight: bold;
+  background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11136784_10152739372817047_3965445374771875884_n.jpg?oh=b1c9db12fd324f42eb53bc33e682042c&oe=55D35DC0)
+}
+
+.register {
+    height: 65px;
+    width: 75px;
+}
+
+.login-label,
+.register-label {
+    width: 50px;
+    font-weight:bold;
+}
+
+.input {
+    background-image: url(https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpt1/v/t34.0-12/11208701_10152739046152047_139355865_n.jpg?oh=5d28f462f80fa4c90f3b102b65bc6bfb&oe=554C5EE6&__gda__=1431046797_cf90776f7ec533a277c5818eaa82426a);
+    border: 1px solid #ffd600;
+    border-radius: 4px;
+    line-height: 25px;
+    width: 259px;
+    margin-right: 53px;
+}
+
+.logo {
+   margin-left: 18%;
+   margin-top: -25%;
+   margin-bottom: 7%;
+}
+
+.front-logo {
+    height: 270px;
+}
+
+.register-group .input{
+    /*display: block;*/
+}
+
+.register-button{
+    margin-top: 15px;
+}
+
+

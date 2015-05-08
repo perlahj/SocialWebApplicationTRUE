@@ -1,0 +1,90 @@
+﻿.information > p {
+     font-size: 25px;
+}
+.information {
+     font-weight: bold;
+     margin-left: 48%;
+     position: absolute;
+     margin-top: 5%;
+     text-align: center;
+}
+
+.profile-picture {
+    margin-left: -219%;
+    margin-top: 4%;
+    width: 130%;
+    position: absolute;
+}
+
+.follow {
+   margin-left: 67%;
+   margin-top: 2%;
+   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11203151_10152737854187047_5085997620109960228_n.jpg?oh=75cbfdf839a43f2fab1d1945368a2824&oe=55C5BB57);
+   background-repeat: no-repeat;
+   background-size: 100%;
+   cursor: pointer;
+   border: none;
+   width: 45px;
+   height: 39px;
+}
+
+.edit {
+   margin-bottom: 24%;
+   margin-top: 7%;
+   margin-left: 30%;
+   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10429814_10152737854162047_3747334878276722025_n.jpg?oh=33709d0b0111fcb95a35be9effec8f9e&oe=55D9A37C);
+   background-repeat: no-repeat;
+   background-size: 100%;
+   cursor: pointer;
+   border: none;
+   width: 37px;
+   height: 39px;
+}
+
+.match {
+   margin-left: 34%;
+   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11182369_10152737854217047_170899979653894999_n.jpg?oh=fb443a931f6151b9b3a3a9159ead92bb&oe=55D94093);
+   background-repeat: no-repeat;
+   background-size: 100%;
+   cursor: pointer;
+   border: none;
+   width: 48px;
+   height: 39px;
+}
+
+.groups {
+   margin-left: 67%;
+   margin-top: 6%;
+   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/19310_10152737854202047_3704595851385023189_n.jpg?oh=3b995a010850d5aeee10fcb39b885f76&oe=55C22D84);
+   background-repeat: no-repeat;
+   background-size: 100%;
+   cursor: pointer;
+   border: none;
+   width: 50px;
+   height: 39px;
+}
+
+.follow-others {
+   margin-left: 67%;
+   margin-top: 2%;
+   background-image: url("~/Content/Images/AddFollower.png");
+   background-repeat: no-repeat;
+   background-size: 100%;
+   cursor: pointer;
+   border: none;
+   width: 51px;
+   height: 39px;
+}
+
+.match-others {
+   margin-left: 68%;
+   margin-top: 16%;
+   margin-bottom: 4%;
+   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11182369_10152737854217047_170899979653894999_n.jpg?oh=fb443a931f6151b9b3a3a9159ead92bb&oe=55D94093);
+   background-repeat: no-repeat;
+   background-size: 100%;
+   cursor: pointer;
+   border: none;
+   width: 48px;
+   height: 39px;
+}

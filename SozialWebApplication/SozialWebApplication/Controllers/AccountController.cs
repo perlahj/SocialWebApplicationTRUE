@@ -9,7 +9,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using SozialWebApplication.Models;
-//Karlotta
 
 namespace SozialWebApplication.Controllers
 {
@@ -42,15 +41,18 @@ namespace SozialWebApplication.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LandingPageModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
+                var user = await UserManager.FindAsync(model.LoginViewModel.UserName, model.LoginViewModel.Password);
                 if (user != null)
                 {
-                    await SignInAsync(user, model.RememberMe);
+                    await SignInAsync(user, model.LoginViewModel.RememberMe);
                     return RedirectToLocal(returnUrl);
+                    //Response.Redirect("~/Views/Home/Newsfeed.aspx");
+                    /*return RedirectToLocal("~/Index.aspx");*/
+                    
                 }
                 else
                 {
@@ -75,16 +77,16 @@ namespace SozialWebApplication.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(LandingPageModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var user = new ApplicationUser() { UserName = model.RegisterViewModel.UserName };
+                var result = await UserManager.CreateAsync(user, model.RegisterViewModel.Password);
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Account");
                 }
                 else
                 {
