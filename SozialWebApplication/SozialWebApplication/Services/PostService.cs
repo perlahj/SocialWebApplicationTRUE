@@ -40,6 +40,7 @@ namespace SozialWebApplication.Services
 		public List<Post> GetLatestPostsForNewsFeed(string userName)
 		{
 			UserService us = new UserService();
+			// Takes 25 latest posts posted to news feed
 			var allPosts = GetLatestPostsForGroup(0);
 			var allFollowing = us.GetAllFollowing(userName);
 
