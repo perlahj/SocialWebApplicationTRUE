@@ -12,15 +12,10 @@ namespace SozialWebApplication.Controllers
 {
 	public class HomeController : Controller
 	{
-		public ActionResult Newsfeed()
+		public ActionResult Banner()
 		{
 			return View();
 		}
-
-        public ActionResult NameCard()
-        {
-            return View();
-        }
 
 		public ActionResult About()
 		{
