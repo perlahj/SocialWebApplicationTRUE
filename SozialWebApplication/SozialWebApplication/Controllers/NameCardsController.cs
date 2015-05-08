@@ -10,6 +10,7 @@ namespace SozialWebApplication.Controllers
     {
         public ActionResult OwnNameCard()
         {
+            /*return PartialView();*/
             return View();
         }
 
@@ -23,4 +24,5 @@ namespace SozialWebApplication.Controllers
             return View();
         }
 	}
+
 }
