@@ -246,7 +246,7 @@
     <Content Include="Views\Home\Banner.cshtml" />
     <Content Include="Views\Home\NameCard.cshtml" />
     <Content Include="Views\Home\OthersNameCard.cshtml" />
-    <Content Include="Views\NameCard\EditNameCard.cshtml" />
+    <Content Include="Views\Home\EditNameCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
