@@ -36,6 +36,24 @@ namespace SozialWebApplication.Services
 		}
 
 		// Has not been tested
+		public List<Post> GetLatestPostsForNewsFeed(string userName)
+		{
+			UserService us = new UserService();
+			var allPosts = GetLatestPostsForGroup(0);
+			var allFollowing = us.GetAllFollowing(userName);
+
+			List<Post> newsFeedPosts = new List<Post>();
+			foreach(var following in allFollowing)
+			{
+				var userPosts = (from up in allPosts
+								 where up.UserName == following.UserName
+								 select up).ToList();
+				newsFeedPosts.AddRange(userPosts);
+			}
+			return newsFeedPosts;
+		}
+
+		// Has not been tested
 		public void AddLike(int postId)
 		{
 			var post = (from p in db.Posts
