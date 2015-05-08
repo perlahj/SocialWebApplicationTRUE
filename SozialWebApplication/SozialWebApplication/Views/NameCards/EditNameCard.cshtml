@@ -4,7 +4,7 @@
     <form action="POST" class="form-input">
         <div class="edit-input">
             <label for="input-name" class="label">Name</label>
-            <input type="text" name="input-name" id="input-name" class="text-input" placeholder="CurrentName" />
+            <input type="text" name="input-name" id="input-name" class="text-input" placeholder= @Html.ViewContext.HttpContext.User.Identity.Name />
 
             <label for="input-los" class="label">Line of study</label>
             <input type="text" name="input-los" id="input-los" class="text-input" placeholder="CurrentLOS" />

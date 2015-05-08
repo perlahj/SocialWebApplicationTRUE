@@ -8,9 +8,14 @@ namespace SozialWebApplication.Controllers
 {
     public class NameCardsController : Controller
     {
+
         public ActionResult OwnNameCard()
         {
+            //[ChildActionOnlyAttribute]
+            
+          /*  var ownnamecard = User.Identity.Name*/
             /*return PartialView();*/
+            //return PartialView("OwnNameCard");
             return View();
         }
 
