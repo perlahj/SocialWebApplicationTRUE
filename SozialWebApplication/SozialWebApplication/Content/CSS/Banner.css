@@ -38,3 +38,16 @@ h3{
     position:absolute;
     margin-top: 5%;
 }
+
+iframe{
+    border: none;
+    height: 325px;
+    width: 1250px;
+    /*margin-top: 1.5%;*/
+    /*margin-bottom: 1.5%;*/
+}
+
+.feed-body{
+    overflow: hidden;
+    height:335px;
+}
