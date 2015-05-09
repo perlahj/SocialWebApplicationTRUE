@@ -3,12 +3,10 @@
 <div class="edit-information">
     <img src="https://scontent-lhr.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/10421398_10152740713772047_7949496574370778723_n.jpg?oh=561cb94e05da18348a51bfaeab125016&oe=55D1A31D" class="profile-picture-edit" alt="profilepic">
     
-    <!--<form action="POST" class="form-input">-->
       @using (Html.BeginForm("EditNameCard", "NameCards"))
       {
         <div class="edit-input">
             <label for="input-name" class="label">Name</label>
-            <!--<input type="text" name="input-name" id="input-name" class="text-input" placeholder= //Html.ViewContext.HttpContext.User.Identity.Name />-->
             <input type="text" name="input-name" id="input-name" class="text-input" placeholder= @Html.DisplayFor(model => model.userWithId.FullName) />
             <label for="input-los" class="label">Line of study</label>
             <input type="text" name="input-los" id="input-los" class="text-input" placeholder= @Html.DisplayFor(model => model.userWithId.LineOfStudy) />
@@ -19,7 +17,6 @@
 
     <input type="submit" value="Save" class="save"/>
     <a href="OwnNameCard"><input type="button" value="Back" class="back"/></a>
-    <!-- Perla TO DO: birta rett nafn fra view model i placeholder-->
       }
 </div>
 
