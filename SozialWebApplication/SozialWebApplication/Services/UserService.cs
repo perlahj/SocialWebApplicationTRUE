@@ -29,6 +29,16 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
+		// Has not been tested
+		public ApplicationUser GetUserByUserName(string userName)
+		{
+			var user = (from u in db.Users
+							where u.UserName == userName
+							select u).FirstOrDefault();
+			return user;
+		}
+
+
 		public void AddNewFollow(string userFollowing, string userToFollow)
 		{
 			FollowerConnection fc = new FollowerConnection();
