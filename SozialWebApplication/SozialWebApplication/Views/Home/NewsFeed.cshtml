@@ -1,0 +1,19 @@
+﻿@using (Html.BeginForm("NewsFeed", "Home"))
+{
+    <div class="newsfeed">
+        <p>Group name</p>
+        
+        <div class="post">
+            <div class="post-img">
+                <input type="button" class="input-text" />
+                <input type="button" class="input-img" />
+                <input type="button" class="input-youtube" />
+            </div>
+            
+            <input type="text" name="post-input" id="post-input" class="post-input" placeholder="Post ..." />
+        </div>
+    </div>  
+    <input type="submit" value="Post" class="post-submit" />
+}
+
+
