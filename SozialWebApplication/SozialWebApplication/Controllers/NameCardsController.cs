@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SozialWebApplication.Services;
+using SozialWebApplication.Models;
+using SozialWebApplication.Models.ViewModels;
 
 namespace SozialWebApplication.Controllers
 {
@@ -19,6 +21,7 @@ namespace SozialWebApplication.Controllers
           /*  var ownnamecard = User.Identity.Name*/
             /*return PartialView();*/
             //return PartialView("OwnNameCard");
+
             return View();
         }
 
@@ -33,8 +36,12 @@ namespace SozialWebApplication.Controllers
 			string lineOfStudy = collection.Get("input-los");
 			us.ChangeFullName(User.Identity.Name, fullName);
 			us.ChangeLineOfStudy(User.Identity.Name, lineOfStudy);
-			
-			return View();
+
+			NameCardViewModel nameCardVM = new NameCardViewModel();
+			//nameCardVM.userWithId = UserService.Instance.GetUserByUserName(User.Identity.Name);
+			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
+
+			return View(nameCardVM);
         }
 
         public ActionResult Search()

@@ -9,6 +9,18 @@ namespace SozialWebApplication.Services
 {
 	public class UserService
 	{
+		private static UserService instance;
+
+		public static UserService Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new UserService();
+				return instance;
+			}
+		}
+		
 		private ApplicationDbContext db = new ApplicationDbContext();
 
 		public void ChangeFullName(string userName, string newFullName)
