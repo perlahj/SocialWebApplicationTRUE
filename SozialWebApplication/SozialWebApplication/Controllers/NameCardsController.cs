@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SozialWebApplication.Services;
 
 namespace SozialWebApplication.Controllers
 {
     public class NameCardsController : Controller
     {
 
-        public ActionResult OwnNameCard()
+		private UserService us = new UserService();
+		
+		public ActionResult OwnNameCard()
         {
             //[ChildActionOnlyAttribute]
             
@@ -24,9 +27,14 @@ namespace SozialWebApplication.Controllers
             return View();
         }
 
-        public ActionResult EditNameCard()
+        public ActionResult EditNameCard(FormCollection collection)
         {
-            return View();
+			string fullName = collection.Get("input-name");
+			string lineOfStudy = collection.Get("input-los");
+			us.ChangeFullName(User.Identity.Name, fullName);
+			us.ChangeLineOfStudy(User.Identity.Name, lineOfStudy);
+			
+			return View();
         }
 
         public ActionResult Search()
