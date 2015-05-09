@@ -22,7 +22,10 @@ namespace SozialWebApplication.Controllers
             /*return PartialView();*/
             //return PartialView("OwnNameCard");
 
-            return View();
+			NameCardViewModel nameCardVM = new NameCardViewModel();
+			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
+			
+			return View(nameCardVM);
         }
 
         public ActionResult OthersNameCard()
@@ -30,19 +33,20 @@ namespace SozialWebApplication.Controllers
             return View();
         }
 
-        public ActionResult EditNameCard(FormCollection collection)
+		public ActionResult EditNameCard(FormCollection collection)
         {
+			NameCardViewModel nameCardVM = new NameCardViewModel();
+			//nameCardVM.userWithId = UserService.Instance.GetUserByUserName(User.Identity.Name);
+			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
+			
 			string fullName = collection.Get("input-name");
 			string lineOfStudy = collection.Get("input-los");
 			us.ChangeFullName(User.Identity.Name, fullName);
 			us.ChangeLineOfStudy(User.Identity.Name, lineOfStudy);
 
-			NameCardViewModel nameCardVM = new NameCardViewModel();
-			//nameCardVM.userWithId = UserService.Instance.GetUserByUserName(User.Identity.Name);
-			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
-
 			return View(nameCardVM);
         }
+
 
         public ActionResult Search()
         {

@@ -1,11 +1,11 @@
-﻿<div class="namecard">
+﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
+
+<div class="namecard">
     <div class="information">
         <img src="https://scontent-lhr.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/10421398_10152740713772047_7949496574370778723_n.jpg?oh=561cb94e05da18348a51bfaeab125016&oe=55D1A31D" class="profile-picture" alt="profilepic">
-       
-        <p>@Html.ViewContext.HttpContext.User.Identity.Name</p>
-        <!--<p>Name</p>-->
-        <p>Line of study</p>
-        <p>email@ru.is</p>
+            <p>@Html.DisplayFor(model => model.userWithId.FullName)</p>
+            <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
+            <p>email@ru.is</p>
     </div>
 
     <a href="Search"><input type="button" class="follow" /></a>
