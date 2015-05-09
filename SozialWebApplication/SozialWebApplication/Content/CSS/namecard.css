@@ -3,14 +3,19 @@
 }
 .information {
      font-weight: bold;
-     margin-left: 48%;
+     margin-left: 42%;
      position: absolute;
      margin-top: 3%;
      text-align: center;
 }
 
+.namecard
+{
+    margin: 3%;
+}
+
 .profile-picture {
-    margin-left: -219%;
+    margin-left: -203%;
     margin-top: 4%;
     width: 130%;
     position: absolute;
@@ -29,7 +34,7 @@
 
 .edit {
    margin-top: 7%;
-   margin-left: 30%;
+   margin-left: 28%;
    background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10429814_10152737854162047_3747334878276722025_n.jpg?oh=33709d0b0111fcb95a35be9effec8f9e&oe=55D9A37C);
    background-repeat: no-repeat;
    background-size: 100%;
@@ -40,7 +45,7 @@
 }
 
 .match {
-   margin-left: 34%;
+   margin-left: 36%;
    background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11182369_10152737854217047_170899979653894999_n.jpg?oh=fb443a931f6151b9b3a3a9159ead92bb&oe=55D94093);
    background-repeat: no-repeat;
    background-size: 100%;
@@ -88,8 +93,8 @@
 }
 
 .save {
-  margin-top: 5%;
-  margin-left: -10%;
+  margin-top: 3%;
+  margin-left: -25%;
   margin-bottom: 1%;
   border-radius: 4px;
   border-color: #faa61f;
@@ -100,10 +105,10 @@
 }
 
 .profile-picture-edit {
-  margin-left: -47%;
-  width: 16%;
+  margin-left: -42.5%;
+  width: 14%;
   position: absolute;
-  margin-top: 1%;
+  margin-top: 3%;
 }
 
 .edit-information {
@@ -113,7 +118,8 @@
 
 .edit-input {
   width: 36%;
-  margin-top: 4%;
+  margin-top: 6%;
+  margin-left: 10%;
 }
 
 .text-input,
@@ -149,7 +155,7 @@
 }
 
 .button {
-      margin-left: 34%;
+  margin-left: 34%;
   margin-top: -12%;
   margin-bottom: 3%;
 }
@@ -157,4 +163,13 @@
 .search {
   text-align: center;
   font-weight: bold;
+}
+
+.back {
+    border-radius: 4px;
+    border-color: #faa61f;
+    line-height: 25px;
+    width: 70px;
+    font-weight: bold;
+    background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11136784_10152739372817047_3965445374771875884_n.jpg?oh=b1c9db12fd324f42eb53bc33e682042c&oe=55D35DC0);
 }
