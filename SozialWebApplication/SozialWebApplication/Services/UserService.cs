@@ -48,7 +48,7 @@ namespace SozialWebApplication.Services
 							where u.UserName == userName
 							select u).FirstOrDefault();
 			return user;
-		}
+		} 
 
 
 		public void AddNewFollow(string userFollowing, string userToFollow)
