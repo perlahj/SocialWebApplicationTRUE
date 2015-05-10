@@ -56,8 +56,7 @@ namespace SozialWebApplication.Controllers
             model.FullName = u.FullName;
             model.LineOfStudy = u.LineOfStudy;
             
-            // Vantar email breytu? Hun er i VM
-            //model.Email = u.Email;
+            model.Email = u.Email;
 
             return View(model);
         }
@@ -71,8 +70,7 @@ namespace SozialWebApplication.Controllers
             model.FullName = u.FullName;
             model.LineOfStudy = u.LineOfStudy;
 
-            // Vantar email breytu? Hun er i VM
-            //model.Email = u.Email;
+            model.Email = u.Email;
 
             return View(model);
         }
