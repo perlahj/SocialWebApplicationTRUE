@@ -52,6 +52,7 @@ namespace SozialWebApplication.Controllers
 			string fullName = collection.Get("input-name");
 			string lineOfStudy = collection.Get("input-los");
 			string email = collection.Get("input-email");
+			
 			us.ChangeFullName(User.Identity.Name, fullName);
 			us.ChangeLineOfStudy(User.Identity.Name, lineOfStudy);
 			us.ChangeEmail(User.Identity.Name, email);
