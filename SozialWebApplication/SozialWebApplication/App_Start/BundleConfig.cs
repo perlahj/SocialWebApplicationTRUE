@@ -23,6 +23,9 @@ namespace SozialWebApplication
                       "~/Scripts/CSS/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        "~/Scripts/aWholeLottaJavascipt.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/CSS/bootstrap.css",
                       "~/Content/CSS/site.css", "~/Content/CSS/namecard.css", "~/Content/CSS/Banner.css"));

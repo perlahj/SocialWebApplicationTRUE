@@ -26,7 +26,7 @@ namespace SozialWebApplication.Controllers
 			//NameCardViewModel nameCardVM = new NameCardViewModel();
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 			
-			return View(nameCardVM);
+			return PartialView("~/Views/NameCards/OwnNameCard.cshtml", nameCardVM);
         }
 
         public ActionResult OthersNameCard()
