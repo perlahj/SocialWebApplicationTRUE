@@ -31,5 +31,15 @@ namespace SozialWebApplication.Controllers
 
 			return View();
 		}
+
+        public ActionResult SearchGroups()
+        {
+            return View();
+        }
+
+        public ActionResult CheckMatch()
+        {
+            return View();
+        }
 	}
 }
