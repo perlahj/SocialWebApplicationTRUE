@@ -59,6 +59,50 @@ namespace SozialWebApplication.Services
 			return user;
 		} 
 
+		public List<ApplicationUser> GetAllUsers()
+		{
+			var allUsers = (from au in db.Users
+							orderby au.FullName ascending
+							  select au).ToList();
+			
+			return allUsers;
+		}
+		// Has not been tested
+		public List<ApplicationUser> SearchAllUsers(string searchStr)
+		{
+			if(String.IsNullOrEmpty(searchStr))
+			{
+				return new List<ApplicationUser>();
+			}
+			var allUsers = GetAllUsers();
+			var searchResults = (from r in allUsers
+								 where r.FullName.StartsWith(searchStr)
+								 orderby r.FullName ascending
+								 select r).ToList();
+			
+			//List<ApplicationUser> searchResults = new List<ApplicationUser>();
+
+						/*query = (from Schl in model.Scholars
+			where Schl.ScholarName.StartsWith(txtSearch.Text)
+
+			orderby Schl.ScholarName
+			select Schl);
+			 */
+
+			//foreach (var item in allUsers)
+			/*{
+			   var result = allUsers.Find(x => x.FullName.Contains(searchStr));
+				searchResults.Add(result);	
+			}*/
+
+				//parts.Find(x => x.PartName.Contains("seat")));
+
+			/*var searchResults = (from sr in allUsers
+								 where (m => sr.FullName.StartsWith(searchStr))
+								 select sr).ToList(); */
+			return searchResults;
+		}
+
 
 		public void AddNewFollow(string userFollowing, string userToFollow)
 		{
@@ -142,7 +186,7 @@ namespace SozialWebApplication.Services
 			return matchConnection != null;
 		}
 
-		// Has not been tested
+		// Needs to be tested!
 		public List<ApplicationUser> GetAllDoubleMatches(string userName)
 		{
 			// Make a list of single matches
@@ -160,26 +204,19 @@ namespace SozialWebApplication.Services
 				}
 			}
 
-			// Make a list of users
+			// Make a list of users not usernames
 			List<ApplicationUser> doubleMatchesUsers = new List<ApplicationUser>();
+			foreach (var item in doubleMatches)
+			{
+				var doubleMatchUser = (from dmu in db.Users
+									   where dmu.UserName == item.UserMatched
+									   select dmu).SingleOrDefault();
+				doubleMatchesUsers.Add(doubleMatchUser);
+			}
+
 
 			return doubleMatchesUsers;
 		}
 
-		// TEST
-			/*UserService us = new UserService();
-			us.AddNewFollow(User.Identity.Name, "user1");
-			us.RemoveFollow(User.Identity.Name, "user1");
-			us.AddMatch(User.Identity.Name, "user1");
-			us.RemoveMatch(User.Identity.Name, "user1");
-			if (us.IsSingleMatch(User.Identity.Name, "user1"))
-			{
-				us.AddMatch("user1", User.Identity.Name);
-			}
-			if (us.IsDoubleMatch(User.Identity.Name, "user100"))
-			{
-				us.AddMatch("user99", "user98");
-			}
-			 */
 	}
 }
