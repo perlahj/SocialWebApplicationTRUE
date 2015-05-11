@@ -81,3 +81,14 @@ h2 {
 .register-button{
     margin-top: 15px;
 }
+
+.validation-summary-errors
+{
+    color: #ff0000;
+    font-weight: bold;
+    list-style-type: none;
+}
+ul
+{
+    list-style-type: none;
+}
