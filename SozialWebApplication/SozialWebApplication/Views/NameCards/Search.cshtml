@@ -29,7 +29,6 @@
         {
             foreach (var item in Model.SearchResultsUsers)
             {
-                //<dt><a href="">@Html.DisplayFor(model => item.FullName)</a></dt>
                 if (item.FullName != null)
                 {
                 <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { id = item.UserName}) </dt> 

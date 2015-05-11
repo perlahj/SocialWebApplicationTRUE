@@ -23,15 +23,16 @@ namespace SozialWebApplication.Controllers
             /*return PartialView();*/
             //return PartialView("OwnNameCard");
 
-			//NameCardViewModel nameCardVM = new NameCardViewModel();
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 			
 			return View(nameCardVM);
         }
 
-        public ActionResult OthersNameCard(string id)
+        public ActionResult OthersNameCard(string userName)
         {
-            return View();
+			nameCardVM.userWithId = us.GetUserByUserName(userName);
+			
+			return View();
         }
 
 
