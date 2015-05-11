@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SozialWebApplication.Services;
 using SozialWebApplication.Models;
 using SozialWebApplication.Models.ViewModels;
+using SozialWebApplication.ViewModel;
 
 namespace SozialWebApplication.Controllers
 {
@@ -13,6 +14,7 @@ namespace SozialWebApplication.Controllers
     {
 
 		private UserService us = new UserService();
+		//private GroupService gs = new GroupService();
 		private NameCardViewModel nameCardVM = new NameCardViewModel();
 		
 		public ActionResult OwnNameCard()
@@ -39,7 +41,6 @@ namespace SozialWebApplication.Controllers
 		[HttpGet]
 		public ActionResult EditNameCard()
 		{
-			//nameCardVM.userWithId = UserService.Instance.GetUserByUserName(User.Identity.Name);
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 
 			return View(nameCardVM);
@@ -74,7 +75,22 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
 			return View(nameCardVM);
-		} 
+		}
+
+		/*public ActionResult SearchGroups()
+		{
+			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
+			//nameCardVM.SearchResultsGroups = gs.SearchAllGroups("");
+			return View(nameCardVM);
+		}
+
+		/*[HttpPost]
+		public ActionResult SearchGroups(FormCollection collection)
+		{
+			nameCardVM.AllUsers = us.GetAllUsers();
+			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
+			return View(nameCardVM);
+		}  */
 		   
 	}
 
