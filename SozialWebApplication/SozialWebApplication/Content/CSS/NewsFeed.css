@@ -1,0 +1,110 @@
+﻿.newsfeed {
+  margin-top: 6%;
+  margin-left: 32%;
+  border: 1px solid black;
+  margin-right: 29%;
+  border-radius:25px;
+
+}
+
+.newsfeed > p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10%;
+  position: absolute;
+  margin-top: -5%;
+  margin-left: 15%;
+}
+
+.post-img {
+  width: 460px;
+  margin-left:-2%;
+}
+
+.input-text {
+    background-image: url(https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xpt1/v/t1.0-9/11041206_10152737854317047_4987173697181435989_n.jpg?oh=f407003c753a74fe192c362a71067830&oe=55BFBC41&__gda__=1443382344_258f908c3b3929d18851a5c4ed7c8509);
+}
+
+.input-img {
+    background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11030382_10152737854272047_4228867255282156636_n.jpg?oh=eb462304d4f9658af6c4c3678cfdd56a&oe=55C3C066);
+}
+
+.input-youtube {
+    background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/19187_10152737854372047_4455332937423562479_n.jpg?oh=9ec9d23bd19c88b5435917e8cfd1b752&oe=55C91896);
+}
+
+.input-text,
+.input-img,
+.input-youtube {
+  background-size: 100%;
+  width: 15%;
+  height: 50px;
+  background-repeat: no-repeat;
+  margin-left: 70px;
+  cursor: pointer;
+  border: none;
+}
+
+.post-input {
+  border:none;
+  width: 449px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 4%;
+  text-align: center;
+}
+
+.post-submit {
+  margin-left: 48%;
+  margin-top: 1%;
+  border-radius: 4px;
+  border-color: #faa61f;
+  line-height: 25px;
+  width: 70px;
+  font-weight: bold;
+  background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11136784_10152739372817047_3965445374771875884_n.jpg?oh=b1c9db12fd324f42eb53bc33e682042c&oe=55D35DC0);
+}
+
+.all-posts {
+  margin-left: 33%;
+  margin-top: 5%;
+}
+
+.each-post {
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-right: 13%;
+  margin-left: -35%;
+  height: 120px;
+}
+
+.like-img {
+  background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10984151_10152737854342047_4597756465764730856_n.jpg?oh=efad8928292b2a614776c82d4860acfe&oe=55DF7DA4);
+  /* border-left: 1px solid black; */
+  border: none;
+  /* margin-right: -26%; */
+  margin-left: 92%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 56px;
+  height: 56px;
+  margin-top: 2%;
+  cursor: pointer;
+}
+
+.post-name {
+    margin-left: -32%;
+  margin-bottom: 0%;
+}
+
+.post-date {
+  position: absolute;
+  margin-top: -1.5%;
+  margin-left: 50%;
+}
+
+.post-comment{
+  margin-left: -32%;
+  margin-top: 0%;
+}

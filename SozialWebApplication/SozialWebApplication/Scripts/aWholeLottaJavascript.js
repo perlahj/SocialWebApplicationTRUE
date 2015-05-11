@@ -3,17 +3,20 @@
     event.preventDefault();
 
     $.ajax({
-        url: "OwnNameCards.cshtml",
+        url: "/NameCards/OwnNameCard",
     }).success(function (data) {
+        debugger;
         $(".feed-body").empty();
-        $('.feed-body').load('OwnNameCards.cshtml');
-
-
-
-        $(".namecard").html();
-        $('.feed-body').load('OwnNameCards.cshtml');
-        $(this).addClass("done");
+        $('.feed-body').html(data);
     });
 
     
+});
+
+$.ajax({
+    url: "/NameCards/OwnNameCard",
+}).success(function (data) {
+    debugger;
+    $(".feed-body").empty();
+    $('.feed-body').html(data);
 });
