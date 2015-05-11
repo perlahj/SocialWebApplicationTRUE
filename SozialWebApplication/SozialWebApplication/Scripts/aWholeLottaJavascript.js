@@ -3,7 +3,7 @@
     event.preventDefault();
     
     $.ajax({
-        url: "test.html",
+        url: "OwnNameCards.cshtml",
     }).success(function (data) {
         $(".namecard").html();
         $(this).addClass("done");
