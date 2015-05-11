@@ -13,6 +13,11 @@ namespace SozialWebApplication.Controllers
 			return View();
 		}
 
+        public ActionResult NewsFeed()
+        {
+            return View();
+        }
+
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";
