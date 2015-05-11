@@ -28,11 +28,12 @@ namespace SozialWebApplication.Controllers
 			return View(nameCardVM);
         }
 
-        public ActionResult OthersNameCard(string userName)
+        public ActionResult OthersNameCard(string id)
         {
-			nameCardVM.userWithId = us.GetUserByUserName(userName);
+			//  tst
+			nameCardVM.userWithId = us.GetUserByUserName(id);
 			
-			return View();
+			return View(nameCardVM);
         }
 
 

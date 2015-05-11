@@ -13,11 +13,11 @@
         {
             if (item.FullName != null)
             {
-               <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { id = item.UserName}) </dt> 
+               <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { id = item.UserName}, null) </dt> 
             }
             else
             {
-                <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCard", new { id = item.UserName}) </dt>
+                <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCard", new { id = item.UserName}, null) </dt>
             } 
         }
     </dl>
