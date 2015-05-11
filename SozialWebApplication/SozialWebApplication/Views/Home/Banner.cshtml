@@ -6,14 +6,16 @@
     <br/>
     <div class="namecard-button">
         <a href="Banner">
-           <img src="https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11188406_10152738112412047_3185149741492135647_n.jpg?oh=bd18d6c4edcf797bc2f00d993b15b910&oe=55E23459" class="name-logo" alt="name-logo">
-        </a>
+            <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
+               
+               </a>
         <div class="my-name">
             @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
         </div>
     </div>
 
     <br/>
+
 
     <div class="overflowceeper">
         <div class="feed-body">
@@ -26,7 +28,7 @@
              <br/>-->
             <iframe src="~/NameCards/OwnNameCard"></iframe>
             <!--"att"{Html.RenderPartial("att""~/NameCards/OwnNameCard");}-->   
-            <!--Html.Partial("~/Views/NAmeCards/OwnNameCard.cshtml")-->  
+            <!--Html.Partial("~/Views/NAmeCards/OwnNameCard.cshtml")-->
         </div>
    </div>
 

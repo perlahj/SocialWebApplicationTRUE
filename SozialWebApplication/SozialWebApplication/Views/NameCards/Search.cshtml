@@ -1,7 +1,31 @@
-﻿<div class="searching">
-    <!--<form></form>-->
-    <input type="text" id="search" name="search" class="search" placeholder="Search ..." />
-    <div class="button">
-        <input type="button" class="search-button" />
+﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
+@using (Html.BeginForm("Search", "NameCards", FormMethod.Post))
+{
+    <div class="searching">
+        <input type="text" id="search" name="search" class="search" placeholder="Search ..." />
+        <div class="button">
+            <a href="Search"><input type="button" class="search-button" /></a>
+        </div>
     </div>
-</div>
+}
+
+    <dl>
+        @foreach (var item in Model.AllUsers)
+        {
+           <dt><a href="">@Html.DisplayFor(model => item.FullName)</a></dt>
+        }
+    </dl>
+    <div>
+        @if (Model.SearchResultsUsers.Count() == 0)
+        {
+        }
+        else
+        {
+            foreach (var item in Model.SearchResultsUsers)
+            {
+                <!--<a href="">@Html.DisplayFor(model => item.FullName)</a>-->
+            }
+        }
+
+   </div>
+

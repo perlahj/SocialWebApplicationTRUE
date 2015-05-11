@@ -3,22 +3,27 @@
 }
 .information {
      font-weight: bold;
-     margin-left: 48%;
+     margin-left: 40%;
      position: absolute;
      margin-top: 3%;
      text-align: center;
 }
 
+.namecard
+{
+    margin: 3%;
+}
+
 .profile-picture {
-    margin-left: -219%;
+    margin-left: -138%;
     margin-top: 4%;
-    width: 130%;
+    width: 71%;
     position: absolute;
 }
 
 .follow {
    margin-left: 67%;
-   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11203151_10152737854187047_5085997620109960228_n.jpg?oh=75cbfdf839a43f2fab1d1945368a2824&oe=55C5BB57);
+   background-image: url('/Myndir/Followers.png');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -29,8 +34,8 @@
 
 .edit {
    margin-top: 7%;
-   margin-left: 30%;
-   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10429814_10152737854162047_3747334878276722025_n.jpg?oh=33709d0b0111fcb95a35be9effec8f9e&oe=55D9A37C);
+   margin-left: 28%;
+   background-image: url('/Myndir/Edit.png');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -40,8 +45,8 @@
 }
 
 .match {
-   margin-left: 34%;
-   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11182369_10152737854217047_170899979653894999_n.jpg?oh=fb443a931f6151b9b3a3a9159ead92bb&oe=55D94093);
+   margin-left: 36%;
+   background-image: url('/Myndir/match.jpg');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -53,7 +58,7 @@
 .groups {
    margin-left: 67%;
    margin-top: 6%;
-   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/19310_10152737854202047_3704595851385023189_n.jpg?oh=3b995a010850d5aeee10fcb39b885f76&oe=55C22D84);
+   background-image: url('/Myndir/groups.png');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -65,7 +70,7 @@
 .follow-others {
    margin-left: 67%;
    margin-top: 2%;
-   background-image: url(Web/Content/Images/AddFollower.png);
+   background-image: url('/Myndir/AddFollower.png');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -78,7 +83,7 @@
    margin-left: 68%;
    margin-top: 16%;
    margin-bottom: 4%;
-   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11182369_10152737854217047_170899979653894999_n.jpg?oh=fb443a931f6151b9b3a3a9159ead92bb&oe=55D94093);
+   background-image: url('/Myndir/match.jpg');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -88,22 +93,22 @@
 }
 
 .save {
-  margin-top: 5%;
-  margin-left: -10%;
+  margin-top: 3%;
+  margin-left: -25%;
   margin-bottom: 1%;
   border-radius: 4px;
   border-color: #faa61f;
   line-height: 25px;
   width: 70px;
   font-weight: bold;
-  background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11136784_10152739372817047_3965445374771875884_n.jpg?oh=b1c9db12fd324f42eb53bc33e682042c&oe=55D35DC0);
+  background-image: url('/Myndir/takkar.jpg');
 }
 
 .profile-picture-edit {
-  margin-left: -47%;
-  width: 16%;
+  margin-left: -42.5%;
+  width: 14%;
   position: absolute;
-  margin-top: 1%;
+  margin-top: 3%;
 }
 
 .edit-information {
@@ -113,12 +118,13 @@
 
 .edit-input {
   width: 36%;
-  margin-top: 4%;
+  margin-top: 6%;
+  margin-left: 10%;
 }
 
 .text-input,
 .search {
-  background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpt1/v/t34.0-12/11208701_10152739046152047_139355865_n.jpg?oh=788af66d5fab96c1574da0dbf576e6b8&oe=554F01E6);
+  background-image: url('/Myndir/input.jpg');
   border: 1px solid #ffd600;
   border-radius: 4px;
   line-height: 25px;
@@ -133,7 +139,7 @@
 }
 
 .search-button {
-    background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xtf1/v/t1.0-9/11111113_10153334484758606_7643963808574988339_n.jpg?oh=02bb0a1adbb0ed56626c85fb3ae4bb28&oe=55D828D5);
+    background-image: url('/Myndir/search.jpg');
     border: none;
     background-repeat: no-repeat;
     background-size: 103%;
@@ -141,6 +147,7 @@
     border: none;
     width: 20px;
     height: 20px;
+    margin-left: 1%;
 }
 
 .searching {
@@ -157,4 +164,13 @@
 .search {
   text-align: center;
   font-weight: bold;
+}
+
+.back {
+    border-radius: 4px;
+    border-color: #faa61f;
+    line-height: 25px;
+    width: 70px;
+    font-weight: bold;
+    background-image: url('/Myndir/takkar.jpg');
 }
