@@ -29,7 +29,7 @@ namespace SozialWebApplication.Controllers
 			return View(nameCardVM);
         }
 
-        public ActionResult OthersNameCard()
+        public ActionResult OthersNameCard(string id)
         {
             return View();
         }

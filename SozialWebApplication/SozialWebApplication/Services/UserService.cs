@@ -50,7 +50,6 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
-		// Has not been tested
 		public ApplicationUser GetUserByUserName(string userName)
 		{
 			var user = (from u in db.Users
@@ -67,7 +66,7 @@ namespace SozialWebApplication.Services
 			
 			return allUsers;
 		}
-		// Has not been tested
+
 		public List<ApplicationUser> SearchAllUsers(string searchStr)
 		{	
 			if(String.IsNullOrEmpty(searchStr))
@@ -79,7 +78,7 @@ namespace SozialWebApplication.Services
 			var searchResults = new List<ApplicationUser>();
 			foreach (var item in allUsers)
 			{
-				if (item.FullName == searchStr)
+				if (item.FullName == searchStr || item.UserName == searchStr)
 				{
 					searchResults.Add(item);
 				}

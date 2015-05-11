@@ -8,13 +8,17 @@
         </div>
     </div>
 }
-
     <dl>
         @foreach (var item in Model.AllUsers)
         {
-           <dt><a href="" >@Html.DisplayFor(model => item.FullName)</a></dt>
-            // @Html.ActionLink(item.Title, "Detail", "MovieApp", new { id = item.Id }, new { @class = "" })
-            //<dt>@Html.ActionLink(item.FullName, "OtherNameCard", "NameCard", new { id = item.UserName}) </dt>
+            if (item.FullName != null)
+            {
+               <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { id = item.UserName}) </dt> 
+            }
+            else
+            {
+                <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCard", new { id = item.UserName}) </dt>
+            } 
         }
     </dl>
     <dl>
@@ -25,9 +29,16 @@
         {
             foreach (var item in Model.SearchResultsUsers)
             {
-                <dt><a href="">@Html.DisplayFor(model => item.FullName)</a></dt>
+                //<dt><a href="">@Html.DisplayFor(model => item.FullName)</a></dt>
+                if (item.FullName != null)
+                {
+                <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { id = item.UserName}) </dt> 
+                }
+                else
+                {
+                    <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCard", new { id = item.UserName}) </dt>
+                }
             }
         }
-
    </dl>
 
