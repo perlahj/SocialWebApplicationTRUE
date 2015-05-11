@@ -23,15 +23,16 @@ namespace SozialWebApplication.Controllers
             /*return PartialView();*/
             //return PartialView("OwnNameCard");
 
-			//NameCardViewModel nameCardVM = new NameCardViewModel();
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 			
-			return View(nameCardVM);
+			return PartialView("~/Views/NameCards/OwnNameCard.cshtml", nameCardVM);
         }
 
-        public ActionResult OthersNameCard()
+        public ActionResult OthersNameCard(string userName)
         {
-            return View();
+			nameCardVM.userWithId = us.GetUserByUserName(userName);
+			
+			return View();
         }
 
 
@@ -61,19 +62,27 @@ namespace SozialWebApplication.Controllers
 			return View(nameCardVM);
         }
 
-		public ActionResult Search(FormCollection collection)
+		/*public ActionResult Search(FormCollection collection)
         {
 			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get(""));
 			return View(nameCardVM);
-        }
+        }*/
 
-		/*[HttpPost]
-		public ActionResult SearchPost(FormCollection collection)
+		public ActionResult Search()
 		{
+			nameCardVM.AllUsers = us.GetAllUsers();
+			nameCardVM.SearchResultsUsers = us.SearchAllUsers("");
+			return View(nameCardVM);
+		}
+
+		[HttpPost]
+		public ActionResult Search(FormCollection collection)
+		{
+			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
 			return View(nameCardVM);
-		}*/ 
+		} 
 		   
 	}
 

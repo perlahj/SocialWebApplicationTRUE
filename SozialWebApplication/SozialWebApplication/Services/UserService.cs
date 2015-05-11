@@ -50,7 +50,6 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
-		// Has not been tested
 		public ApplicationUser GetUserByUserName(string userName)
 		{
 			var user = (from u in db.Users
@@ -67,39 +66,42 @@ namespace SozialWebApplication.Services
 			
 			return allUsers;
 		}
-		// Has not been tested
+
 		public List<ApplicationUser> SearchAllUsers(string searchStr)
-		{
+		{	
 			if(String.IsNullOrEmpty(searchStr))
 			{
 				return new List<ApplicationUser>();
 			}
 			var allUsers = GetAllUsers();
-			var searchResults = (from r in allUsers
+			
+			var searchResults = new List<ApplicationUser>();
+			foreach (var item in allUsers)
+			{
+				if (item.FullName == searchStr || item.UserName == searchStr)
+				{
+					searchResults.Add(item);
+				}
+			}
+			/*var searchResults = (from r in allUsers
 								 where r.FullName.StartsWith(searchStr)
 								 orderby r.FullName ascending
-								 select r).ToList();
+								 select r).ToList();  */
 			
-			//List<ApplicationUser> searchResults = new List<ApplicationUser>();
+			//var searchResults = allUsers.Where(x => x.FullName.StartsWith(searchStr)).ToList();
+		
 
-						/*query = (from Schl in model.Scholars
-			where Schl.ScholarName.StartsWith(txtSearch.Text)
-
-			orderby Schl.ScholarName
-			select Schl);
-			 */
-
-			//foreach (var item in allUsers)
-			/*{
+			/*List<ApplicationUser> searchResults = new List<ApplicationUser>();
+			foreach (var item in allUsers)
+			{
 			   var result = allUsers.Find(x => x.FullName.Contains(searchStr));
 				searchResults.Add(result);	
-			}*/
-
-				//parts.Find(x => x.PartName.Contains("seat")));
+			}  */
 
 			/*var searchResults = (from sr in allUsers
-								 where (m => sr.FullName.StartsWith(searchStr))
-								 select sr).ToList(); */
+								 where (m => m.FullName.StartsWith(searchStr))
+								 select sr).ToList();  */
+			
 			return searchResults;
 		}
 
