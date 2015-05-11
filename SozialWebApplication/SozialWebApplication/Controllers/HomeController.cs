@@ -13,7 +13,7 @@ namespace SozialWebApplication.Controllers
 			return View();
 		}
 
-        public ActionResult NewsFeed()
+        public ActionResult NewsfeedGroups()
         {
             return View();
         }
