@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SozialWebApplication.ViewModel;
 
 namespace SozialWebApplication.Controllers
 {
 	public class HomeController : Controller
 	{
+        private GroupViewModel GroupVM = new GroupViewModel();
+
 		public ActionResult Banner()
 		{
 			return View();
@@ -15,7 +18,7 @@ namespace SozialWebApplication.Controllers
 
         public ActionResult NewsfeedGroups()
         {
-            return View();
+            return PartialView("~/Views/Home/NewsfeedGroups.cshtml", GroupVM);
         }
 
 		public ActionResult About()
