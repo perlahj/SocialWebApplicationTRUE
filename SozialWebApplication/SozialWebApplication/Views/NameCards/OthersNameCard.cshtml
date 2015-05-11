@@ -1,9 +1,10 @@
-﻿<div>
+﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
+<div>
     <div class="information">
         <img src="/Myndir/myndlogo.jpg" class="profile-picture" alt="profilepic">
-        <p>Name</p>
-        <p>Line of study</p>
-        <p>email@ru.is</p>
+        <p>Full Name</p>
+        <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
+        <p>@Html.DisplayFor(model => model.userWithId.Email)</p>
     </div>
     <input type="button" class="follow-others" />
     <input type="button" class="match-others" />

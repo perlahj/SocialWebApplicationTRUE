@@ -28,7 +28,7 @@ namespace SozialWebApplication
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/CSS/bootstrap.css",
-                      "~/Content/CSS/site.css", "~/Content/CSS/namecard.css", "~/Content/CSS/Banner.css"));
+                      "~/Content/CSS/site.css", "~/Content/CSS/namecard.css", "~/Content/CSS/Banner.css", "~/Content/CSS/NewsFeed.css"));
         }
     }
 }
