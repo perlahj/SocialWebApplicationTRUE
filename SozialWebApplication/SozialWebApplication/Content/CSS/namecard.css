@@ -65,7 +65,7 @@
 .follow-others {
    margin-left: 67%;
    margin-top: 2%;
-   background-image: url("~/Content/Images/AddFollower.png");
+   background-image: url(Web/Content/Images/AddFollower.png);
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
