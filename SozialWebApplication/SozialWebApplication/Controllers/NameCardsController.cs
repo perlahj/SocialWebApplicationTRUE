@@ -13,6 +13,7 @@ namespace SozialWebApplication.Controllers
     {
 
 		private UserService us = new UserService();
+		private NameCardViewModel nameCardVM = new NameCardViewModel();
 		
 		public ActionResult OwnNameCard()
         {
@@ -22,7 +23,7 @@ namespace SozialWebApplication.Controllers
             /*return PartialView();*/
             //return PartialView("OwnNameCard");
 
-			NameCardViewModel nameCardVM = new NameCardViewModel();
+			//NameCardViewModel nameCardVM = new NameCardViewModel();
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 			
 			return View(nameCardVM);
@@ -37,7 +38,7 @@ namespace SozialWebApplication.Controllers
 		[HttpGet]
 		public ActionResult EditNameCard()
 		{
-			NameCardViewModel nameCardVM = new NameCardViewModel();
+			//NameCardViewModel nameCardVM = new NameCardViewModel();
 			//nameCardVM.userWithId = UserService.Instance.GetUserByUserName(User.Identity.Name);
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 
@@ -46,7 +47,7 @@ namespace SozialWebApplication.Controllers
 		[HttpPost]
 		public ActionResult EditNameCard(FormCollection collection)
         {
-			NameCardViewModel nameCardVM = new NameCardViewModel();
+			
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 			
 			string fullName = collection.Get("input-name");
@@ -60,12 +61,20 @@ namespace SozialWebApplication.Controllers
 			return View(nameCardVM);
         }
 
-
-        public ActionResult Search()
+		public ActionResult Search(FormCollection collection)
         {
-            return View();
+			nameCardVM.AllUsers = us.GetAllUsers();
+			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get(""));
+			return View(nameCardVM);
         }
 
+		/*[HttpPost]
+		public ActionResult SearchPost(FormCollection collection)
+		{
+			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
+			return View(nameCardVM);
+		}*/ 
+		   
 	}
 
 }
