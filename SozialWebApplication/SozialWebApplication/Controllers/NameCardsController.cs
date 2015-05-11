@@ -39,7 +39,6 @@ namespace SozialWebApplication.Controllers
 		[HttpGet]
 		public ActionResult EditNameCard()
 		{
-			//NameCardViewModel nameCardVM = new NameCardViewModel();
 			//nameCardVM.userWithId = UserService.Instance.GetUserByUserName(User.Identity.Name);
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 
@@ -61,13 +60,6 @@ namespace SozialWebApplication.Controllers
 
 			return View(nameCardVM);
         }
-
-		/*public ActionResult Search(FormCollection collection)
-        {
-			nameCardVM.AllUsers = us.GetAllUsers();
-			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get(""));
-			return View(nameCardVM);
-        }*/
 
 		public ActionResult Search()
 		{
