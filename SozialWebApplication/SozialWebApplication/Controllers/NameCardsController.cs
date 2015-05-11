@@ -33,16 +33,28 @@ namespace SozialWebApplication.Controllers
             return View();
         }
 
+
+		[HttpGet]
+		public ActionResult EditNameCard()
+		{
+			NameCardViewModel nameCardVM = new NameCardViewModel();
+			//nameCardVM.userWithId = UserService.Instance.GetUserByUserName(User.Identity.Name);
+			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
+
+			return View(nameCardVM);
+		}
+		[HttpPost]
 		public ActionResult EditNameCard(FormCollection collection)
         {
 			NameCardViewModel nameCardVM = new NameCardViewModel();
-			//nameCardVM.userWithId = UserService.Instance.GetUserByUserName(User.Identity.Name);
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 			
 			string fullName = collection.Get("input-name");
 			string lineOfStudy = collection.Get("input-los");
+			string email = collection.Get("input-email");
 			us.ChangeFullName(User.Identity.Name, fullName);
 			us.ChangeLineOfStudy(User.Identity.Name, lineOfStudy);
+			us.ChangeEmail(User.Identity.Name, email);
 
 			return View(nameCardVM);
         }

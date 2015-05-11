@@ -3,7 +3,7 @@
 <div class="edit-information">
     <img src="https://scontent-lhr.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/10421398_10152740713772047_7949496574370778723_n.jpg?oh=561cb94e05da18348a51bfaeab125016&oe=55D1A31D" class="profile-picture-edit" alt="profilepic">
     
-      @using (Html.BeginForm("EditNameCard", "NameCards"))
+      @using (Html.BeginForm("EditNameCard", "NameCards", FormMethod.Post))
       {
         <div class="edit-input">
             <label for="input-name" class="label">Name</label>
@@ -11,7 +11,7 @@
             <label for="input-los" class="label">Line of study</label>
             <input type="text" name="input-los" id="input-los" class="text-input" placeholder= @Html.DisplayFor(model => model.userWithId.LineOfStudy) />
             <label for="input-email" class="label">Email</label>
-            <input type="text" name="input-email" id="input-email" class="text-input" placeholder="Current Email" />
+            <input type="text" name="input-email" id="input-email" class="text-input" placeholder=@Html.DisplayFor(model => model.userWithId.Email) />
         </div>
 
     <input type="submit" value="Save" class="save"/>

@@ -41,6 +41,15 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
+		public void ChangeEmail(string userName, string newEmail)
+		{
+			var userWithUserName = (from user in db.Users
+									where user.UserName == userName
+									select user).FirstOrDefault();
+			userWithUserName.Email = newEmail;
+			db.SaveChanges();
+		}
+
 		// Has not been tested
 		public ApplicationUser GetUserByUserName(string userName)
 		{

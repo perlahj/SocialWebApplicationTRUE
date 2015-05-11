@@ -21,7 +21,7 @@ namespace SozialWebApplication.Models
 
 		public string FullName { get; set; }
 		public string LineOfStudy { get; set; }
-        //public string Email { get; set; }
+        public string Email { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
