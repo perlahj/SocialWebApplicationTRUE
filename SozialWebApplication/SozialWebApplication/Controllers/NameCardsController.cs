@@ -61,19 +61,27 @@ namespace SozialWebApplication.Controllers
 			return View(nameCardVM);
         }
 
-		public ActionResult Search(FormCollection collection)
+		/*public ActionResult Search(FormCollection collection)
         {
 			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get(""));
 			return View(nameCardVM);
-        }
+        }*/
 
-		/*[HttpPost]
-		public ActionResult SearchPost(FormCollection collection)
+		public ActionResult Search()
 		{
+			nameCardVM.AllUsers = us.GetAllUsers();
+			nameCardVM.SearchResultsUsers = us.SearchAllUsers("");
+			return View(nameCardVM);
+		}
+
+		[HttpPost]
+		public ActionResult Search(FormCollection collection)
+		{
+			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
 			return View(nameCardVM);
-		}*/ 
+		} 
 		   
 	}
 
