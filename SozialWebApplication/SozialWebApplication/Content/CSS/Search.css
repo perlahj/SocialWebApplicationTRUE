@@ -36,6 +36,7 @@
     font-weight: bold;
     background-image: url('/Myndir/takkar.jpg');
 }
+
 /*Search followers and groups - display lists*/
 
 .search-result-list, .all-groups-list, .my-groups-list, .search-results-list, .all-users-list, .my-friends-list {
