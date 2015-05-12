@@ -34,3 +34,19 @@
     font-weight: bold;
     background-image: url('/Myndir/takkar.jpg');
 }
+
+.follow-list {
+    text-decoration:none;
+    text-decoration-color:black;
+    margin-left:50%;
+    font-weight:bold;
+}
+
+.search-groups-list {
+    margin-left: 48%;
+    text-decoration: none;
+}
+
+a:link {
+
+}
