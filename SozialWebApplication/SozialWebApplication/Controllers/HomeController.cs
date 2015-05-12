@@ -11,6 +11,7 @@ namespace SozialWebApplication.Controllers
 	public class HomeController : Controller
 	{
 		private GroupService gs = new GroupService();
+		private PostService ps = new PostService();
 		private NameCardViewModel nameCardVM = new NameCardViewModel();
         private GroupViewModel GroupVM = new GroupViewModel();
 		
@@ -23,9 +24,20 @@ namespace SozialWebApplication.Controllers
         {
 			GroupViewModel groupVM = new GroupViewModel();
 			groupVM.GroupWithId = gs.GetGroupById(id);
-			
 			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
         }
+
+		[HttpPost]
+		public ActionResult NewsfeedGroups(int id, FormCollection collection)
+		{
+			string postBody = collection.Get("post-input");
+			ps.AddNewPost(User.Identity.Name, id, postBody);
+
+			GroupViewModel groupVM = new GroupViewModel();
+			groupVM.GroupWithId = gs.GetGroupById(id);
+
+			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
+		}
 
 		public ActionResult About()
 		{

@@ -9,7 +9,7 @@
   }
   }
 
-@using (Html.BeginForm("NewsfeedGroups", "Home"))
+@using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
 {
     <div class="newsfeed">
         <div class="post">
@@ -19,10 +19,10 @@
                 <input type="button" class="input-youtube" />
             </div>
 
-            <input type="text" name="post-input" id="post-input" class="post-input" placeholder="Post ..." />
+            <input type="text" name="post-input" id="post-input" class="post-input" placeholder="Express yourself..." />
         </div>
     </div>
-    <input type="submit" value="Post" class="post-submit" />
+    <input type="submit" value="post" class="post-submit" />
 }
 
 <div class="all-posts">
