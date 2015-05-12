@@ -14,6 +14,7 @@ namespace SozialWebApplication.Controllers
 		private GroupService gs = new GroupService();
 		private NameCardViewModel nameCardVM = new NameCardViewModel();
         private GroupViewModel GroupVM = new GroupViewModel();
+        private UserService us = new UserService();
 		
 		public ActionResult Banner()
 		{
@@ -68,7 +69,10 @@ namespace SozialWebApplication.Controllers
 
         public ActionResult CheckMatch()
         {
-            return View();
+            // senda model inn i rett view og tha er haegt ad vinna med gognin
+            nameCardVM.AllMatches = us.GetAllDoubleMatches(User.Identity.Name);
+
+            return PartialView("~/Views/Home/CheckMatch.cshtml", nameCardVM);
         }
 	}
 }
