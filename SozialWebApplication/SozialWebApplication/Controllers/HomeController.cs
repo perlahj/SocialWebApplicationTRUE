@@ -24,6 +24,25 @@ namespace SozialWebApplication.Controllers
         {
             return PartialView("~/Views/Home/NewsfeedGroups.cshtml", GroupVM);
         }
+        public ActionResult GroupPost(FormCollection collection)
+        {
+            string postId = collection["postid"];
+            string postBody = collection["postbody"];
+
+            if(String.IsNullOrEmpty(postId))
+            {
+                return View("Error");
+            }
+            if(String.IsNullOrEmpty(postBody))
+            {
+                return RedirectToAction("GroupPost", "Home", new { id = postId });
+            }
+
+            string username = System
+
+            
+
+        }
 
 		public ActionResult About()
 		{
