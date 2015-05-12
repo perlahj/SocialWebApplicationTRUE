@@ -11,7 +11,18 @@ namespace SozialWebApplication.Services
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-		// Has not been tested
+		private static PostService instance;
+
+		public static PostService Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new PostService();
+				return instance;
+			}
+		}
+
 		public void AddNewPost(string userName, int groupId, string body)
 		{
 			Post p = new Post();
@@ -24,7 +35,6 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
-		// Has not been tested
 		public List<Post> GetLatestPostsForGroup(int groupId)
 		{
 			var posts = (from p in db.Posts
@@ -55,7 +65,7 @@ namespace SozialWebApplication.Services
 			return newsFeedPosts;
 		}
 
-		// Has not been tested
+
 		public void AddLike(int postId)
 		{
 			var post = (from p in db.Posts
