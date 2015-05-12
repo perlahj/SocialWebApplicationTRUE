@@ -69,14 +69,23 @@
         </div>
 
         <div class="register">
-            <input type="submit" class="register-button" value="Sign Up" />
+            <input type="submit" id="register-button" class="register-button" value="Sign Up" />
         </div>
     }
 </div>
 
 <div class="logo">
-    <img src="https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11188406_10152738112412047_3185149741492135647_n.jpg?oh=bd18d6c4edcf797bc2f00d993b15b910&oe=55E23459" class="front-logo" alt="logo">
+    <img src="/Myndir/logo.jpg" class="front-logo" alt="front-logo" />
 </div>
+
+<!--
+<script>
+ $(".register-button").click(function () {
+    $.success(function () {
+        alert("vijj")
+    });
+ });
+ </script>-->
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
