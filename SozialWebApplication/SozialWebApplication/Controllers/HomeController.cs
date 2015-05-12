@@ -41,6 +41,22 @@ namespace SozialWebApplication.Controllers
 			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
 		}
 
+		[HttpPost]
+		public ActionResult ClickLike(FormCollection collection)
+		{
+			string postIdString = collection.Get("hidden-postId");
+			int postId = Convert.ToInt32(postIdString);
+			ps.AddLike(postId);
+
+			string groupIdString = collection.Get("hidden-groupId");
+			int groupId = Convert.ToInt32(groupIdString);
+			GroupViewModel groupVM = new GroupViewModel();
+			groupVM.GroupWithId = gs.GetGroupById(groupId);
+			groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);
+
+			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
+		}
+
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";

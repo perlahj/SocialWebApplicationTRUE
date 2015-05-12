@@ -11,6 +11,18 @@ namespace SozialWebApplication.Services
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+		private static PostService instance;
+
+		public static PostService Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new PostService();
+				return instance;
+			}
+		}
+
 		// Has not been tested
 		public void AddNewPost(string userName, int groupId, string body)
 		{

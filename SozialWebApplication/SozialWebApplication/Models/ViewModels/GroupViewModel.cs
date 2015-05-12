@@ -10,5 +10,6 @@ namespace SozialWebApplication.Models.ViewModels
 	{
 		public Group GroupWithId { get; set; }
 		public List<Post> GroupPosts { get; set; }
+		public List<Comment> CommentsForPost { get; set; }
 	}
 }
