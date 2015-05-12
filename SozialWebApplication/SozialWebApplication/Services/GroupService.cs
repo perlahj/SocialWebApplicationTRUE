@@ -28,7 +28,6 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 		
-		// Has not been tested.
 		public List<Group> GetAllGroups()
 		{
 			var groups = (from g in db.Groups
@@ -71,6 +70,27 @@ namespace SozialWebApplication.Services
 			}
 	
 			return groups;
+		}
+
+		public List<Group> SearchAllGroups(string searchStr)
+		{
+			if (String.IsNullOrEmpty(searchStr))
+			{
+				return new List<Group>();
+			}
+			var allGroups = GetAllGroups();
+
+			var searchResults = new List<Group>();
+			foreach (var item in allGroups)
+			{
+				if (item.GroupName == searchStr)
+				{
+					searchResults.Add(item);
+				}
+			}
+	
+
+			return searchResults;
 		}
 
 		// TESTS

@@ -1,0 +1,43 @@
+﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
+@using (Html.BeginForm("Search", "NameCards", FormMethod.Post))
+{
+    <div class="searching">
+        <input type="text" id="search" name="search" class="search" placeholder="Search ..." />
+        <div class="button">
+            <a href="Search"><input type="submit" class="search-button" /></a>
+        </div>
+    </div>
+}
+    <dl>
+        @foreach (var item in Model.AllUsers)
+        {
+            if (item.FullName != null)
+            {
+               <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { id = item.UserName}) </dt> 
+            }
+            else
+            {
+                <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCard", new { id = item.UserName}) </dt>
+            } 
+        }
+    </dl>
+    <dl>
+        @if (Model.SearchResultsUsers.Count() == 0)
+        {
+        }
+        else
+        {
+            foreach (var item in Model.SearchResultsUsers)
+            {
+                if (item.FullName != null)
+                {
+                <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { id = item.UserName}) </dt> 
+                }
+                else
+                {
+                    <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCard", new { id = item.UserName}) </dt>
+                }
+            }
+        }
+   </dl>
+

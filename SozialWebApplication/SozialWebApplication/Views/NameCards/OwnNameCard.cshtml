@@ -1,0 +1,14 @@
+﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
+
+<div class="namecard">
+    <div class="information">
+        <img src="/Myndir/myndlogo.jpg" class="profile-picture" alt="profilepic">
+            <p>@Html.DisplayFor(model => model.userWithId.FullName)</p>
+            <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
+            <p>@Html.DisplayFor(model => model.userWithId.Email)</p>
+    </div>
+    <a href="~/NameCards/Search"><input type="button" class="follow" /></a>
+    <a href="~/Home/SearchGroups"><input type="button" class="groups" /></a>
+    <a href="~/NameCards/EditNameCard"><input type="button" class="edit" /></a>
+    <a href="~/NameCards/Search"><input type="button" class="match" /></a>
+</div>

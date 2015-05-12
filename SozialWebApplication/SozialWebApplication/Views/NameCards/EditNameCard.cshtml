@@ -1,0 +1,22 @@
+﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
+
+<div class="edit-information">
+    <img src="/Myndir/myndlogo.jpg" class="profile-picture-edit" alt="profilepic">
+    
+      @using (Html.BeginForm("EditNameCard", "NameCards", FormMethod.Post))
+      {
+        <div class="edit-input">
+            <label for="input-name" class="label">Name</label>
+            <input type="text" name="input-name" id="input-name" class="text-input" placeholder= @Html.DisplayFor(model => model.userWithId.FullName) />
+            <label for="input-los" class="label">Line of study</label>
+            <input type="text" name="input-los" id="input-los" class="text-input" placeholder= @Html.DisplayFor(model => model.userWithId.LineOfStudy) />
+            <label for="input-email" class="label">Email</label>
+            <input type="text" name="input-email" id="input-email" class="text-input" placeholder=@Html.DisplayFor(model => model.userWithId.Email) />
+        </div>
+
+    <input type="submit" value="Save" class="save"/>
+    <a href="OwnNameCard"><input type="button" value="Back" class="back"/></a>
+      }
+</div>
+
+

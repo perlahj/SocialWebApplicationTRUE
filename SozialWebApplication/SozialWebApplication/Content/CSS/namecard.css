@@ -3,23 +3,27 @@
 }
 .information {
      font-weight: bold;
-     margin-left: 48%;
+     margin-left: 40%;
      position: absolute;
-     margin-top: 5%;
+     margin-top: 3%;
      text-align: center;
 }
 
+.namecard
+{
+    margin: 3%;
+}
+
 .profile-picture {
-    margin-left: -219%;
+    margin-left: -138%;
     margin-top: 4%;
-    width: 130%;
+    width: 71%;
     position: absolute;
 }
 
 .follow {
    margin-left: 67%;
-   margin-top: 2%;
-   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11203151_10152737854187047_5085997620109960228_n.jpg?oh=75cbfdf839a43f2fab1d1945368a2824&oe=55C5BB57);
+   background-image: url('/Myndir/Followers.png');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -29,10 +33,9 @@
 }
 
 .edit {
-   margin-bottom: 24%;
    margin-top: 7%;
-   margin-left: 30%;
-   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10429814_10152737854162047_3747334878276722025_n.jpg?oh=33709d0b0111fcb95a35be9effec8f9e&oe=55D9A37C);
+   margin-left: 28%;
+   background-image: url('/Myndir/Edit.png');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -42,8 +45,8 @@
 }
 
 .match {
-   margin-left: 34%;
-   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11182369_10152737854217047_170899979653894999_n.jpg?oh=fb443a931f6151b9b3a3a9159ead92bb&oe=55D94093);
+   margin-left: 36%;
+   background-image: url('/Myndir/match.jpg');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -55,7 +58,7 @@
 .groups {
    margin-left: 67%;
    margin-top: 6%;
-   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/19310_10152737854202047_3704595851385023189_n.jpg?oh=3b995a010850d5aeee10fcb39b885f76&oe=55C22D84);
+   background-image: url('/Myndir/groups.png');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -67,7 +70,7 @@
 .follow-others {
    margin-left: 67%;
    margin-top: 2%;
-   background-image: url("~/Content/Images/AddFollower.png");
+   background-image: url('/Myndir/AddFollower.png');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -80,7 +83,7 @@
    margin-left: 68%;
    margin-top: 16%;
    margin-bottom: 4%;
-   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11182369_10152737854217047_170899979653894999_n.jpg?oh=fb443a931f6151b9b3a3a9159ead92bb&oe=55D94093);
+   background-image: url('/Myndir/match.jpg');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -88,3 +91,50 @@
    width: 48px;
    height: 39px;
 }
+
+.save {
+  margin-top: 3%;
+  margin-left: -25%;
+  margin-bottom: 1%;
+  border-radius: 4px;
+  border-color: #faa61f;
+  line-height: 25px;
+  width: 70px;
+  font-weight: bold;
+  background-image: url('/Myndir/takkar.jpg');
+}
+
+.profile-picture-edit {
+  margin-left: -42.5%;
+  width: 14%;
+  position: absolute;
+  margin-top: 3%;
+}
+
+.edit-information {
+  margin-left: 44%;
+  text-align: center;
+}
+
+.edit-input {
+  width: 36%;
+  margin-top: 6%;
+  margin-left: 10%;
+}
+
+.text-input,
+.search {
+  background-image: url('/Myndir/input.jpg');
+  border: 1px solid #ffd600;
+  border-radius: 4px;
+  line-height: 25px;
+  width: 259px;
+  margin-right: 53px;
+  margin-bottom: 9%;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
