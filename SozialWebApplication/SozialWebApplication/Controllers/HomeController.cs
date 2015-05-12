@@ -22,7 +22,8 @@ namespace SozialWebApplication.Controllers
 
         public ActionResult NewsfeedGroups(int? id)
         {
-            return PartialView("~/Views/Home/NewsfeedGroups.cshtml", GroupVM);
+            GroupViewModel
+			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", GroupVM);
         }
 
 		public ActionResult About()
