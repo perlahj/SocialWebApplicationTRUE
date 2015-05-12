@@ -269,6 +269,7 @@
     <Content Include="Views\Home\SearchGroups.cshtml" />
     <Content Include="Views\Home\NewsfeedGroups.cshtml" />
     <Content Include="Views\Home\CheckMatch.cshtml" />
+    <Content Include="Views\Home\GroupPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
