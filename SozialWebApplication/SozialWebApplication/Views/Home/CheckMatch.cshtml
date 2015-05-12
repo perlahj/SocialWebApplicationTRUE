@@ -2,10 +2,8 @@
 
 <h1>OMG!</h1>
 
-<div class="groups-labels">
-    <h4 class="my-groups-label">My Groups</h4>
-    <h4 class="all-groups-label">All Groups</h4>
-    <h4 class="search-groups-label">Search results</h4>
+<div class="match-label">
+    <h4 class="my-matches-label">My Matches</h4>
 </div>
 
 <div class=" my-groups">
@@ -16,6 +14,11 @@
             //{
                 //<dt class="my-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }) </dt>
             //}
+            
+            if(item.UserName != null)
+            {
+                <dt class="my-matches-list">@Html.ActionLink(item.UserName, "CheckMatch", "Home", new { id = item.Id })</dt>
+            }
         }
     </dl>
 </div>
