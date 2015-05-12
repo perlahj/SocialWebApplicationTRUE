@@ -22,7 +22,7 @@
 <script>
     $(".save").submit(function () {
         event.preventDefault();
-        return false;
+        /*return false;*/
         $.ajax({
             url: "/NameCards/OwnNameCard",
         }).success(function (data) {
