@@ -20,15 +20,15 @@
 }
 
 .input-text {
-    background-image: url(https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xpt1/v/t1.0-9/11041206_10152737854317047_4987173697181435989_n.jpg?oh=f407003c753a74fe192c362a71067830&oe=55BFBC41&__gda__=1443382344_258f908c3b3929d18851a5c4ed7c8509);
+    background-image: url('/Myndir/TextLogo.png');
 }
 
 .input-img {
-    background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11030382_10152737854272047_4228867255282156636_n.jpg?oh=eb462304d4f9658af6c4c3678cfdd56a&oe=55C3C066);
+    background-image: url('/Myndir/Mynd.png');
 }
 
 .input-youtube {
-    background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/19187_10152737854372047_4455332937423562479_n.jpg?oh=9ec9d23bd19c88b5435917e8cfd1b752&oe=55C91896);
+    background-image: url('/Myndir/Video.png');
 }
 
 .input-text,

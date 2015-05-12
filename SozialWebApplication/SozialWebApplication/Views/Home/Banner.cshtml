@@ -13,7 +13,18 @@
             @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
         </div>
 
-        <input type="button" name="logout" value="Log Out" class="logout-button"/>
+        <!---->
+
+        @using (Html.BeginForm("LogOff", "Account", new { ReturnUrl = "/Account/Login" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+                <div>
+                    <input type="submit" value="Log Out" class="logout-button" />
+                </div>
+        }
+
+        <!---->
     </div>
 
     <br/>

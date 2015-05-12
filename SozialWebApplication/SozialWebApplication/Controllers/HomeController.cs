@@ -40,7 +40,7 @@ namespace SozialWebApplication.Controllers
 			return View();
 		}
 
-		public ActionResult SearchGroups(int id)
+		public ActionResult SearchGroups()
 		{			
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();

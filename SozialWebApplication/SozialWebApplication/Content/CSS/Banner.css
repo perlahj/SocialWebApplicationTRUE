@@ -48,6 +48,36 @@ iframe{
     height:335px;
 }
 
-.logout-button {
+/**.logout-button {
     background-image: url('/Myndir/takkar.jpg');
+    border-radius: 4px;
+    border-color: #faa61f;
+    line-height: 25px;
+    width: 70px;
+    font-weight: bold;
+    margin-left: 92%;
+}*/
+
+/*.logout-button {
+    background-image: url('/Myndir/takkar.jpg');
+    border-radius: 4px;
+    border-color: #faa61f;
+    line-height: 17px;
+    width: 60px;
+    font-weight: bold;
+    position: absolute;
+    margin-left: 89%;
+    margin-top: -13%;
+}*/
+
+.logout-button {
+    border: none;
+    width: 60px;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 89%;
+    margin-top: -13%;
 }
+
