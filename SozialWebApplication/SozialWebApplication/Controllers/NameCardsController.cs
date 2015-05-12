@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SozialWebApplication.Services;
 using SozialWebApplication.Models;
 using SozialWebApplication.Models.ViewModels;
+using SozialWebApplication.ViewModel;
 
 namespace SozialWebApplication.Controllers
 {
@@ -13,6 +14,7 @@ namespace SozialWebApplication.Controllers
     {
 
 		private UserService us = new UserService();
+		//private GroupService gs = new GroupService();
 		private NameCardViewModel nameCardVM = new NameCardViewModel();
 		
 		public ActionResult OwnNameCard()
@@ -28,10 +30,9 @@ namespace SozialWebApplication.Controllers
 			return PartialView("~/Views/NameCards/OwnNameCard.cshtml", nameCardVM);
         }
 
-        public ActionResult OthersNameCard(string otherUser)
+        public ActionResult OthersNameCard(string id)
         {
-			nameCardVM.userWithId = us.GetUserByUserName(otherUser);
-			
+			nameCardVM.userWithId = us.GetUserById(id);
 			//return View(nameCardVM);
 			return PartialView("~/Views/NameCards/OthersNameCard.cshtml", nameCardVM);
         }
@@ -74,7 +75,22 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
 			return View(nameCardVM);
-		} 
+		}
+
+		/*public ActionResult SearchGroups()
+		{
+			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
+			//nameCardVM.SearchResultsGroups = gs.SearchAllGroups("");
+			return View(nameCardVM);
+		}
+
+		/*[HttpPost]
+		public ActionResult SearchGroups(FormCollection collection)
+		{
+			nameCardVM.AllUsers = us.GetAllUsers();
+			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
+			return View(nameCardVM);
+		}  */
 		   
 	}
 

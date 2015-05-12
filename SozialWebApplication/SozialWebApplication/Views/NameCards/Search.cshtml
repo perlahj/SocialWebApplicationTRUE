@@ -13,11 +13,11 @@
         {
             if (item.FullName != null)
             {
-               <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { otherUser = item.UserName }); </dt> 
+               <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { id = item.Id }); </dt> 
             }
             else
             {
-                <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCard", new { otherUser = item.UserName }); </dt>
+                <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCard", new { id = item.Id }); </dt>
             } 
         }
     </dl>
@@ -31,11 +31,11 @@
             {
                 if (item.FullName != null)
                 {
-                <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { otherUser = item.UserName}) </dt> 
+                <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { id = item.Id }) </dt> 
                 }
                 else
                 {
-                    <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCard", new { otherUser = item.UserName}) </dt>
+                    <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCard", new { id = item.Id }) </dt>
                 }
             }
         }
