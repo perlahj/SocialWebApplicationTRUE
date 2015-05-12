@@ -48,8 +48,29 @@ namespace SozialWebApplication.Controllers
 			int postId = Convert.ToInt32(postIdString);
 			ps.AddLike(postId);
 
+			// We know this is not "best practice", but we did not manage do sent the groupId as parameter.
 			string groupIdString = collection.Get("hidden-groupId");
 			int groupId = Convert.ToInt32(groupIdString);
+			GroupViewModel groupVM = new GroupViewModel();
+			groupVM.GroupWithId = gs.GetGroupById(groupId);
+			groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);
+
+			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
+		}
+
+		[HttpPost]
+		public ActionResult AddComment(FormCollection collection)
+		{
+			string postIdString = collection.Get("hidden-postId");
+			int postId = Convert.ToInt32(postIdString);
+
+			string groupIdString = collection.Get("hidden-groupId");
+			int groupId = Convert.ToInt32(groupIdString);
+
+			string commentBody = collection.Get("comment-input");
+
+			ps.AddNewComment(User.Identity.Name, postId, commentBody);
+
 			GroupViewModel groupVM = new GroupViewModel();
 			groupVM.GroupWithId = gs.GetGroupById(groupId);
 			groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);

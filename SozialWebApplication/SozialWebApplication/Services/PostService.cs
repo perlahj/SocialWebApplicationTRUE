@@ -23,7 +23,6 @@ namespace SozialWebApplication.Services
 			}
 		}
 
-		// Has not been tested
 		public void AddNewPost(string userName, int groupId, string body)
 		{
 			Post p = new Post();
@@ -36,7 +35,6 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
-		// Has not been tested
 		public List<Post> GetLatestPostsForGroup(int groupId)
 		{
 			var posts = (from p in db.Posts
@@ -67,7 +65,7 @@ namespace SozialWebApplication.Services
 			return newsFeedPosts;
 		}
 
-		// Has not been tested
+
 		public void AddLike(int postId)
 		{
 			var post = (from p in db.Posts
