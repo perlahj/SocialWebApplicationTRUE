@@ -44,6 +44,6 @@ iframe{
 }
 
 .feed-body{
-    overflow: hidden;
+    overflow-y: scroll;
     height:335px;
 }

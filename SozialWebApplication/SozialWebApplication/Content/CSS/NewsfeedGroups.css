@@ -11,7 +11,7 @@
   font-size: 18px;
   font-weight: bold;
   margin-left: 10%;
-  position: absolute;
+  /*position: absolute;*/
   margin-top: -5%;
   margin-left: 15%;
 }
@@ -99,7 +99,7 @@
 }
 
 .post-date {
-  position: absolute;
+  /*position: absolute;*/
   margin-top: -1.5%;
   margin-left: 50%;
 }
