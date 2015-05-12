@@ -11,6 +11,7 @@ namespace SozialWebApplication.Models.ViewModels
 	{
 		public ApplicationUser userWithId { get; set; }
 		public List<ApplicationUser> AllUsers { get; set; }
+		public List<ApplicationUser> AllFollowing { get; set; }
 		public List<ApplicationUser> SearchResultsUsers { get; set; }
 		public List<Group> AllUserGroups { get; set; }
 		public List<Group> AllGroups { get; set; }
