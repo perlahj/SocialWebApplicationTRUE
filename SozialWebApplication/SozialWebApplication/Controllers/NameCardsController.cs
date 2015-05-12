@@ -32,8 +32,8 @@ namespace SozialWebApplication.Controllers
         {
 			nameCardVM.userWithId = us.GetUserByUserName(otherUser);
 			
-			return View(nameCardVM);
-			//return PartialView("~/Views/NameCards/OthersNameCard.cshtml", nameCardVM);
+			//return View(nameCardVM);
+			return PartialView("~/Views/NameCards/OthersNameCard.cshtml", nameCardVM);
         }
 
 
