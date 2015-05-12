@@ -11,7 +11,15 @@ namespace SozialWebApplication.Services
 	{
 		private ApplicationDbContext db = new ApplicationDbContext();
 
-		public void AddNewGroup (string groupName)
+        public Group GetGroupFromId(int id)
+        {
+            var groupWithId = (from gwi in db.Groups
+                               where gwi.Id == id
+                               select gwi).FirstOrDefault();
+            return groupWithId;
+        }
+        
+        public void AddNewGroup (string groupName)
 		{
 			Group g = new Group();
 			g.GroupName = groupName;

@@ -1,32 +1,9 @@
-﻿@{
-    ViewBag.Title = "PostGroup";
+﻿@{/*model SozialWebApplication.ViewModel.GroupViewModel*/}
+@model SozialWebApplication.ViewModel.GroupViewModel 
+
+@{
+    //ViewBag.Title = "PostGroup";
 }
-<h2>PostGroup</h2>
+<h2>@Model.Group.GroupName</h2>
 
-<div class="row">
-    <div class="col-sm-6 col-md-12">
-        <section id="groupCommentContainer">
-            @foreach (var post in Model.Posts)
-            {
-                <p>@post.Username | @post.Body</p>
-            }
-        </section>
-        <section>
-            <h4>Add Post</h4>
-            @using (Html.BeginForm("GroupPost", "Home", FormMethod.Post, new { id = "posts" }))
-            {
-                <input type="hidden" name="postId" value="@Model.Id" />
-                <div class="form-horizontal">
-                    <label class=" sr-only" for="postbody">Post</label>
-                    <textarea class="form-control" rows="5" id="postbody" name="postbody" style="max-width:100%"></textarea>
-                    <button id="submitpost" type="submit" class="btn btn-primary">Send</button>
-                </div>
-                @Html.ValidationSummary(false)
-            }
-        </section>
-    </div>
-</div>
-
-<p>
-    @Html.ActionLink("Back to list", "Index")
-</p>
+<p>@Model.</p>

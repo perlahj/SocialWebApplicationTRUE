@@ -6,11 +6,14 @@ using System.Web.Mvc;
 using SozialWebApplication.Models.ViewModels;
 using SozialWebApplication.ViewModel;
 using SozialWebApplication.Services;
+using SozialWebApplication.Models;
+using SozialWebApplication.Models.Entities;
 
 namespace SozialWebApplication.Controllers
 {
 	public class HomeController : Controller
 	{
+        private PostService ps = new PostService();
 		private GroupService gs = new GroupService();
 		private NameCardViewModel nameCardVM = new NameCardViewModel();
         private GroupViewModel GroupVM = new GroupViewModel();
@@ -24,25 +27,39 @@ namespace SozialWebApplication.Controllers
         {
             return PartialView("~/Views/Home/NewsfeedGroups.cshtml", GroupVM);
         }
+
+        [NonAction]
+        public List<Post> GroupPosts()
+        {
+            var name = (from i in ps.AddNewPost select i).ToList();
+            return name;
+        }
+        
+        [HttpGet]
+        public ActionResult GroupPost()
+        {
+            GroupViewModel model = new GroupViewModel();
+            model.Group = gs.GetGroupFromId(2);
+
+            //ps.AddNewPost("Palli", 2, "Takk fyrir seinast sæta");
+
+            return PartialView("~/Views/Home/GroupPost.cshtml", model);
+        }
+        
+        /*[HttpPost]
         public ActionResult GroupPost(FormCollection collection)
         {
-            string postId = collection["postid"];
-            string postBody = collection["postbody"];
-
-            if(String.IsNullOrEmpty(postId))
-            {
-                return View("Error");
-            }
-            if(String.IsNullOrEmpty(postBody))
-            {
-                return RedirectToAction("GroupPost", "Home", new { id = postId });
-            }
-
-            string username = System
-
             
+            int groupId = collection.Get("groupId");
+            string postBody = collection.Get("postbody");
+            string userName = User.Identity.Name;
+            ps.AddNewPost(userName, groupId, postBody);
 
-        }
+            private GroupViewModel model = new GroupViewModel();
+            model.Group = gs.GetGroupFromId(groupId);
+
+            return PartialView("~/Views/Home/PostGroups.cshtml", model);
+        }*/
 
 		public ActionResult About()
 		{
