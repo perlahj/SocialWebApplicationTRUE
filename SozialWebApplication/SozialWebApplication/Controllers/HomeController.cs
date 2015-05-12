@@ -39,7 +39,7 @@ namespace SozialWebApplication.Controllers
 			return View();
 		}
 
-		public ActionResult SearchGroups()
+		public ActionResult SearchGroups(int id)
 		{			
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
@@ -48,7 +48,7 @@ namespace SozialWebApplication.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult SearchGroups(FormCollection collection)
+		public ActionResult SearchGroups(int id, FormCollection collection)
 		{
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();

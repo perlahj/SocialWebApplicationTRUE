@@ -14,7 +14,7 @@
     {
         if (item.GroupName != null)
         {
-            <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }) </dt>
+            <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }, null) </dt>
         }
     }
 </dl>
@@ -24,7 +24,7 @@
 {
     if (item.GroupName != null)
     {
-        <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }) </dt>
+        <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }, null) </dt>
     }
 }
 </dl>
@@ -39,7 +39,7 @@ else
     {
         if (item.GroupName != null)
         {
-            <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroup", "Home", new { id = item.Id }) </dt>
+            <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroup", "Home", new { id = item.Id }, null) </dt>
         }
     }
 }
