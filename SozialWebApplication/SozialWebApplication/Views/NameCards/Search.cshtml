@@ -7,37 +7,52 @@
             <a href="Search"><input type="submit" class="search-button" /></a>
         </div>
     </div>
-}
+}   <h4>All users </h4>
     <dl>
         @foreach (var item in Model.AllUsers)
         {
             if (item.FullName != null)
             {
-               <dt class="follow-list">@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { id = item.UserName}) </dt>
+               <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCards", new { id = item.Id }, null); </dt> 
             }
             else
             {
-                <dt class="follow-list">@Html.ActionLink(item.UserName, "OthersNameCard", "NameCard", new { id = item.UserName }) </dt>
-            }
+                <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCards", new { id = item.Id }, null); </dt>
+            } 
         }
     </dl>
-    <dl>
-        @if (Model.SearchResultsUsers.Count() == 0)
-{
-}
-else
-{
-    foreach (var item in Model.SearchResultsUsers)
+<h4>All my friends</h4>
+<dl>
+    @foreach (var item in Model.AllFollowing)
     {
         if (item.FullName != null)
         {
-            <dt class="follow-list">@Html.ActionLink(item.FullName, "OthersNameCard", "NameCard", new { id = item.UserName }) </dt>
+            <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCards", new { id = item.Id }, null); </dt>
         }
         else
         {
-            <dt class="follow-list">@Html.ActionLink(item.UserName, "OthersNameCard", "NameCard", new { id = item.UserName }) </dt>
+            <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCards", new { id = item.Id }, null); </dt>
         }
     }
-}
+</dl>
+<h4>Search results</h4>
+    <dl>
+        @if (Model.SearchResultsUsers.Count() == 0)
+        {
+        }
+        else
+        {
+            foreach (var item in Model.SearchResultsUsers)
+            {
+                if (item.FullName != null)
+                {
+                <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCards", new { id = item.Id }, null) </dt> 
+                }
+                else
+                {
+                    <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCards", new { id = item.Id }, null) </dt>
+                }
+            }
+        }
    </dl>
 
