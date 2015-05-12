@@ -54,4 +54,16 @@
     });
     });
 
+    $(".match").click(function () {
+        event.preventDefault();
+
+        $.ajax({
+            url: "/NameCards/Search",
+        }).success(function (data) {
+            debugger;
+            $(".feed-body").empty();
+            $('.feed-body').html(data);
+        });
+    });
+
 </script>
