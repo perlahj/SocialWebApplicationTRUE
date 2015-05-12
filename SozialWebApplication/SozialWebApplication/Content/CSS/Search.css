@@ -35,18 +35,80 @@
     background-image: url('/Myndir/takkar.jpg');
 }
 
-.follow-list {
-    text-decoration:none;
-    text-decoration-color:black;
-    margin-left:50%;
-    font-weight:bold;
-}
-
-.search-groups-list {
-    margin-left: 48%;
+.search-result-list, .all-groups-list, .my-groups-list, .search-results-list, .all-users-list, .my-friends-list {
     text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 a:link {
+    text-decoration: none;
+}
+
+a.visited {
+    color: black;
+}
+
+.all-groups {
+    margin-bottom: 175%;
+    margin-top: 2%;
+}
+
+.search-groups-label {
+    margin-left: 76%;
+    margin-top: -170.5%;
+}
+
+.search-groups-list {
+    margin-left: 60%;
+}
+
+.all-groups-label {
+    margin-left: 47%;
+}
+
+.all-groups-list {
+    margin-left: 43%;
+}
+
+.my-groups-label {
+     margin-left: 17%;
+     margin-top: 0%;
+     position: absolute;
+}
+
+.my-groups-list {
+    margin-left: 30%;
+}
+
+.all-users {
+   margin-bottom: 35%;
+   margin-top: 2%;
+}
+
+.my-friends-label {
+    margin-left: 17%;
+  margin-top: -36%;
+}
+
+.my-friends-list {
+  margin-left: 17%;
+  margin-top: -36%;
+} 
+
+.all-users-label {
+    margin-left: 47%;
+}
+
+.all-users-list {
+    margin-left: 45%;
+} 
+
+.search-users-label {
+  margin-left: 76%;
+  margin-top: -3%;
+}
+
+.search-users-list {
 
 }

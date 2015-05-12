@@ -54,7 +54,7 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			nameCardVM.SearchResultsGroups = gs.SearchAllGroups("");
-            return PartialView("~/Views/Home/SearchGroups.cshtml", nameCardVM);
+            return View(nameCardVM);
 		}
 
 		[HttpPost]
@@ -63,7 +63,7 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			nameCardVM.SearchResultsGroups = gs.SearchAllGroups(collection.Get("search"));
-            return PartialView("~/Views/Home/SearchGroups.cshtml", nameCardVM);
+            return View(nameCardVM);
 		} 
 
         public ActionResult CheckMatch()
