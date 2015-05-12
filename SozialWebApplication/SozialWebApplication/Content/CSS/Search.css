@@ -16,7 +16,7 @@
 }
 
 .button {
-  margin-left: 34%;
+  margin-left: 36%;
   margin-top: -12%;
   margin-bottom: 3%;
 }
@@ -55,8 +55,8 @@ a.visited {
 }
 
 .search-groups-label {
-    margin-left: 76%;
-    margin-top: -170.5%;
+      margin-left: 76%;
+  margin-top: -232.5%;
 }
 
 .search-groups-list {
@@ -64,7 +64,8 @@ a.visited {
 }
 
 .all-groups-label {
-    margin-left: 47%;
+      margin-left: 47%;
+  margin-top: -3%;
 }
 
 .all-groups-list {
