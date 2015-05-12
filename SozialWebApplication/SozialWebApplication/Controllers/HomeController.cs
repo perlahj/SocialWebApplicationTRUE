@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SozialWebApplication.Models.ViewModels;
-using SozialWebApplication.ViewModel;
 using SozialWebApplication.Services;
 
 namespace SozialWebApplication.Controllers
@@ -20,10 +19,12 @@ namespace SozialWebApplication.Controllers
 			return View();
 		}
 
-        public ActionResult NewsfeedGroups(int? id)
+        public ActionResult NewsfeedGroups(int id)
         {
-            GroupViewModel
-			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", GroupVM);
+			GroupViewModel groupVM = new GroupViewModel();
+			groupVM.GroupWithId = gs.GetGroupById(id);
+			
+			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
         }
 
 		public ActionResult About()

@@ -1,9 +1,17 @@
-﻿
-@using (Html.BeginForm("NewsFeed", "Home"))
+﻿@model SozialWebApplication.Models.ViewModels.GroupViewModel
+@{if (Model.GroupWithId.Id == 0)
+  {
+    <p>News Feed</p>  
+  }
+  else
+  {
+      <p>@Model.GroupWithId.GroupName</p>
+  }
+  }
+
+@using (Html.BeginForm("NewsfeedGroups", "Home"))
 {
     <div class="newsfeed">
-        <p>Group name</p>
-
         <div class="post">
             <div class="post-img">
                 <input type="button" class="input-text" />
