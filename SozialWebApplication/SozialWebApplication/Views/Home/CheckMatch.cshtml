@@ -1,3 +1,21 @@
 ﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
 
 <h1>OMG!</h1>
+
+<div class="groups-labels">
+    <h4 class="my-groups-label">My Groups</h4>
+    <h4 class="all-groups-label">All Groups</h4>
+    <h4 class="search-groups-label">Search results</h4>
+</div>
+
+<div class=" my-groups">
+    <dl>
+        @foreach (var item in Model.AllMatches)
+        {
+            //if (item.GroupName != null)
+            //{
+                //<dt class="my-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }) </dt>
+            //}
+        }
+    </dl>
+</div>
