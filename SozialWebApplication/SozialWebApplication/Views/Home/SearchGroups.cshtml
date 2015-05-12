@@ -14,34 +14,34 @@
     {
         if (item.GroupName != null)
         {
-            <dt>@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }) </dt>
+            <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }) </dt>
         }
     }
 </dl>
 <h4>All Groups</h4>
 <dl>
     @foreach (var item in Model.AllGroups)
+{
+    if (item.GroupName != null)
     {
-        if (item.GroupName != null)
-        {
-            <dt>@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }) </dt>
-        }
+        <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }) </dt>
     }
+}
 </dl>
 <h4>Search results</h4>
 <dl>
     @if (Model.SearchResultsGroups.Count() == 0)
+{
+}
+else
+{
+    foreach (var item in Model.SearchResultsGroups)
     {
-    }
-    else
-    {
-        foreach (var item in Model.SearchResultsGroups)
+        if (item.GroupName != null)
         {
-            if (item.GroupName != null)
-            {
-                <dt>@Html.ActionLink(item.GroupName, "NewsfeedGroup", "Home", new { id = item.Id }) </dt>
-            }
+            <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroup", "Home", new { id = item.Id }) </dt>
         }
     }
+}
 </dl>
 
