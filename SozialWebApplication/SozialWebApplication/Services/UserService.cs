@@ -134,6 +134,15 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
+		public bool IsFollowing(string userFollowing, string userToFollow)
+		{
+			var followerConnection = (from dc in db.FollowerConnections
+									  where dc.UserFollowing == userFollowing &&
+									  dc.UserToFollow == userToFollow
+									  select dc).FirstOrDefault();
+			return followerConnection != null;
+		}
+
 		// Has not been tested
 		public List<ApplicationUser> GetAllFollowing(string userName)
 		{

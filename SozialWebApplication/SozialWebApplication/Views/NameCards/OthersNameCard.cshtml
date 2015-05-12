@@ -1,4 +1,5 @@
-﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
+﻿@using SozialWebApplication.Services
+@model SozialWebApplication.Models.ViewModels.NameCardViewModel
 <div>
     <div class="information">
         <img src="/Myndir/myndlogo.jpg" class="profile-picture" alt="profilepic">
@@ -6,15 +7,24 @@
         <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
         <p>@Html.DisplayFor(model => model.userWithId.Email)</p>
     </div>
-    <input type="button" class="follow-others" />
-    <input type="button" class="match-others" />
+    <!--<input type="button" class="follow-others" />
+    <input type="button" class="match-others" /> -->
  </div>
-
-
     @using (Html.BeginForm("OthersNameCard", "NameCards", FormMethod.Post))
     {
-            <input type="hidden" name="hidden-OthersUserName" value="@Model.userWithId.UserName"/>
-        <div class="follow-others">
-            <a href="OthersNameCard"><input type="submit" value="Follow"/></a>
-        </div>
+        if (SozialWebApplication.Services.UserService.Instance.IsFollowing(User.Identity.Name, Model.userWithId.UserName))
+        {
+            <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName"/>
+            <input type="hidden" name="hidden-follow-unfollow" value="unfollow"/>
+            <a href="OthersNameCard"><input type="submit" value="Unfollow"/></a>
+        }
+        else
+        {
+            <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName"/>
+    <input type="hidden" name="hidden-follow-unfollow" value="follow" />
+            <a href="OthersNameCard"><input type="submit" value="Follow"/></a> 
+        }    
+        
+
     }
+
