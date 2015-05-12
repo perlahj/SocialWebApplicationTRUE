@@ -60,7 +60,7 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers("");
-			return View(nameCardVM);
+			return PartialView("~/Views/NameCards/Search.cshtml", nameCardVM);
 		}
 
 		[HttpPost]
@@ -69,7 +69,7 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
-			return View(nameCardVM);
+            return PartialView("~/Views/NameCards/Search.cshtml", nameCardVM);
 		}
 		   
 	}

@@ -9,7 +9,7 @@
     });
 });
 
-$(".EditTest a").click(function () {
+/*$("#prufa").click(function () {
     alert("veiiii");
     event.preventDefault();
 
@@ -20,7 +20,7 @@ $(".EditTest a").click(function () {
         $(".feed-body").empty();
         $('.feed-body').html(data);
     });
-});
+});*/
 
 $.ajax({
     url: "/Home/NewsfeedGroups",
