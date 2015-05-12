@@ -58,6 +58,7 @@ namespace SozialWebApplication.Controllers
 		public ActionResult Search()
 		{
 			nameCardVM.AllUsers = us.GetAllUsers();
+			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers("");
 			return View(nameCardVM);
 		}
@@ -66,6 +67,7 @@ namespace SozialWebApplication.Controllers
 		public ActionResult Search(FormCollection collection)
 		{
 			nameCardVM.AllUsers = us.GetAllUsers();
+			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
 			return View(nameCardVM);
 		}

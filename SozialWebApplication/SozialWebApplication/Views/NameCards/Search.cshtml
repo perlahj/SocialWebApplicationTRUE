@@ -7,7 +7,7 @@
             <a href="Search"><input type="submit" class="search-button" /></a>
         </div>
     </div>
-}
+}   <h4>All users </h4>
     <dl>
         @foreach (var item in Model.AllUsers)
         {
@@ -21,6 +21,21 @@
             } 
         }
     </dl>
+<h4>All my friends</h4>
+<dl>
+    @foreach (var item in Model.AllFollowing)
+    {
+        if (item.FullName != null)
+        {
+            <dt>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCards", new { id = item.Id }, null); </dt>
+        }
+        else
+        {
+            <dt>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCards", new { id = item.Id }, null); </dt>
+        }
+    }
+</dl>
+<h4>Search results</h4>
     <dl>
         @if (Model.SearchResultsUsers.Count() == 0)
         {
