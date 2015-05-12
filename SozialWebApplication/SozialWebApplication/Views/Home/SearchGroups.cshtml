@@ -1,5 +1,5 @@
 ﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
-@Html.BeginForm("SearchGroups", "Home", FormMethod.Post))
+@using (Html.BeginForm("SearchGroups", "Home", FormMethod.Post))
 {
     <div class="searching">
         <input type="text" id="search" name="search" class="search" placeholder="Search ..." />
