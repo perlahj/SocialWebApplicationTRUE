@@ -13,6 +13,7 @@ namespace SozialWebApplication.Controllers
 	{
 		private GroupService gs = new GroupService();
 		private NameCardViewModel nameCardVM = new NameCardViewModel();
+        private GroupViewModel GroupVM = new GroupViewModel();
 		
 		public ActionResult Banner()
 		{
@@ -21,7 +22,7 @@ namespace SozialWebApplication.Controllers
 
         public ActionResult NewsfeedGroups(int? id)
         {
-            return View();
+            return PartialView("~/Views/Home/NewsfeedGroups.cshtml", GroupVM);
         }
 
 		public ActionResult About()

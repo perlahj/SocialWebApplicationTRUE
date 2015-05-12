@@ -9,10 +9,10 @@
     });
 });
 
-/*$(".EditTest a").click(function () {
+$(".EditTest a").click(function () {
     alert("veiiii");
     event.preventDefault();
-    
+
     $.ajax({
         url: "/NameCards/EditNameCard",
     }).success(function (data) {
@@ -20,7 +20,7 @@
         $(".feed-body").empty();
         $('.feed-body').html(data);
     });
-});*/
+});
 
 $.ajax({
     url: "/Home/NewsfeedGroups",
