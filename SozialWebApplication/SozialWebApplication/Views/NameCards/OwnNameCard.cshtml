@@ -7,8 +7,63 @@
             <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
             <p>@Html.DisplayFor(model => model.userWithId.Email)</p>
     </div>
-    <a href="~/NameCards/Search"><input type="button" class="follow" /></a>
-    <a href="~/Home/SearchGroups"><input type="button" class="groups" /></a>
-    <a href="~/NameCards/EditNameCard"><input type="button" class="edit" /></a>
-    <a href="~/NameCards/Search"><input type="button" class="match" /></a>
+    <input type="button" class="follow" />
+    <input type="button" class="groups" />
+    <input type="button" class="edit" />
+    <input type="button" class="match" />
 </div>
+
+
+
+<script>
+    $(".follow").click(function () {
+        event.preventDefault();
+
+        $.ajax({
+            url: "/NameCards/Search",
+        }).success(function (data) {
+            debugger;
+            $(".feed-body").empty();
+            $('.feed-body').html(data);
+        });
+    });
+
+    $(".groups").click(function () {
+        event.preventDefault();
+
+        $.ajax({
+            url: "/Home/SearchGroups",
+        }).success(function (data) {
+            debugger;
+            $(".feed-body").empty();
+            $('.feed-body').html(data);
+        });
+    });
+
+
+    $(".edit").click(function () {
+    /*alert("veiiii");*/
+    event.preventDefault();
+
+    $.ajax({
+        url: "/NameCards/EditNameCard",
+    }).success(function (data) {
+        debugger;
+        $(".feed-body").empty();
+        $('.feed-body').html(data);
+    });
+    });
+
+    $(".match").click(function () {
+        event.preventDefault();
+
+        $.ajax({
+            url: "/NameCards/Search",
+        }).success(function (data) {
+            debugger;
+            $(".feed-body").empty();
+            $('.feed-body').html(data);
+        });
+    });
+
+</script>

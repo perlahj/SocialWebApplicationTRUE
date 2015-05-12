@@ -60,18 +60,18 @@ namespace SozialWebApplication.Controllers
 		} */
 
 		[HttpGet]
-		public ActionResult EditNameCard()
+        public ActionResult EditNameCard()
 		{
-			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
+
+            nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 
             return PartialView("~/Views/NameCards/EditNameCard.cshtml", nameCardVM);
 		}
+
 		[HttpPost]
 		public ActionResult EditNameCard(FormCollection collection)
         {
-			
-			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
-			
+	
 			string fullName = collection.Get("input-name");
 			string lineOfStudy = collection.Get("input-los");
 			string email = collection.Get("input-email");
@@ -80,7 +80,11 @@ namespace SozialWebApplication.Controllers
 			us.ChangeLineOfStudy(User.Identity.Name, lineOfStudy);
 			us.ChangeEmail(User.Identity.Name, email);
 
-            return PartialView("~/Views/NameCards/EditNameCard.cshtml", nameCardVM);
+            nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
+
+            /*return PartialView("~/Views/NameCards/OwnNameCard.cshtml", nameCardVM);*/
+            /*return RedirectToAction("EditNameCard");*/
+            return new EmptyResult();
         }
 
 		public ActionResult Search()
@@ -88,7 +92,7 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers("");
-			return View(nameCardVM);
+			return PartialView("~/Views/NameCards/Search.cshtml", nameCardVM);
 		}
 
 		[HttpPost]
@@ -97,7 +101,7 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
-			return View(nameCardVM);
+            return PartialView("~/Views/NameCards/Search.cshtml", nameCardVM);
 		}
 		   
 	}

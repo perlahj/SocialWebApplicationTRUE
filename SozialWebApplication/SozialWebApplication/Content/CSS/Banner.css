@@ -47,3 +47,7 @@ iframe{
     overflow-y: scroll;
     height:335px;
 }
+
+.logout-button {
+    background-image: url('/Myndir/takkar.jpg');
+}
