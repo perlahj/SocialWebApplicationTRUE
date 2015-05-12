@@ -8,5 +8,13 @@
     </div>
     <input type="button" class="follow-others" />
     <input type="button" class="match-others" />
+ </div>
 
-</div>
+
+    @using (Html.BeginForm("OthersNameCard", "NameCards", FormMethod.Post))
+    {
+            <input type="hidden" name="hidden-OthersUserName" value="@Model.userWithId.UserName"/>
+        <div class="follow-others">
+            <a href="OthersNameCard"><input type="submit" value="Follow"/></a>
+        </div>
+    }
