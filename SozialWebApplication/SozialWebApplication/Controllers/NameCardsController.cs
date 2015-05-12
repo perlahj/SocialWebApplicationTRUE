@@ -43,7 +43,7 @@ namespace SozialWebApplication.Controllers
 			//nameCardVM.userWithId = UserService.Instance.GetUserByUserName(User.Identity.Name);
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 
-			return View(nameCardVM);
+            return PartialView("~/Views/NameCards/EditNameCard.cshtml", nameCardVM);
 		}
 		[HttpPost]
 		public ActionResult EditNameCard(FormCollection collection)
@@ -59,7 +59,7 @@ namespace SozialWebApplication.Controllers
 			us.ChangeLineOfStudy(User.Identity.Name, lineOfStudy);
 			us.ChangeEmail(User.Identity.Name, email);
 
-			return View(nameCardVM);
+            return PartialView("~/Views/NameCards/EditNameCard.cshtml", nameCardVM);
         }
 
 		/*public ActionResult Search(FormCollection collection)
