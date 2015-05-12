@@ -48,8 +48,8 @@ namespace SozialWebApplication.Controllers
 			gs.AddUserToGroup(1, User.Identity.Name);
 			gs.AddUserToGroup(2, User.Identity.Name);
 			gs.AddUserToGroup(3, User.Identity.Name);*/
-			gs.AddNewGroup("Study Buddies");
-			gs.AddNewGroup("Verklegt 2 Hópur 38 V2015");
+			//gs.AddNewGroup("Study Buddies");
+			//gs.AddNewGroup("Verklegt 2 Hópur 38 V2015");
 			
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();

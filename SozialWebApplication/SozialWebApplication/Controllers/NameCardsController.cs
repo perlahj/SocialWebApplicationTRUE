@@ -30,6 +30,34 @@ namespace SozialWebApplication.Controllers
 			return PartialView("~/Views/NameCards/OthersNameCard.cshtml", model);
         }
 
+		[HttpPost]
+		public ActionResult OthersNameCard(string id, FormCollection collection)
+		{
+			string othersUserName = collection.Get("hidden-othersUserName");
+			string action = collection.Get("hidden-follow-unfollow");
+			if(action == "follow")
+			{
+				us.AddNewFollow(User.Identity.Name, othersUserName);
+			}
+			else if(action == "unfollow")
+			{
+				us.RemoveFollow(User.Identity.Name, othersUserName);
+			}
+
+			NameCardViewModel model = new NameCardViewModel();
+			model.userWithId = us.GetUserById(id);
+			return PartialView("~/Views/NameCards/OthersNameCard.cshtml", model);
+		}
+
+		/*[HttpPost]
+		public ActionResult RemoveFollow(string id, FormCollection collection)
+		{
+			string othersUserName = collection.Get("hidden-OthersUserName");
+			us.RemoveFollow(User.Identity.Name, othersUserName);
+			NameCardViewModel model = new NameCardViewModel();
+			model.userWithId = us.GetUserById(id);
+			return PartialView("~/Views/NameCards/OthersNameCard.cshtml", model);
+		} */
 
 		[HttpGet]
         public ActionResult EditNameCard()
