@@ -24,6 +24,7 @@ namespace SozialWebApplication.Controllers
         {
 			GroupViewModel groupVM = new GroupViewModel();
 			groupVM.GroupWithId = gs.GetGroupById(id);
+			groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
 			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
         }
 
@@ -35,6 +36,7 @@ namespace SozialWebApplication.Controllers
 
 			GroupViewModel groupVM = new GroupViewModel();
 			groupVM.GroupWithId = gs.GetGroupById(id);
+			groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
 
 			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
 		}

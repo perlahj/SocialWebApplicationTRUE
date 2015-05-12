@@ -8,7 +8,7 @@
       <p>@Model.GroupWithId.GroupName</p>
   }
   }
-
+<!--Posting-->
 @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
 {
     <div class="newsfeed">
@@ -26,20 +26,25 @@
 }
 
 <div class="all-posts">
-    <p class="post-name">Name</p>
-    <p class="post-date">Date Created</p>
-
-    <div class="each-post">
-        <div class="post-content">
-
+    @foreach (var item in Model.GroupPosts)
+    {
+        <p class="post-name">@item.UserName</p>
+        <p class="post-date">@item.DateCreated</p>
+        <div class="each-post">
+            <div class="post-content">
+                <p>@item.Body</p>
+            </div>
+            <div class="like">
+                <input type="button" class="like-img" />
+                <p>@item.Like</p>
+            </div>
+        <p class="post-comment">Comment</p>
         </div>
+    }
+    
 
-        <div class="like">
-            <input type="button" class="like-img" />
-        </div>
-    </div>
 
-    <p class="post-comment">Comment</p>
+    
 
 </div>
 
