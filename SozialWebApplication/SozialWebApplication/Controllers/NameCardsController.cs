@@ -14,27 +14,20 @@ namespace SozialWebApplication.Controllers
     {
 
 		private UserService us = new UserService();
-		//private GroupService gs = new GroupService();
 		private NameCardViewModel nameCardVM = new NameCardViewModel();
 		
 		public ActionResult OwnNameCard()
         {
-            //[ChildActionOnlyAttribute]
-            
-          /*  var ownnamecard = User.Identity.Name*/
-            /*return PartialView();*/
-            //return PartialView("OwnNameCard");
-
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 			
 			return PartialView("~/Views/NameCards/OwnNameCard.cshtml", nameCardVM);
         }
 
-        public ActionResult OthersNameCard(string userName)
+        public ActionResult OthersNameCard(string id)
         {
-			nameCardVM.userWithId = us.GetUserByUserName(userName);
-			
-			return View();
+			NameCardViewModel model = new NameCardViewModel();
+			model.userWithId = us.GetUserById(id);
+			return PartialView("~/Views/NameCards/OthersNameCard.cshtml", model);
         }
 
 
@@ -65,6 +58,7 @@ namespace SozialWebApplication.Controllers
 		public ActionResult Search()
 		{
 			nameCardVM.AllUsers = us.GetAllUsers();
+			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers("");
 			return View(nameCardVM);
 		}
@@ -73,24 +67,10 @@ namespace SozialWebApplication.Controllers
 		public ActionResult Search(FormCollection collection)
 		{
 			nameCardVM.AllUsers = us.GetAllUsers();
+			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
 			return View(nameCardVM);
 		}
-
-		/*public ActionResult SearchGroups()
-		{
-			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
-			//nameCardVM.SearchResultsGroups = gs.SearchAllGroups("");
-			return View(nameCardVM);
-		}
-
-		/*[HttpPost]
-		public ActionResult SearchGroups(FormCollection collection)
-		{
-			nameCardVM.AllUsers = us.GetAllUsers();
-			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
-			return View(nameCardVM);
-		}  */
 		   
 	}
 

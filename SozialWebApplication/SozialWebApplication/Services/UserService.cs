@@ -56,7 +56,16 @@ namespace SozialWebApplication.Services
 							where u.UserName == userName
 							select u).FirstOrDefault();
 			return user;
+		}
+		
+		public ApplicationUser GetUserById(string id)
+		{
+			var user = (from u in db.Users
+						where u.Id == id
+						select u).FirstOrDefault();
+			return user;
 		} 
+
 
 		public List<ApplicationUser> GetAllUsers()
 		{
