@@ -8,8 +8,8 @@
         </div>
     </div>
 }
+<h4>My Groups</h4>
 <dl>
-    <h4>My Groups</h4>
     @foreach (var item in Model.AllUserGroups)
     {
         if (item.GroupName != null)
@@ -18,8 +18,8 @@
         }
     }
 </dl>
+<h4>All Groups</h4>
 <dl>
-    <h4>All Groups</h4>
     @foreach (var item in Model.AllGroups)
     {
         if (item.GroupName != null)
@@ -28,8 +28,8 @@
         }
     }
 </dl>
+<h4>Search results</h4>
 <dl>
-    <h4>Search results</h4>
     @if (Model.SearchResultsGroups.Count() == 0)
     {
     }
