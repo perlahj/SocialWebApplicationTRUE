@@ -12,6 +12,8 @@
         <div class="my-name">
             @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
         </div>
+
+        <input type="button" name="logout" value="Log Out" class="logout-button"/>
     </div>
 
     <br/>

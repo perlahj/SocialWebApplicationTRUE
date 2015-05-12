@@ -15,8 +15,35 @@
         </div>
 
     <input type="submit" value="Save" class="save"/>
-    <a href="OwnNameCard"><input type="button" value="Back" class="back"/></a>
+    <input type="button" value="Back" class="back"/>
       }
 </div>
+
+<script>
+    $(".save").submit(function () {
+        event.preventDefault();
+        /*return false;*/
+        $.ajax({
+            url: "/NameCards/OwnNameCard",
+        }).success(function (data) {
+            debugger;
+            $(".feed-body").empty();
+            $('.feed-body').html(data);
+        });
+    });
+
+    $(".back").click(function () {
+        event.preventDefault();
+
+        $.ajax({
+            url: "/NameCards/OwnNameCard",
+        }).success(function (data) {
+            debugger;
+            $(".feed-body").empty();
+            $('.feed-body').html(data);
+        });
+    });
+</script>
+
 
 
