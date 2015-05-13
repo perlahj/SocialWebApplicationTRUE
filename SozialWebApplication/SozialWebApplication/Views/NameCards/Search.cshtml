@@ -90,11 +90,11 @@
                 {
                     if (item.FullName != null)
                     {
-                        <dt class="search-results-list">@Html.ActionLink(item.FullName, "OthersNameCard", "NameCards", new { id = item.Id }, null) </dt>
+                        <dt class="search-users-list">@Html.ActionLink(item.FullName, "OthersNameCard", "NameCards", new { id = item.Id }, null) </dt>
                     }
                     else
                     {
-                        <dt class="search-results-list">@Html.ActionLink(item.UserName, "OthersNameCard", "NameCards", new { id = item.Id }, null) </dt>
+                        <dt class="search-users-list">@Html.ActionLink(item.UserName, "OthersNameCard", "NameCards", new { id = item.Id }, null) </dt>
                     }
                 }
             }

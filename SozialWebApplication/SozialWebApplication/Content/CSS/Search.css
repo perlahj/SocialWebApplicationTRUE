@@ -1,82 +1,118 @@
-﻿/* Search bar*/
+﻿/* Add new group */
 
-.search-button {
-    background-image: url('/Myndir/search.jpg');
-    border: none;
-    background-repeat: no-repeat;
-    background-size: 103%;
-    cursor: pointer;
-    border: none;
-    width: 20px;
-    height: 20px;
-    margin-left: 1%;
+.add-and-search {
+    margin-top: 2%;
 }
 
+.adding {
+    margin-right: 3%;
+    text-aling: center;
+}
+
+.newgroup-box {
+  text-align: center;
+  font-weight: bold;
+  background-image: url('/Myndir/input.jpg');
+  border: 1px solid #ffd600;
+  border-radius: 4px;
+  line-height: 25px;
+  width: 259px;
+  float: left;
+  margin-top: 1%;
+  margin-left: 10%;
+}
+
+.addnewgroup-button {
+  background-image: url(/Myndir/takkar.jpg);
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  border-color: #faa61f;
+  cursor: pointer;
+  width: 90px;
+  line-height: 22px;
+  font-weight: bold;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+/* Search bar */
+
 .searching {
-    margin-top:1%;
-    margin-left:38%;
+  margin-top: -5.5%;
+  text-align: right;
+  margin-right: 7%;
+}
+
+.search-box {
+  text-align: center;
+  font-weight: bold;
+  background-image: url('/Myndir/input.jpg');
+  border: 1px solid #ffd600;
+  border-radius: 4px;
+  line-height: 26px;
+  width: 259px;
+  float: left;
+  margin-left: 37%;
 }
 
 .button {
-  margin-left: 36%;
-  margin-top: -12%;
+  margin-left: -1%;
   margin-bottom: 3%;
 }
 
-.search {
-  text-align: center;
-  font-weight: bold;
+.search-button {
+  background-image: url('/Myndir/search.jpg');
+  border: none;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.5%;
+  margin-right: 3%;
 }
 
-.back {
-    border-radius: 4px;
-    border-color: #faa61f;
-    line-height: 25px;
-    width: 70px;
-    font-weight: bold;
-    background-image: url('/Myndir/takkar.jpg');
-}
+/* Search followers and groups - display lists */
 
-/*Search followers and groups - display lists*/
-
-.search-result-list, .all-groups-list, .my-groups-list, .search-results-list, .all-users-list, .my-friends-list {
+.search-groups-list, .all-groups-list, .my-groups-list, .search-users-list, .all-users-list, .my-friends-list {
     text-decoration: none;
     font-size: 25px;
     font-weight: bold;
 }
 
-a:link {
-    text-decoration: none;
-}
-
-a.visited {
-    color: black;
-}
-
 /*Search groups */
 
 .groups-lists {
-
+  margin-top: 5%;
+  float: left;
+  width: 33%;
 }
+
+
+.my-groups-label, .all-groups-label, .search-groups-label {
+    font-size: 20px;
+}
+
 
 .groups-labels {
+    text-decoration: underline;
+} 
 
-}
-
+/*
 .my-groups-label {
-    margin-left: 13%;
-    margin-top: 1%;
+    margin-left: 17.5%;
 }
 
 .all-groups-label {
-    margin-left: 47%;
-    margin-top: -3%;
+  margin-left: 49%;
+  margin-top: -3%;
 }
 
 .search-groups-label {
-    margin-left: 79%;
-    margin-top: -3%;
+  margin-left: 74%;
+  margin-top: -3%;
 }
+
 
 .my-groups {
 
@@ -89,17 +125,10 @@ a.visited {
 .search-groups {
  
 }
+    */
 
-.my-groups-list {
-    margin-left: 30%;
-}
-
-.all-groups-list {
-    margin-left: 43%;
-}
-
-.search-groups-list {
-    margin-left: 60%;
+.my-groups-list, .all-groups-list, .search-groups-list {
+    text-align: center;
 }
 
 /*Search followers*/

@@ -6,11 +6,12 @@
     }
 
     <br />
+    
     <div class="namecard-button">
         <a href="/Home/NewsfeedGroups/111">
             <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
-
         </a>
+
         <div class="my-name">
             @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
         </div>
@@ -30,81 +31,102 @@
 
     <div class="overflowceeper">
         <div class="feed-body">
-            @using (Html.BeginForm("SearchGroups", "Home", FormMethod.Post))
-{
-    <div class="searching">
-        <input type="text" id="search" name="search" class="search" placeholder="Search ..." />
-        <div class="button">
-            <a href="SearchGroups"><input type="submit" value=" " name="submit" class="search-button" /></a>
-        </div>
-    </div>
-}
-@using (Html.BeginForm("AddNewGroup", "Home", FormMethod.Post))
-{
-    <div>
-        <input type="text" id="newgroup-name" name="newgroup-name" class="newgroup-name" placeholder="Group name..." />
-        <div class="button">
-            <input type="submit" value="Create group" name="submit" class="addnewgroup-button" />
-        </div>
-    </div>
-}
-
-<div class="groups-lists">
-
-    <div class="groups-labels">
-        <h4 class="my-groups-label">My Groups</h4>
-        <h4 class="all-groups-label">All Groups</h4>
-        <h4 class="search-groups-label">Search results</h4>
-    </div>
-
-    <div class=" my-groups">
-        <dl>
-            @foreach (var item in Model.AllUserGroups)
-            {
-                if (item.GroupName != null)
+            <div class="add-and-search">
+                <!-- Adding -->
+                @using (Html.BeginForm("AddNewGroup", "Home", FormMethod.Post))
                 {
-                    <dt class="my-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }, null) </dt>
-                }
-            }
-        </dl>
-    </div>
+                    <div class="adding">
+                        <input type="text" id="newgroup-name" name="newgroup-name" class="newgroup-box" placeholder="Group name..." />
 
-    <div class="all-groups">
-        <dl>
-            @foreach (var item in Model.AllGroups)
-            {
-                if (item.GroupName != null)
+                        <div class="button">
+                            <input type="submit" value="Create group" name="submit" class="addnewgroup-button" />
+                        </div>
+                    </div>
+                }
+
+                <!-- Searching -->
+                @using (Html.BeginForm("SearchGroups", "Home", FormMethod.Post))
                 {
-                    <dt class="all-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }, null) </dt>
+                    <div class="searching">
+                        <input type="text" id="search" name="search" class="search-box" placeholder="Search ..." />
+
+                        <div class="button">
+                            <a href="SearchGroups"><input type="submit" value="" name="submit" class="search-button" /></a>
+                        </div>
+                    </div>
                 }
-            }
-        </dl>
-    </div>
 
-    <div class="search-groups">
-        <dl>
-            @if (Model.SearchResultsGroups.Count() == 0)
-            {
-            }
-            else
-            {
-                foreach (var item in Model.SearchResultsGroups)
-                {
-                    if (item.GroupName != null)
-                    {
-                        <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }, null) </dt>
-                    }
-                }
-            }
-        </dl>
-    </div>
+            </div>
 
-</div>
+            <table class="groups-lists">
+                <thead class="groups-labels">
+                    <tr>
+                        <th class="my-groups-label">My Groups</th>
+                    </tr> 
+                </thead>
+                <tbody>
+                        <!-- <div class=" my-groups"> -->
+                        @foreach (var item in Model.AllUserGroups)
+                        {
+                            if (item.GroupName != null)
+                            {   
+                                <tr>
+                                    <td class="my-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }, null) </td>
+                                </tr>
+                            }
+                        }
+                 </tbody>
+            </table>
 
-        </div>
-    </div>
+            <table class="groups-lists">
+                <thead class="groups-labels">
+                    <tr>
+                        <th class="all-groups-label">All Groups</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <!-- <div class="all-groups"> -->
+                        @foreach (var item in Model.AllGroups)
+                        {
+                            if (item.GroupName != null)
+                            {   
+                                <tr>
+                                    <td class="all-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }, null) </td>
+                                </tr>
+                            }
+                        } 
+                </tbody>
+            </table>
 
+            <table class="groups-lists">
+                <thead class="groups-labels">
+                    <tr>
+                        <th class="search-groups-label">Search results</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <!-- <div class="search-groups"> -->
+                        @if (Model.SearchResultsGroups.Count() == 0)
+                        {
+                        }
+
+                        else
+                        {
+                            foreach (var item in Model.SearchResultsGroups)
+                            {
+                                if (item.GroupName != null)
+                                {  
+                                    <tr>
+                                        <td class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }, null) </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                </tbody>
+            </table>
+
+        </div> <!--feed-body-->
+    </div> <!--overflowceeper-->
     <br />
-
 </div>
 
