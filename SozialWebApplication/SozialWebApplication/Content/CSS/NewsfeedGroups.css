@@ -98,11 +98,13 @@
 .post-name {
   margin-left: -32%;
   margin-bottom: -4%;
+  font-weight: bold;
 }
 
 .post-date {
   margin-left: 70%;
   margin-bottom: 0%;
+  font-weight: bold;
 }
 
 .post-comment{
@@ -163,4 +165,19 @@
 .comment-form{
     background-color: #FDEBB9;
     padding: 1%;
+}
+
+.comment-info{
+    display: inline;
+}
+
+.comment-post-date {
+    margin-top: -3%;
+    margin-left: 87%;
+    font-weight: bold;
+}
+
+.comment-post-name{
+    margin-left: 2%;
+    font-weight: bold;
 }

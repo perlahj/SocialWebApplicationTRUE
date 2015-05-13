@@ -204,6 +204,7 @@
     <Content Include="Myndir\Background.jpg" />
     <Content Include="Myndir\input.jpg" />
     <Content Include="Myndir\match.jpg" />
+    <Content Include="Myndir\minus.jpg" />
     <Content Include="Myndir\myndlogo.jpg" />
     <Content Include="Myndir\AddFollower.png" />
     <Content Include="Myndir\addgroup.png" />
@@ -217,6 +218,7 @@
     <Content Include="Myndir\Matched.png" />
     <Content Include="Myndir\Mynd.png" />
     <Content Include="Myndir\Photo.png" />
+    <Content Include="Myndir\Plus_sign.png" />
     <Content Include="Myndir\search.jpg" />
     <Content Include="Myndir\takkar.jpg" />
     <Content Include="Myndir\TextLogo.png" />
