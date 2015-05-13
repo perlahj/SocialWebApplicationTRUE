@@ -18,6 +18,8 @@ namespace SozialWebApplication.Controllers
     {
 		// For adding every new user to group: News Feed
 		GroupService gs = new GroupService();
+		// To make every new user followe him/herself.
+		UserService us = new UserService();
 
 		public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
@@ -90,9 +92,11 @@ namespace SozialWebApplication.Controllers
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);
-					// Add newly created user to group: News Feed
+					// Add newly created user to group: News Feed.
 					int groupId = gs.GetGroupIdbyName("News Feed");
 					gs.AddUserToGroup(groupId, user.UserName);
+					// Make every new follower follow him/herself.
+					us.AddNewFollow(user.UserName, user.UserName);
                     return RedirectToAction("Login", "Account");
                 }
                 else
