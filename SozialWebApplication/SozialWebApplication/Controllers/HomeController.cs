@@ -139,6 +139,8 @@ namespace SozialWebApplication.Controllers
 
         public ActionResult CheckMatch()
         {
+            //us.AddMatch("Palli", "astagis");
+            //us.AddMatch("Malli", "astagis");
             // senda model inn i rett view og tha er haegt ad vinna med gognin
             nameCardVM.AllMatches = us.GetAllDoubleMatches(User.Identity.Name);
 
