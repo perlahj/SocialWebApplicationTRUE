@@ -1,15 +1,14 @@
 ﻿@model SozialWebApplication.Models.LandingPageModel
 @using SozialWebApplication.Services
 
-@var NewsfeedID = SozialWebApplication.Services.GroupService.Instance.GetGroupIdbyName("News Feed");
-@string ReturnURL = "Home/NewsfeedGroup/" + NewsfeedID;
+<!--'att'SozialWebApplication.Services.GroupService-->
 
 @{
     ViewBag.Title = "Log in";
 }
 
 <div>
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = "ReturnURL" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = "/Home/NewsfeedGroups/111" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
     <div class="errorMessage">

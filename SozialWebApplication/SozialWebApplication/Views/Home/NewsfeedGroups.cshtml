@@ -1,4 +1,8 @@
-﻿<div class="bc">
+﻿@model SozialWebApplication.Models.ViewModels.GroupViewModel
+@using SozialWebApplication.Services
+@using SozialWebApplication.Models.Entities
+
+<div class="bc">
     @{
         ViewBag.Title = "Banner";
     }
@@ -6,7 +10,7 @@
     <br />
     
     <div class="namecard-button">
-        <a href="NewsfeedGroups/1">
+        <a href="~/Home/NewsfeedGroups/111">
             <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
         </a>
         
@@ -29,9 +33,6 @@
 
     <div class="overflowceeper">
         <div class="feed-body">
-            @model SozialWebApplication.Models.ViewModels.GroupViewModel
-            @using SozialWebApplication.Services
-            @using SozialWebApplication.Models.Entities
             @{if (Model.GroupWithId.Id == 0)
             {
                 <p>News Feed</p>    
