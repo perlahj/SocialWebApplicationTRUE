@@ -8,6 +8,15 @@
         </div>
     </div>
 }
+@using (Html.BeginForm("AddNewGroup", "Home", FormMethod.Post))
+{
+    <div>
+        <input type="text" id="newgroup-name" name="newgroup-name" class="newgroup-name" placeholder="Group name..." />
+        <div class="button">
+            <input type="submit" value="Create group" name="submit" class="addnewgroup-button" />
+        </div>
+    </div>
+}
 
 <div class="groups-lists">
 
@@ -52,7 +61,7 @@
                 {
                     if (item.GroupName != null)
                     {
-                        <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroup", "Home", new { id = item.Id }, null) </dt>
+                        <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }, null) </dt>
                     }
                 }
             }

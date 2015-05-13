@@ -93,7 +93,7 @@ namespace SozialWebApplication.Controllers
 		}
 
 		public ActionResult SearchGroups()
-		{			
+		{
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			nameCardVM.SearchResultsGroups = gs.SearchAllGroups("");
@@ -101,13 +101,29 @@ namespace SozialWebApplication.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult SearchGroups(int id, FormCollection collection)
+		public ActionResult SearchGroups(FormCollection collection)
 		{
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			nameCardVM.SearchResultsGroups = gs.SearchAllGroups(collection.Get("search"));
             return PartialView("~/Views/Home/SearchGroups.cshtml", nameCardVM);
-		} 
+		}
+
+		[HttpPost]
+		public ActionResult AddNewGroup(FormCollection collection)
+		{
+			string groupName = collection.Get("newgroup-name");
+			gs.AddNewGroup(groupName);
+			int groupId = gs.GetGroupIdbyName(groupName);
+			gs.AddUserToGroup(groupId, User.Identity.Name);
+			
+			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
+			nameCardVM.AllGroups = gs.GetAllGroups();
+			nameCardVM.SearchResultsGroups = gs.SearchAllGroups(collection.Get(""));
+			return PartialView("~/Views/Home/SearchGroups.cshtml", nameCardVM);
+		}
+
+
 
         public ActionResult CheckMatch()
         {
