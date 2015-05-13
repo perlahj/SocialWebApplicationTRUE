@@ -35,7 +35,7 @@ namespace SozialWebApplication.Controllers
 				groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
 			}
 
-			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
+			return View(groupVM);
         }
 
 		[HttpPost]
@@ -45,10 +45,20 @@ namespace SozialWebApplication.Controllers
 			ps.AddNewPost(User.Identity.Name, id, postBody);
 
 			GroupViewModel groupVM = new GroupViewModel();
-			groupVM.GroupWithId = gs.GetGroupById(id);
-			groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
+			int newsFeedId = gs.GetGroupIdbyName("News Feed");
+			if (id == newsFeedId)
+			{
+				groupVM.GroupWithId = gs.GetGroupById(id);
+				groupVM.GroupPosts = ps.GetLatestPostsForNewsFeed(User.Identity.Name);
+			}
+			else
+			{
+				groupVM.GroupWithId = gs.GetGroupById(id);
+				groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
+			}
+			
 
-			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
+			return View(groupVM);
 		}
 
 		[HttpPost]
