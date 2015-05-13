@@ -104,7 +104,7 @@
                                 }
                                 
                             </div>
-
+                             
                             <div class="like">
                                 <!-- <input type="button" class="like-img" /> -->
                     
@@ -136,21 +136,32 @@
                             @{List<Comment> commentsForPost = SozialWebApplication.Services.PostService.Instance.GetAllCommentsForPost(post.Id);}
                 
                             @foreach (var comment in commentsForPost)
-                            {
-                                <p>@comment.UserName</p>
-                                <p>@comment.DateCreated</p>
-                                <p class="post-comment">@comment.Body</p>
-                            }
+                            {    
+                                <div class="CommentDisplayParent">
+                                <div class="CommentDisplay">
+
+                                        <div class="comment-post-name">
+                                            <p>@comment.UserName</p>
+                                        </div>
+                                        <div class="comment-post-date">
+                                            <p>@comment.DateCreated</p>
+                                        </div>
+                                        <p class="post-comment">@comment.Body</p>
+
+                                    
+                                </div>
+                            </div>
                         </div>
+                            </div>
+                            }
                     </div>
-                }
+                            
+               
             </div>
+                }
         </div> <!--feed-body-->
     </div> <!--overflowceeper-->
-
     <br />
-
-</div> <!--bc-->
 
 
 
