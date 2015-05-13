@@ -11,6 +11,18 @@ namespace SozialWebApplication.Services
 	{
 		private ApplicationDbContext db = new ApplicationDbContext();
 
+		private static GroupService instance;
+
+		public static GroupService Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new GroupService();
+				return instance;
+			}
+		}
+
 		public Group GetGroupById(int id)
 		{
 			var groupWithId = (from gwi in db.Groups
