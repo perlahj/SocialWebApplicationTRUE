@@ -23,7 +23,7 @@ namespace SozialWebApplication.Services
 			}
 		}
 
-		public void AddNewPost(string userName, int groupId, string body)
+		public void AddNewPost(string userName, int groupId, string body, PostType postType)
 		{
 			Post p = new Post();
 			p.UserName = userName;
@@ -31,6 +31,7 @@ namespace SozialWebApplication.Services
 			p.DateCreated = DateTime.Now;
 			p.Body = body;
 			p.Like = 0;
+			p.PostType = postType;
 			db.Posts.Add(p);
 			db.SaveChanges();
 		}
@@ -122,6 +123,12 @@ namespace SozialWebApplication.Services
 							orderby c.DateCreated descending
 							select c).Take(25).ToList();
 			return comments;
+		}
+
+		public string ParseVideoString(string str)
+		{
+			int length = str.Length;
+			return str.Substring(17, (length - 17));
 		}
     }
 }
