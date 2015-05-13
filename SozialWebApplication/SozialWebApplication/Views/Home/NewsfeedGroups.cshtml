@@ -1,15 +1,45 @@
-﻿@model SozialWebApplication.Models.ViewModels.GroupViewModel
+﻿<div class="bc">
+    @{
+        ViewBag.Title = "Banner";
+    }
+
+    <br />
+    <div class="namecard-button">
+        <a href="Banner">
+            <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
+
+        </a>
+        <div class="my-name">
+            @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
+        </div>
+
+        @using (Html.BeginForm("LogOff", "Account", new { ReturnUrl = "/Account/Login" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                <input type="submit" value="Log Out" class="logout-button" />
+            </div>
+        }
+
+    </div>
+
+    <br />
+
+    <div class="overflowceeper">
+        <div class="feed-body">
+            @model SozialWebApplication.Models.ViewModels.GroupViewModel
 @using SozialWebApplication.Services
 @using SozialWebApplication.Models.Entities
 @{if (Model.GroupWithId.Id == 0)
-  {
-    <p>News Feed</p>  
-  }
-  else
-  {
-      <p>@Model.GroupWithId.GroupName</p>
-  }
-  }
+{
+    <p>News Feed</p>
+}
+else
+{
+    <p>@Model.GroupWithId.GroupName</p>
+}
+}
 <!--Posting-->
 @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
 {
@@ -52,22 +82,32 @@
             <!--Form for new comment-->
             @using (Html.BeginForm("AddComment", "Home", FormMethod.Post))
             {
-                    <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
-                    <input type="hidden" name="hidden-postId" value="@post.Id" />
-                    <input type="text" name="comment-input" id="comment-input" class="comment-input" placeholder="What do you think?" />
-                    <input type="submit" value="Send" />
+                <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
+                <input type="hidden" name="hidden-postId" value="@post.Id" />
+                <input type="text" name="comment-input" id="comment-input" class="comment-input" placeholder="What do you think?" />
+                <input type="submit" value="Send" />
             }
             <!--Display top 25 comments for post-->
             @{List<Comment> commentsForPost = SozialWebApplication.Services.PostService.Instance.GetAllCommentsForPost(post.Id);}
-              @foreach(var comment in commentsForPost)
-              {
-                  <p>@comment.UserName</p>
-                  <p>@comment.DateCreated</p>
-                  <p class="post-comment">@comment.Body</p>  
-              }
+            @foreach (var comment in commentsForPost)
+            {
+                <p>@comment.UserName</p>
+                <p>@comment.DateCreated</p>
+                <p class="post-comment">@comment.Body</p>
+            }
         </div>
 
     }
 </div>
+
+
+
+        </div>
+    </div>
+
+    <br />
+
+</div>
+
 
 

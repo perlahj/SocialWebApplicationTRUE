@@ -25,7 +25,7 @@ namespace SozialWebApplication.Controllers
 			GroupViewModel groupVM = new GroupViewModel();
 			groupVM.GroupWithId = gs.GetGroupById(id);
 			groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
-			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
+			return View(groupVM);
         }
 
 		[HttpPost]
@@ -38,7 +38,7 @@ namespace SozialWebApplication.Controllers
 			groupVM.GroupWithId = gs.GetGroupById(id);
 			groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
 
-			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
+			return View(groupVM);
 		}
 
 		[HttpPost]
@@ -78,22 +78,8 @@ namespace SozialWebApplication.Controllers
 			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
 		}
 
-		public ActionResult About()
-		{
-			ViewBag.Message = "Your application description page.";
-
-			return View();
-		}
-
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
-
-			return View();
-		}
-
 		public ActionResult SearchGroups()
-		{			
+		{
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			nameCardVM.SearchResultsGroups = gs.SearchAllGroups("");
@@ -101,13 +87,34 @@ namespace SozialWebApplication.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult SearchGroups(int id, FormCollection collection)
+		public ActionResult SearchGroups(FormCollection collection)
 		{
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			nameCardVM.SearchResultsGroups = gs.SearchAllGroups(collection.Get("search"));
             return PartialView("~/Views/Home/SearchGroups.cshtml", nameCardVM);
-		} 
+		}
+
+		[HttpPost]
+		public ActionResult AddNewGroup(FormCollection collection)
+		{
+			string groupName = collection.Get("newgroup-name");
+			gs.AddNewGroup(groupName);
+			int groupId = gs.GetGroupIdbyName(groupName);
+			// Register user to the new group.
+			gs.AddUserToGroup(groupId, User.Identity.Name);
+			// Post to the newly created group.
+			string postBody = User.Identity.Name + " created the group " + groupName + "!";
+			
+			ps.AddNewPost(User.Identity.Name, groupId, postBody);
+			
+			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
+			nameCardVM.AllGroups = gs.GetAllGroups();
+			nameCardVM.SearchResultsGroups = gs.SearchAllGroups(collection.Get(""));
+			return PartialView("~/Views/Home/SearchGroups.cshtml", nameCardVM);
+		}
+
+
 
         public ActionResult CheckMatch()
         {
