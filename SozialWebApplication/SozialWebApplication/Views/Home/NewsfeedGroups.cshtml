@@ -39,21 +39,25 @@
         <!--Add group to favorite or remove from favorite groups.-->    
         <div class="add-favgroup">
           
-                @using (Html.BeginForm("ClickAddToFavorite", "Home", FormMethod.Post))
-                {
-                    if(!SozialWebApplication.Services.GroupService.Instance.IsUserInGroup(Model.GroupWithId.Id, User.Identity.Name))
+                @if (Model.GroupWithId.GroupName != "News Feed")
+                { 
+                    using (Html.BeginForm("ClickAddToFavorite", "Home", FormMethod.Post))
                     {
-                         <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
-                        <input type="hidden" name="hidden-favgroup" value="add-group" />
-                        <input type="submit" value="Add group to favorite" class="fav-submit" />
-                    }
-                    else
-                    {
-                       <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
-                        <input type="hidden" name="hidden-favgroup" value="remove-group" />
-                        <input type="submit" value="Remove group from favorite" class="fav-submit" /> 
-                    }
 
+                        if(!SozialWebApplication.Services.GroupService.Instance.IsUserInGroup(Model.GroupWithId.Id, User.Identity.Name))
+                        {
+                             <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
+                            <input type="hidden" name="hidden-favgroup" value="add-group" />
+                            <input type="submit" value="Add group to favorite" class="fav-submit" />
+                        }
+                        else
+                        {
+                           <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
+                            <input type="hidden" name="hidden-favgroup" value="remove-group" />
+                            <input type="submit" value="Remove group from favorite" class="fav-submit" /> 
+                        }
+
+                    }
                 }
             </div>
             <!--Post-->
@@ -94,8 +98,6 @@
                                 }
                                 else if (post.PostType == SozialWebApplication.Models.PostType.Video)
                                 {
-                                    <p>Video from @post.UserName</p>
-                                    <p>Post body: @post.Body</p>
                                     string source ="https://www.youtube.com/embed/" + post.Body;
                                     <p>Source: @source</p> 
                                      <iframe width="560" height="315" src="@source" frameborder="0"></iframe>
@@ -125,7 +127,7 @@
 
                             <div class="comment">
                                <!-- <input type="text" name="comment-input" id="comment-input" class="comment-input" placeholder="What do you think?" />-->
-                                <textarea rows="2"  cols="80" name="comment" class="comment-textarea" placeholder="What do you think?"></textarea>
+                                <textarea rows="2"  cols="80" name="comment-input" class="comment-textarea" placeholder="What do you think?"></textarea>
                                 <input type="submit" value="Send" class="submit-comment" />
                             </div>
                             }
