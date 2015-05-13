@@ -34,7 +34,7 @@
     line-height: 22px;
     font-weight: bold;
     margin-top: 1%;
-    margin-left: 1%;
+    margin-right: 58%;
 }
 
 /* Search bar */
@@ -108,19 +108,36 @@
 /* Search bar */
 
 .searching-users {
-
+    text-align: center;
+    margin-right: 10%;
 }
 
 .search-users-box {
-
+    background-image: url('/Myndir/input.jpg');
+    border: 1px solid #ffd600;
+    border-radius: 4px;
+    line-height: 25px;
+    width: 259px;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 12%;
+    margin-top: 2%;
 }
 
 .searching-users-button {
-
+    margin-top: -2%;
 }
 
 .search-users-button {
-
+    background-image: url('/Myndir/search.jpg');
+    border: none;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin-top: -2.5%;
+    margin-right: -40%;
 }
 
 /* Users */
