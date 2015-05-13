@@ -34,7 +34,14 @@
             <div>
                 <div class="information">
                     <img src="/Myndir/myndlogo.jpg" class="profile-picture" alt="profilepic">
-                    <p>@Html.DisplayFor(model => model.userWithId.FullName)</p>
+                    @if(String.IsNullOrEmpty(Model.userWithId.FullName))
+                    {
+                       <p>@Html.DisplayFor(model => model.userWithId.UserName)</p>
+                    }
+                    else
+                    {
+                       <p>@Html.DisplayFor(model => model.userWithId.FullName)</p> 
+                    }
                     <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
                     <p>@Html.DisplayFor(model => model.userWithId.Email)</p>
                 </div>
