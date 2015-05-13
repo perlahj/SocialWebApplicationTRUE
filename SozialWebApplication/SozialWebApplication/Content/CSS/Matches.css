@@ -1,0 +1,14 @@
+﻿.match-label
+{
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 49%;
+    /*text-align: center;*/
+}
+
+.my-matches
+{
+    /*margin-left: 47%;*/
+    text-align: center;
+}
