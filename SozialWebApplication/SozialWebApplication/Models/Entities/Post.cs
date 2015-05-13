@@ -13,7 +13,7 @@ namespace SozialWebApplication.Models
 		public DateTime DateCreated { get; set; }
 		public string Body { get; set; }
 		public int Like { get; set; }
-		public PostType { get; set; }
+		public PostType PostType { get; set; }
 	}
 
 	public enum PostType
