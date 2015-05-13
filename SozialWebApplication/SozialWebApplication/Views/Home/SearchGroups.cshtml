@@ -1,10 +1,50 @@
 ﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
-@using (Html.BeginForm("SearchGroups", "Home", FormMethod.Post))
+
+<div class="bc">
+    @{
+        ViewBag.Title = "Banner";
+    }
+
+    <br />
+    <div class="namecard-button">
+        <a href="/Home/NewsfeedGroups/111">
+            <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
+
+        </a>
+        <div class="my-name">
+            @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
+        </div>
+
+        @using (Html.BeginForm("LogOff", "Account", new { ReturnUrl = "/Account/Login" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                <input type="submit" value="Log Out" class="logout-button" />
+            </div>
+        }
+
+    </div>
+
+    <br />
+
+    <div class="overflowceeper">
+        <div class="feed-body">
+            @using (Html.BeginForm("SearchGroups", "Home", FormMethod.Post))
 {
     <div class="searching">
         <input type="text" id="search" name="search" class="search" placeholder="Search ..." />
         <div class="button">
             <a href="SearchGroups"><input type="submit" value=" " name="submit" class="search-button" /></a>
+        </div>
+    </div>
+}
+@using (Html.BeginForm("AddNewGroup", "Home", FormMethod.Post))
+{
+    <div>
+        <input type="text" id="newgroup-name" name="newgroup-name" class="newgroup-name" placeholder="Group name..." />
+        <div class="button">
+            <input type="submit" value="Create group" name="submit" class="addnewgroup-button" />
         </div>
     </div>
 }
@@ -52,7 +92,7 @@
                 {
                     if (item.GroupName != null)
                     {
-                        <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroup", "Home", new { id = item.Id }, null) </dt>
+                        <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }, null) </dt>
                     }
                 }
             }
@@ -60,3 +100,11 @@
     </div>
 
 </div>
+
+        </div>
+    </div>
+
+    <br />
+
+</div>
+

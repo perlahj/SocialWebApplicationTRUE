@@ -1,11 +1,14 @@
 ﻿@model SozialWebApplication.Models.LandingPageModel
+@using SozialWebApplication.Services
+
+<!--'att'SozialWebApplication.Services.GroupService-->
 
 @{
     ViewBag.Title = "Log in";
 }
 
 <div>
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = "/Home/Banner" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = "/Home/NewsfeedGroups/111" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
     <div class="errorMessage">
@@ -78,14 +81,19 @@
     <img src="/Myndir/logo.jpg" class="front-logo" alt="front-logo" />
 </div>
 
-<!--
 <script>
- $(".register-button").click(function () {
-    $.success(function () {
-        alert("vijj")
+    $(".register-button").click(function () {
+        event.preventDefault();
+
+        $.ajax({
+            url: "/NameCards/Search",
+        }).success(function (data) {
+            debugger;
+            $(".feed-body").empty();
+            $('.feed-body').html(data);
+        });
     });
- });
- </script>-->
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

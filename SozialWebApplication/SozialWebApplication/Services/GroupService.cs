@@ -11,6 +11,18 @@ namespace SozialWebApplication.Services
 	{
 		private ApplicationDbContext db = new ApplicationDbContext();
 
+		private static GroupService instance;
+
+		public static GroupService Instance
+		{
+			get
+			{
+				if (instance == null)
+					instance = new GroupService();
+				return instance;
+			}
+		}
+
 		public Group GetGroupById(int id)
 		{
 			var groupWithId = (from gwi in db.Groups
@@ -18,11 +30,31 @@ namespace SozialWebApplication.Services
 							   select gwi).FirstOrDefault();
 			return groupWithId;
 		}
+
+		// Returns the id of the most recently created group with groupName.
+		public int GetGroupIdbyName(string groupName)
+		{
+			var groupId = (from gi in db.Groups
+						   where gi.GroupName == groupName
+						   orderby gi.Id descending
+						   select gi.Id).FirstOrDefault();
+			return groupId;
+		}
 		
+		// It is possible to add multiple groups with same name.
 		public void AddNewGroup (string groupName)
 		{
 			Group g = new Group();
 			g.GroupName = groupName;
+			db.Groups.Add(g);
+			db.SaveChanges();
+		}
+
+		public void AddNewsFeed()
+		{
+			Group g = new Group();
+			g.Id = 999;
+			g.GroupName = "News Feed";
 			db.Groups.Add(g);
 			db.SaveChanges();
 		}

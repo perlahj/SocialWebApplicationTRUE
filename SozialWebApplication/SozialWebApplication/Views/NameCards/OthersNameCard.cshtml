@@ -1,30 +1,68 @@
 ﻿@using SozialWebApplication.Services
 @model SozialWebApplication.Models.ViewModels.NameCardViewModel
-<div>
-    <div class="information">
-        <img src="/Myndir/myndlogo.jpg" class="profile-picture" alt="profilepic">
-        <p>@Html.DisplayFor(model => model.userWithId.FullName)</p>
-        <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
-        <p>@Html.DisplayFor(model => model.userWithId.Email)</p>
-    </div>
-    <!--<input type="button" class="follow-others" />
-    <input type="button" class="match-others" /> -->
- </div>
-    @using (Html.BeginForm("OthersNameCard", "NameCards", FormMethod.Post))
-    {
-        if (SozialWebApplication.Services.UserService.Instance.IsFollowing(User.Identity.Name, Model.userWithId.UserName))
-        {
-            <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName"/>
-            <input type="hidden" name="hidden-follow-unfollow" value="unfollow"/>
-            <a href="OthersNameCard"><input type="submit" value="Unfollow"/></a>
-        }
-        else
-        {
-            <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName"/>
-    <input type="hidden" name="hidden-follow-unfollow" value="follow" />
-            <a href="OthersNameCard"><input type="submit" value="Follow"/></a> 
-        }    
-        
 
+<div class="bc">
+    @{
+        ViewBag.Title = "Banner";
     }
+
+    <br />
+    <div class="namecard-button">
+        <a href="/Home/NewsfeedGroups/111">
+            <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
+
+        </a>
+        <div class="my-name">
+            @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
+        </div>
+
+        @using (Html.BeginForm("LogOff", "Account", new { ReturnUrl = "/Account/Login" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                <input type="submit" value="Log Out" class="logout-button" />
+            </div>
+        }
+
+    </div>
+
+    <br />
+
+    <div class="overflowceeper">
+        <div class="feed-body">
+            <div>
+                <div class="information">
+                    <img src="/Myndir/myndlogo.jpg" class="profile-picture" alt="profilepic">
+                    <p>@Html.DisplayFor(model => model.userWithId.FullName)</p>
+                    <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
+                    <p>@Html.DisplayFor(model => model.userWithId.Email)</p>
+                </div>
+                <!--<input type="button" class="follow-others" />
+        <input type="button" class="match-others" /> -->
+            </div>
+            @using (Html.BeginForm("OthersNameCard", "NameCards", FormMethod.Post))
+            {
+                if (SozialWebApplication.Services.UserService.Instance.IsFollowing(User.Identity.Name, Model.userWithId.UserName))
+                {
+                    <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
+                    <input type="hidden" name="hidden-follow-unfollow" value="unfollow" />
+                    <a href="OthersNameCard"><input type="submit" value="Unfollow" /></a>
+                }
+                else
+                {
+                    <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
+                    <input type="hidden" name="hidden-follow-unfollow" value="follow" />
+                    <a href="OthersNameCard"><input type="submit" value="Follow" /></a>
+                }
+
+
+            }
+
+        </div>
+    </div>
+
+    <br />
+
+</div>
 
