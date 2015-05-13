@@ -13,7 +13,6 @@ namespace SozialWebApplication.Controllers
 		private GroupService gs = new GroupService();
 		private PostService ps = new PostService();
 		private NameCardViewModel nameCardVM = new NameCardViewModel();
-        private GroupViewModel GroupVM = new GroupViewModel();
         private UserService us = new UserService();
 		
 		public ActionResult Banner()
@@ -159,7 +158,7 @@ namespace SozialWebApplication.Controllers
 			}
 			gs.AddNewGroup(groupName);
 			int groupId = gs.GetGroupIdbyName(groupName);
-			// Register user to the new group.
+			// Add the new group to list of favorite groups.
 			gs.AddUserToGroup(groupId, User.Identity.Name);
 			// Post to the newly created group.
 			string postBody = User.Identity.Name + " created the group " + groupName + "!";
