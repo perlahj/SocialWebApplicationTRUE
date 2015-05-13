@@ -101,6 +101,7 @@
                                 }
                             </div>
 
+                            <div class="comment-form">
                             <!--Form for new comment-->
                             @using (Html.BeginForm("AddComment", "Home", FormMethod.Post))
                             {
@@ -122,14 +123,19 @@
                                     @foreach (var comment in commentsForPost)
                                     {
 
-                                        <p>@comment.UserName</p>
-                                        <p>@comment.DateCreated</p>
+                                        <div class="comment-post-name">
+                                            <p>@comment.UserName</p>
+                                        </div>
+                                        <div class="comment-post-date">
+                                            <p>@comment.DateCreated</p>
+                                        </div>
                                         <p class="post-comment">@comment.Body</p>
 
                                     }
                                 </div>
                             </div>
                         </div>
+                            </div>
                     </div>
                 }
             </div>
