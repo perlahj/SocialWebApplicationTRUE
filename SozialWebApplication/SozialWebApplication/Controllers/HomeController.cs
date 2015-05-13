@@ -144,7 +144,7 @@ namespace SozialWebApplication.Controllers
             // senda model inn i rett view og tha er haegt ad vinna med gognin
             nameCardVM.AllMatches = us.GetAllDoubleMatches(User.Identity.Name);
 
-            return PartialView("~/Views/Home/CheckMatch.cshtml", nameCardVM);
+            return View( nameCardVM);
         }
 	}
 }
