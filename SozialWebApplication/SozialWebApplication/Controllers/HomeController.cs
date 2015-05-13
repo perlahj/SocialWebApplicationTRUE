@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SozialWebApplication.Models.ViewModels;
+using SozialWebApplication.Models;
 using SozialWebApplication.Services;
 
 namespace SozialWebApplication.Controllers
@@ -41,9 +42,29 @@ namespace SozialWebApplication.Controllers
 		[HttpPost]
 		public ActionResult NewsfeedGroups(int id, FormCollection collection)
 		{
-			string postBody = collection.Get("post-input");
-			ps.AddNewPost(User.Identity.Name, id, postBody);
+			// Post text.
+			string postBody = collection.Get("text-input");
+			if (!String.IsNullOrEmpty(postBody))
+			{
 
+				ps.AddNewPost(User.Identity.Name, id, postBody, PostType.Text);
+			}
+			
+			// Post a photo.
+			string photoBody = collection.Get("photo-input");
+			if (!String.IsNullOrEmpty(photoBody))
+			{
+				ps.AddNewPost(User.Identity.Name, id, photoBody, PostType.Photo);
+			}
+
+			// Post a video.
+			string videoBody = collection.Get("video-input");
+			if (!String.IsNullOrEmpty(videoBody))
+			{
+				ps.AddNewPost(User.Identity.Name, id, videoBody, PostType.Video);
+			}
+			
+			// Make the viewmodel.
 			GroupViewModel groupVM = new GroupViewModel();
 			int newsFeedId = gs.GetGroupIdbyName("News Feed");
 			if (id == newsFeedId)
@@ -162,7 +183,7 @@ namespace SozialWebApplication.Controllers
 			gs.AddUserToGroup(groupId, User.Identity.Name);
 			// Post to the newly created group.
 			string postBody = User.Identity.Name + " created the group " + groupName + "!";
-			ps.AddNewPost(User.Identity.Name, groupId, postBody);
+			ps.AddNewPost(User.Identity.Name, groupId, postBody, PostType.Text);
 			
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();

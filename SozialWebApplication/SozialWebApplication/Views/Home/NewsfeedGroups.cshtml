@@ -53,11 +53,10 @@
                         <input type="hidden" name="hidden-favgroup" value="remove-group" />
                         <input type="submit" value="Remove group from favorite" class="fav-submit" /> 
                     }
-                        
-                    
+
                 }
             </div>
-            <!--Posting-->
+            <!--Post-->
             @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
             {
                 <div class="newsfeed">
@@ -68,14 +67,14 @@
                             <input type="button" class="input-youtube" />
                         </div>
 
-                        <input type="text" name="post-input" id="post-input" class="post-input" placeholder="Express yourself..." />
+                        <input type="text" name="text-input" id="post-input" class="post-input" placeholder="Express yourself..." />
+                        <input type="text" name="photo-input" id="photo-input" class="photo-input" placeholder="Copy photo url here..." />
+                        <input type="text" name="video-input" id="video-input" class="video-input" placeholder="Copy YouYube video url here..." />
                     </div>
                 </div>
                 <input type="submit" value="post" class="post-submit" />
             }
-
-            <!--Display all posts-->
-
+            <!--Display recent posts-->
             <div class="all-posts">
                 @foreach (var post in Model.GroupPosts)
                 {
@@ -85,7 +84,19 @@
             
                         <div class="each-post">
                             <div class="post-content">
-                                <p>@post.Body</p>
+                                @if(post.PostType == SozialWebApplication.Models.PostType.Text)
+                                {
+                                   <p>@post.Body</p>
+                                }
+                                else if (post.PostType == SozialWebApplication.Models.PostType.Photo)
+                                {
+                                    <img src="@post.Body" alt="Photo from @post.UserName" />
+                                }
+                                else if (post.PostType == SozialWebApplication.Models.PostType.Photo)
+                                {
+                                   <iframe width="560" height="315" src="@post.Body" frameborder="0"></iframe>
+                                }
+                                
                             </div>
 
                             <div class="like">

@@ -23,7 +23,7 @@ namespace SozialWebApplication.Services
 			}
 		}
 
-		public void AddNewPost(string userName, int groupId, string body)
+		public void AddNewPost(string userName, int groupId, string body, PostType postType)
 		{
 			Post p = new Post();
 			p.UserName = userName;
@@ -31,6 +31,7 @@ namespace SozialWebApplication.Services
 			p.DateCreated = DateTime.Now;
 			p.Body = body;
 			p.Like = 0;
+			p.PostType = postType;
 			db.Posts.Add(p);
 			db.SaveChanges();
 		}
