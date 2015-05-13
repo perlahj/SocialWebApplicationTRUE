@@ -71,10 +71,23 @@ namespace SozialWebApplication.Controllers
 		[HttpPost]
 		public ActionResult EditNameCard(FormCollection collection)
         {
-	
+			ApplicationUser currentUser = us.GetUserByUserName(User.Identity.Name);
+			
 			string fullName = collection.Get("input-name");
+			if(string.IsNullOrEmpty(fullName))
+			{
+				fullName = currentUser.FullName;
+			}
 			string lineOfStudy = collection.Get("input-los");
+			if (String.IsNullOrEmpty(lineOfStudy))
+			{
+				lineOfStudy = currentUser.LineOfStudy;
+			}
 			string email = collection.Get("input-email");
+			if (String.IsNullOrEmpty(email))
+			{
+				email = currentUser.Email;
+			}
 			
 			us.ChangeFullName(User.Identity.Name, fullName);
 			us.ChangeLineOfStudy(User.Identity.Name, lineOfStudy);
@@ -82,8 +95,6 @@ namespace SozialWebApplication.Controllers
 
             nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 
-            /*return PartialView("~/Views/NameCards/OwnNameCard.cshtml", nameCardVM);*/
-            /*return RedirectToAction("EditNameCard");*/
             return View(nameCardVM);
         }
 
