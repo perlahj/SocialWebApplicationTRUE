@@ -1,25 +1,63 @@
 ﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
 
-<div class="edit-information">
-    <img src="/Myndir/myndlogo.jpg" class="profile-picture-edit" alt="profilepic">
-    
-      @using (Html.BeginForm("EditNameCard", "NameCards", FormMethod.Post))
-      {
-        <div class="edit-input">
-            <label for="input-name" class="label">Name</label>
-            <input type="text" name="input-name" id="input-name" class="text-input" placeholder= @Html.DisplayFor(model => model.userWithId.FullName) />
-            <label for="input-los" class="label">Line of study</label>
-            <input type="text" name="input-los" id="input-los" class="text-input" placeholder= @Html.DisplayFor(model => model.userWithId.LineOfStudy) />
-            <label for="input-email" class="label">Email</label>
-            <input type="text" name="input-email" id="input-email" class="text-input" placeholder=@Html.DisplayFor(model => model.userWithId.Email) />
+<div class="bc">
+    @{
+        ViewBag.Title = "Banner";
+    }
+
+    <br />
+    <div class="namecard-button">
+        <a href="/Home/NewsfeedGroups/111">
+            <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
+
+        </a>
+        <div class="my-name">
+            @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
         </div>
 
-    <input type="submit" value="Save" class="save"/>
-    <input type="button" value="Back" class="back"/>
-      }
+        @using (Html.BeginForm("LogOff", "Account", new { ReturnUrl = "/Account/Login" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                <input type="submit" value="Log Out" class="logout-button" />
+            </div>
+        }
+
+    </div>
+
+    <br />
+
+    <div class="overflowceeper">
+        <div class="feed-body">
+            <div class="edit-information">
+                <img src="/Myndir/myndlogo.jpg" class="profile-picture-edit" alt="profilepic">
+
+                @using (Html.BeginForm("EditNameCard", "NameCards", FormMethod.Post))
+                {
+                    <div class="edit-input">
+                        <label for="input-name" class="label">Name</label>
+                        <input type="text" name="input-name" id="input-name" class="text-input" placeholder=@Html.DisplayFor(model => model.userWithId.FullName) />
+                        <label for="input-los" class="label">Line of study</label>
+                        <input type="text" name="input-los" id="input-los" class="text-input" placeholder=@Html.DisplayFor(model => model.userWithId.LineOfStudy) />
+                        <label for="input-email" class="label">Email</label>
+                        <input type="text" name="input-email" id="input-email" class="text-input" placeholder=@Html.DisplayFor(model => model.userWithId.Email) />
+                    </div>
+
+                    <input type="submit" value="Save" class="save" />
+                    <input type="button" value="Back" class="back" />
+                }
+            </div>
+        </div>
+    </div>
+
+    <br />
+
 </div>
 
-<script>
+
+
+<!--<script>
     $(".save").submit(function () {
         event.preventDefault();
         /*return false;*/
@@ -44,6 +82,6 @@
         });
     });
 </script>
-
+    -->
 
 

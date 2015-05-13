@@ -20,14 +20,14 @@ namespace SozialWebApplication.Controllers
         {
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 			
-			return PartialView("~/Views/NameCards/OwnNameCard.cshtml", nameCardVM);
+			return View(nameCardVM);
         }
 
         public ActionResult OthersNameCard(string id)
         {
 			NameCardViewModel model = new NameCardViewModel();
 			model.userWithId = us.GetUserById(id);
-			return PartialView("~/Views/NameCards/OthersNameCard.cshtml", model);
+			return View(model);
         }
 
 		[HttpPost]
@@ -46,7 +46,7 @@ namespace SozialWebApplication.Controllers
 
 			NameCardViewModel model = new NameCardViewModel();
 			model.userWithId = us.GetUserById(id);
-			return PartialView("~/Views/NameCards/OthersNameCard.cshtml", model);
+			return View(model);
 		}
 
 		/*[HttpPost]
@@ -65,7 +65,7 @@ namespace SozialWebApplication.Controllers
 
             nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 
-            return PartialView("~/Views/NameCards/EditNameCard.cshtml", nameCardVM);
+            return View(nameCardVM);
 		}
 
 		[HttpPost]
@@ -84,7 +84,7 @@ namespace SozialWebApplication.Controllers
 
             /*return PartialView("~/Views/NameCards/OwnNameCard.cshtml", nameCardVM);*/
             /*return RedirectToAction("EditNameCard");*/
-            return new EmptyResult();
+            return View(nameCardVM);
         }
 
 		public ActionResult Search()
@@ -92,7 +92,7 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers("");
-			return PartialView("~/Views/NameCards/Search.cshtml", nameCardVM);
+			return View(nameCardVM);
 		}
 
 		[HttpPost]
@@ -101,7 +101,7 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
-            return PartialView("~/Views/NameCards/Search.cshtml", nameCardVM);
+            return View(nameCardVM);
 		}
 		   
 	}
