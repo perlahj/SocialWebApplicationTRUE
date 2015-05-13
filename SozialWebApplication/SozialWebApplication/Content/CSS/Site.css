@@ -83,7 +83,13 @@ h2 {
     color: #ff0000;
     font-weight: bold;
 }
+
 ul
 {
     list-style-type: none;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: black;
 }
