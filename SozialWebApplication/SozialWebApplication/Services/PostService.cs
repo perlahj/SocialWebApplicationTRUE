@@ -44,24 +44,35 @@ namespace SozialWebApplication.Services
 			return posts;
 		}
 
+		public List<Post> GetAllPostsForGroup(int groupId)
+		{
+			var posts = (from p in db.Posts
+						 where p.GroupId == groupId
+						 orderby p.DateCreated descending
+						 select p).ToList();
+			return posts;
+		}
+
 		// Has not been tested
-		// TO DO: select number of posts and how to choose
-		// TO DO: order by dateCreated
 		public List<Post> GetLatestPostsForNewsFeed(string userName)
 		{
 			UserService us = new UserService();
-			// Takes 25 latest posts posted to news feed
-			var allPosts = GetLatestPostsForGroup(0);
+			var allPosts = GetAllPostsForGroup(0);
 			var allFollowing = us.GetAllFollowing(userName);
 
-			List<Post> newsFeedPosts = new List<Post>();
+			List<Post> allNewsFeedPosts = new List<Post>();
 			foreach(var following in allFollowing)
 			{
 				var userPosts = (from up in allPosts
 								 where up.UserName == following.UserName
 								 select up).ToList();
-				newsFeedPosts.AddRange(userPosts);
+				allNewsFeedPosts.AddRange(userPosts);
 			}
+
+			List<Post> newsFeedPosts = (from nfp in allNewsFeedPosts
+										orderby nfp.DateCreated descending
+										select nfp).Take(25).ToList();
+
 			return newsFeedPosts;
 		}
 
@@ -91,7 +102,6 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
-		// Has not been tested
 		public void AddNewComment(string userName, int postId,string body)
 		{
 			Comment c = new Comment();
@@ -103,7 +113,6 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
-		// Has not been tested
 		public List<Comment> GetAllCommentsForPost(int postId)
 		{
 			var comments = (from c in db.Comments
