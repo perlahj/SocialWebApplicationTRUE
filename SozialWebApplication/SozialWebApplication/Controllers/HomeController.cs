@@ -145,7 +145,7 @@ namespace SozialWebApplication.Controllers
 			groupVM.GroupWithId = gs.GetGroupById(groupId);
 			groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);
 
-			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
+            return View("NewsfeedGroups", groupVM);
 		}
 
 		public ActionResult SearchGroups()

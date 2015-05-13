@@ -15,7 +15,7 @@
 }
 
 .profile-picture {
-    margin-left: -212%;
+    margin-left: -332px;
     width: 190px;
     position: absolute;
 }
@@ -121,8 +121,7 @@
   margin-left: 10%;
 }
 
-.text-input,
-.search {
+.text-input {
   background-image: url('/Myndir/input.jpg');
   border: 1px solid #ffd600;
   border-radius: 4px;
@@ -145,4 +144,13 @@
 .send-email > a:hover {
     text-decoration:underline;
     color: #ffd600;
+}
+
+.back {
+    border-radius: 4px;
+    border-color: #faa61f;
+    line-height: 25px;
+    width: 70px;
+    font-weight: bold;
+    background-image: url('/Myndir/takkar.jpg');
 }
