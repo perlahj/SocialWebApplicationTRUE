@@ -67,6 +67,7 @@
 .all-posts {
   margin-left: 33%;
   margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .each-post {
@@ -92,17 +93,28 @@
 }
 
 .post-name {
-    margin-left: -32%;
-  margin-bottom: 0%;
+  margin-left: -32%;
+  margin-bottom: -4%;
 }
 
 .post-date {
-  /*position: absolute;*/
-  margin-top: -1.5%;
-  margin-left: 75%;
+  margin-left: 70%;
+  margin-bottom: 0%;
 }
 
 .post-comment{
   margin-left: -32%;
   margin-top: 0%;
+}
+
+.number-of-likes {
+  margin-left: 94%;
+}
+
+comment-input {
+
+}
+
+.whole-each-post {
+    margin-bottom: 2%;
 }
