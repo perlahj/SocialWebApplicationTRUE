@@ -46,7 +46,6 @@ namespace SozialWebApplication.Controllers
 			string postBody = collection.Get("text-input");
 			if (!String.IsNullOrEmpty(postBody))
 			{
-
 				ps.AddNewPost(User.Identity.Name, id, postBody, PostType.Text);
 			}
 			
@@ -61,6 +60,7 @@ namespace SozialWebApplication.Controllers
 			string videoBody = collection.Get("video-input");
 			if (!String.IsNullOrEmpty(videoBody))
 			{
+				videoBody = ps.ParseVideoString(videoBody);
 				ps.AddNewPost(User.Identity.Name, id, videoBody, PostType.Video);
 			}
 			

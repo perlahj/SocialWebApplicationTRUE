@@ -69,7 +69,7 @@
 
                         <input type="text" name="text-input" id="post-input" class="post-input" placeholder="Express yourself..." />
                         <input type="text" name="photo-input" id="photo-input" class="photo-input" placeholder="Copy photo url here..." />
-                        <input type="text" name="video-input" id="video-input" class="video-input" placeholder="Copy YouYube video url here..." />
+                        <input type="text" name="video-input" id="video-input" class="video-input" placeholder="Copy YouTube video url here..." />
                     </div>
                 </div>
                 <input type="submit" value="post" class="post-submit" />
@@ -92,9 +92,13 @@
                                 {
                                     <img src="@post.Body" alt="Photo from @post.UserName" />
                                 }
-                                else if (post.PostType == SozialWebApplication.Models.PostType.Photo)
+                                else if (post.PostType == SozialWebApplication.Models.PostType.Video)
                                 {
-                                   <iframe width="560" height="315" src="@post.Body" frameborder="0"></iframe>
+                                    <p>Video from @post.UserName</p>
+                                    <p>Post body: @post.Body</p>
+                                    string source ="https://www.youtube.com/embed/" + post.Body;
+                                    <p>Source: @source</p> 
+                                     <iframe width="560" height="315" src="@source" frameborder="0"></iframe>
                                 }
                                 
                             </div>

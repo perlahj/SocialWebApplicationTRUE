@@ -124,5 +124,11 @@ namespace SozialWebApplication.Services
 							select c).Take(25).ToList();
 			return comments;
 		}
+
+		public string ParseVideoString(string str)
+		{
+			int length = str.Length;
+			return str.Substring(17, (length - 17));
+		}
     }
 }
