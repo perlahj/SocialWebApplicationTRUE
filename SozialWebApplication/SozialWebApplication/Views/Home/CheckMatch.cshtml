@@ -8,7 +8,8 @@
     <ul>
         @foreach (var item in Model.AllMatches)
         {    
-            <li>@item.UserName</li>
+            <li>@Html.ActionLink(item.UserName, "OthersNameCard", "Home", new { id = item.Id })</li>
         }
+
     </ul>
 </div>
