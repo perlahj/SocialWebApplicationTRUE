@@ -9,13 +9,17 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using SozialWebApplication.Models;
+using SozialWebApplication.Services;
 
 namespace SozialWebApplication.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        public AccountController()
+		// For adding every new user to group: News Feed
+		GroupService gs = new GroupService();
+
+		public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
         }
@@ -86,6 +90,9 @@ namespace SozialWebApplication.Controllers
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);
+					// Add newly created user to group: News Feed
+					int groupId = gs.GetGroupIdbyName("News Feed");
+					gs.AddUserToGroup(groupId, user.UserName);
                     return RedirectToAction("Login", "Account");
                 }
                 else
