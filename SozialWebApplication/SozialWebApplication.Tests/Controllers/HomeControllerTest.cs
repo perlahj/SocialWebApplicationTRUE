@@ -24,5 +24,6 @@ namespace SozialWebApplication.Tests.Controllers
 			// Assert
 			Assert.IsNotNull(result);
 		}
+		
 	}
 }
