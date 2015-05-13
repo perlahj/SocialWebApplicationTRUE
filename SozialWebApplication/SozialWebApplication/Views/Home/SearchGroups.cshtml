@@ -31,14 +31,16 @@
 
     <div class="overflowceeper">
         <div class="feed-body">
+
             <div class="add-and-search">
+
                 <!-- Adding -->
                 @using (Html.BeginForm("AddNewGroup", "Home", FormMethod.Post))
                 {
-                    <div class="adding">
-                        <input type="text" id="newgroup-name" name="newgroup-name" class="newgroup-box" placeholder="Group name..." />
+                    <div class="adding-groups">
+                        <input type="text" id="newgroup-name" name="newgroup-name" class="addnewgroup-box" placeholder="Group name..." />
 
-                        <div class="button">
+                        <div class="adding-groups-button">
                             <input type="submit" value="Create group" name="submit" class="addnewgroup-button" />
                         </div>
                     </div>
@@ -47,11 +49,11 @@
                 <!-- Searching -->
                 @using (Html.BeginForm("SearchGroups", "Home", FormMethod.Post))
                 {
-                    <div class="searching">
-                        <input type="text" id="search" name="search" class="search-box" placeholder="Search ..." />
+                    <div class="searching-groups">
+                        <input type="text" id="search" name="search" class="search-groups-box" placeholder="Search ..." />
 
-                        <div class="button">
-                            <a href="SearchGroups"><input type="submit" value="" name="submit" class="search-button" /></a>
+                        <div class="searching-groups-button">
+                            <a href="SearchGroups"><input type="submit" value="" name="submit" class="search-groups-button" /></a>
                         </div>
                     </div>
                 }
@@ -65,7 +67,7 @@
                     </tr> 
                 </thead>
                 <tbody>
-                        <!-- <div class=" my-groups"> -->
+                        <!-- My Groups -->
                         @foreach (var item in Model.AllUserGroups)
                         {
                             if (item.GroupName != null)
@@ -85,7 +87,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <!-- <div class="all-groups"> -->
+                        <!-- All groups -->
                         @foreach (var item in Model.AllGroups)
                         {
                             if (item.GroupName != null)
@@ -105,7 +107,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <!-- <div class="search-groups"> -->
+                        <!-- Search groups -->
                         @if (Model.SearchResultsGroups.Count() == 0)
                         {
                         }
