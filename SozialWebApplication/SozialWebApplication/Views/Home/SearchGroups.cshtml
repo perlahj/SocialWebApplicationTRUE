@@ -1,5 +1,5 @@
 ﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
-@Html.BeginForm("SearchGroups", "Home", FormMethod.Post))
+@using (Html.BeginForm("SearchGroups", "Home", FormMethod.Post))
 {
     <div class="searching">
         <input type="text" id="search" name="search" class="search" placeholder="Search ..." />
@@ -23,7 +23,7 @@
             {
                 if (item.GroupName != null)
                 {
-                    <dt class="my-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }) </dt>
+                    <dt class="my-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }, null) </dt>
                 }
             }
         </dl>
@@ -35,7 +35,7 @@
             {
                 if (item.GroupName != null)
                 {
-                    <dt class="all-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }) </dt>
+                    <dt class="all-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroups", "Home", new { id = item.Id }, null) </dt>
                 }
             }
         </dl>
@@ -52,7 +52,7 @@
                 {
                     if (item.GroupName != null)
                     {
-                        <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroup", "Home", new { id = item.Id }) </dt>
+                        <dt class="search-groups-list">@Html.ActionLink(item.GroupName, "NewsfeedGroup", "Home", new { id = item.Id }, null) </dt>
                     }
                 }
             }

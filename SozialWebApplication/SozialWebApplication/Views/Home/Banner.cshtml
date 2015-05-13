@@ -13,8 +13,6 @@
             @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
         </div>
 
-        <!---->
-
         @using (Html.BeginForm("LogOff", "Account", new { ReturnUrl = "/Account/Login" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             @Html.AntiForgeryToken()
@@ -24,11 +22,9 @@
                 </div>
         }
 
-        <!---->
     </div>
 
     <br/>
-
 
     <div class="overflowceeper">
         <div class="feed-body">

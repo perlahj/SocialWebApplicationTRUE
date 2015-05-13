@@ -5,8 +5,12 @@
         <img src="/Myndir/myndlogo.jpg" class="profile-picture" alt="profilepic">
             <p>@Html.DisplayFor(model => model.userWithId.FullName)</p>
             <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
-            <p>@Html.DisplayFor(model => model.userWithId.Email)</p>
-    </div>
+
+        <div class="send-email">
+            <a href="mailto:@Html.DisplayFor(model => model.userWithId.Email)">@Html.DisplayFor(model => model.userWithId.Email)</a>
+        </div>
+
+        </div>
     <input type="button" class="follow" />
     <input type="button" class="groups" />
     <input type="button" class="edit" />
@@ -29,7 +33,6 @@
     });
 
     $(".groups").click(function () {
-        alert("vivivivvi");
         event.preventDefault();
 
         $.ajax({
