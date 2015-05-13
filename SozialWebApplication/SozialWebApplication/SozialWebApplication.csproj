@@ -192,6 +192,7 @@
     <Content Include="Content\CSS\Banner.css" />
     <Content Include="Content\CSS\bootstrap.css" />
     <Content Include="Content\CSS\bootstrap.min.css" />
+    <Content Include="Content\CSS\Matches.css" />
     <Content Include="Content\CSS\namecard.css" />
     <Content Include="Content\CSS\NewsfeedGroups.css" />
     <Content Include="Content\CSS\Search.css" />
