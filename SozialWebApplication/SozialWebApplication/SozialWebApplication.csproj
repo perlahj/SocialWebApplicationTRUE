@@ -171,6 +171,7 @@
     <Compile Include="Models\Entities\FollowerConnection.cs" />
     <Compile Include="Models\Entities\Group.cs" />
     <Compile Include="Models\Entities\GroupConnection.cs" />
+    <Compile Include="Models\Entities\Like.cs" />
     <Compile Include="Models\Entities\MatchConnection.cs" />
     <Compile Include="Models\Entities\Post.cs" />
     <Compile Include="Models\Entities\PostConnection.cs" />
