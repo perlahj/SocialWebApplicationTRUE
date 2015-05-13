@@ -1,1 +1,15 @@
-﻿
+﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
+
+<div class="match-label">
+    <h4 class="my-matches-label">My Matches</h4>
+</div>
+
+<div class=" my-matches">
+    <ul>
+        @foreach (var item in Model.AllMatches)
+        {    
+            <li>@Html.ActionLink(item.UserName, "OthersNameCard", "Home", new { id = item.Id })</li>
+        }
+
+    </ul>
+</div>

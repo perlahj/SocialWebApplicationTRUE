@@ -13,7 +13,7 @@ namespace SozialWebApplication.Controllers
 		private GroupService gs = new GroupService();
 		private PostService ps = new PostService();
 		private NameCardViewModel nameCardVM = new NameCardViewModel();
-        private GroupViewModel GroupVM = new GroupViewModel();
+        private UserService us = new UserService();
 		
 		public ActionResult Banner()
 		{
@@ -75,7 +75,36 @@ namespace SozialWebApplication.Controllers
 			groupVM.GroupWithId = gs.GetGroupById(groupId);
 			groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);
 
-			return PartialView("~/Views/Home/NewsfeedGroups.cshtml", groupVM);
+            return View("NewsfeedGroups", groupVM);
+		}
+
+		[HttpPost]
+		public ActionResult ClickAddToFavorite(FormCollection collection)
+		{
+			string groupIdString = collection.Get("hidden-groupId");
+			int groupId = Convert.ToInt32(groupIdString);
+
+			string action = collection.Get("hidden-favgroup");
+			if (action == "add-group")
+			{
+				if (!gs.IsUserInGroup(groupId, User.Identity.Name))
+				{
+					gs.AddUserToGroup(groupId, User.Identity.Name);
+				}
+			}
+			else if (action == "remove-group")
+			{
+				if (gs.IsUserInGroup(groupId, User.Identity.Name))
+				{
+					gs.RemoveUserFromGroup(groupId, User.Identity.Name);
+				}
+			}
+
+			GroupViewModel groupVM = new GroupViewModel();
+			groupVM.GroupWithId = gs.GetGroupById(groupId);
+			groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);
+
+			return View("NewsfeedGroups", groupVM);
 		}
 
 		[HttpPost]
@@ -119,13 +148,20 @@ namespace SozialWebApplication.Controllers
 		public ActionResult AddNewGroup(FormCollection collection)
 		{
 			string groupName = collection.Get("newgroup-name");
+			// If user creates a group without a name.
+			if(String.IsNullOrEmpty(groupName))
+			{
+				Random rnd = new Random();
+				int random = rnd.Next(1, 999);
+				string randomNumber = Convert.ToString(random);
+				groupName = "Group" + randomNumber;
+			}
 			gs.AddNewGroup(groupName);
 			int groupId = gs.GetGroupIdbyName(groupName);
-			// Register user to the new group.
+			// Add the new group to list of favorite groups.
 			gs.AddUserToGroup(groupId, User.Identity.Name);
 			// Post to the newly created group.
 			string postBody = User.Identity.Name + " created the group " + groupName + "!";
-			
 			ps.AddNewPost(User.Identity.Name, groupId, postBody);
 			
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
@@ -138,7 +174,12 @@ namespace SozialWebApplication.Controllers
 
         public ActionResult CheckMatch()
         {
-            return View();
+            //us.AddMatch("Palli", "astagis");
+            //us.AddMatch("Malli", "astagis");
+            // senda model inn i rett view og tha er haegt ad vinna med gognin
+            nameCardVM.AllMatches = us.GetAllDoubleMatches(User.Identity.Name);
+
+            return View( nameCardVM);
         }
 	}
 }
