@@ -1,0 +1,73 @@
+﻿@model SozialWebApplication.Models.ViewModels.GroupViewModel
+@using SozialWebApplication.Services
+@using SozialWebApplication.Models.Entities
+@{if (Model.GroupWithId.Id == 0)
+  {
+    <p>News Feed</p>  
+  }
+  else
+  {
+      <p>@Model.GroupWithId.GroupName</p>
+  }
+  }
+<!--Posting-->
+@using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
+{
+    <div class="newsfeed">
+        <div class="post">
+            <div class="post-img">
+                <input type="button" class="input-text" />
+                <input type="button" class="input-img" />
+                <input type="button" class="input-youtube" />
+            </div>
+
+            <input type="text" name="post-input" id="post-input" class="post-input" placeholder="Express yourself..." />
+        </div>
+    </div>
+    <input type="submit" value="post" class="post-submit" />
+}
+
+<!--Display all posts-->
+<div class="all-posts">
+    @foreach (var post in Model.GroupPosts)
+    {
+        <p class="post-name">@post.UserName</p>
+        <p class="post-date">@post.DateCreated</p>
+        <div class="each-post">
+            <div class="post-content">
+                <p>@post.Body</p>
+            </div>
+            <div class="like">
+                <input type="button" class="like-img" />
+                <!--Form for like button-->
+                @using (Html.BeginForm("ClickLike", "Home", FormMethod.Post))
+                {
+                    <p>#@post.Like</p>
+                    <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
+                    <input type="hidden" name="hidden-postId" value="@post.Id" />
+                    <input type="hidden" name="hidden-like" value="add-like" />
+                    <input type="submit" value="Like" />
+                }
+            </div>
+            <!--Form for new comment-->
+            @using (Html.BeginForm("AddComment", "Home", FormMethod.Post))
+            {
+                    <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
+                    <input type="hidden" name="hidden-postId" value="@post.Id" />
+                    <input type="text" name="comment-input" id="comment-input" class="comment-input" placeholder="What do you think?" />
+                    <input type="submit" value="Send" />
+            }
+            <!--Display top 25 comments for post-->
+            @{List<Comment> commentsForPost = SozialWebApplication.Services.PostService.Instance.GetAllCommentsForPost(post.Id);}
+              @foreach(var comment in commentsForPost)
+              {
+                  <p>@comment.UserName</p>
+                  <p>@comment.DateCreated</p>
+                  <p class="post-comment">@comment.Body</p>  
+              }
+        </div>
+
+    }
+</div>
+
+

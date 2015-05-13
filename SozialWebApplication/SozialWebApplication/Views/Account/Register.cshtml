@@ -1,32 +1,32 @@
-﻿@model SozialWebApplication.Models.RegisterViewModel
-@{
+﻿<!--"at"model SozialWebApplication.Models.RegisterViewModel
+"at"{
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>"at"ViewBag.Title.</h2>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+"at"using (Html.BeginForm("Register", "Account", FormMethod.Post, new { "at"class = "form-horizontal", role = "form" }))
 {
-    @Html.AntiForgeryToken()
+    "at"Html.AntiForgeryToken()
     <h4>Create a new account.</h4>
     <hr />
-    @Html.ValidationSummary()
+    "at"Html.ValidationSummary()
     <div class="form-group">
-        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+        "at"Html.LabelFor(m => m.UserName, new { "at"class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            "at"Html.TextBoxFor(m => m.UserName, new { "at"class = "form-control" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        "at"Html.LabelFor(m => m.Password, new { "at"class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            "at"Html.PasswordFor(m => m.Password, new { "at"class = "form-control" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        "at"Html.LabelFor(m => m.ConfirmPassword, new { "at"class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            "at"Html.PasswordFor(m => m.ConfirmPassword, new { "at"class = "form-control" })
         </div>
     </div>
     <div class="form-group">
@@ -36,7 +36,7 @@
     </div>
 }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+"at"section Scripts {
+    "at"Scripts.Render("~/bundles/jqueryval")
+}-->
 

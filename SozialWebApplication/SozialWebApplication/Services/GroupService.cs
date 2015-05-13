@@ -11,6 +11,14 @@ namespace SozialWebApplication.Services
 	{
 		private ApplicationDbContext db = new ApplicationDbContext();
 
+		public Group GetGroupById(int id)
+		{
+			var groupWithId = (from gwi in db.Groups
+							   where gwi.Id == id
+							   select gwi).FirstOrDefault();
+			return groupWithId;
+		}
+		
 		public void AddNewGroup (string groupName)
 		{
 			Group g = new Group();
@@ -28,7 +36,6 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 		
-		// Has not been tested.
 		public List<Group> GetAllGroups()
 		{
 			var groups = (from g in db.Groups
@@ -71,6 +78,27 @@ namespace SozialWebApplication.Services
 			}
 	
 			return groups;
+		}
+
+		public List<Group> SearchAllGroups(string searchStr)
+		{
+			if (String.IsNullOrEmpty(searchStr))
+			{
+				return new List<Group>();
+			}
+			var allGroups = GetAllGroups();
+
+			var searchResults = new List<Group>();
+			foreach (var item in allGroups)
+			{
+				if (item.GroupName == searchStr)
+				{
+					searchResults.Add(item);
+				}
+			}
+	
+
+			return searchResults;
 		}
 
 		// TESTS

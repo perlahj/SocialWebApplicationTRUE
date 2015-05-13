@@ -1,8 +1,6 @@
 ﻿.bc{
-    background: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/10426127_10152740384227047_119338495523974373_n.jpg?oh=7c645bb2a3e7176117f2b049f1a047ff&oe=55C721B3) center;
+    background: url('/Myndir/Background.jpg') center;
     background-size: 100%;
-    /*background-color: #ffd600;*/
-    /*background-repeat: no-repeat;*/
 }
 
 .namecard-button, .feed-body{
@@ -43,11 +41,43 @@ iframe{
     border: none;
     height: 325px;
     width: 1250px;
-    /*margin-top: 1.5%;*/
-    /*margin-bottom: 1.5%;*/
 }
 
 .feed-body{
-    overflow: hidden;
+    overflow-y: scroll;
     height:335px;
 }
+
+/**.logout-button {
+    background-image: url('/Myndir/takkar.jpg');
+    border-radius: 4px;
+    border-color: #faa61f;
+    line-height: 25px;
+    width: 70px;
+    font-weight: bold;
+    margin-left: 92%;
+}*/
+
+/*.logout-button {
+    background-image: url('/Myndir/takkar.jpg');
+    border-radius: 4px;
+    border-color: #faa61f;
+    line-height: 17px;
+    width: 60px;
+    font-weight: bold;
+    position: absolute;
+    margin-left: 89%;
+    margin-top: -13%;
+}*/
+
+.logout-button {
+    border: none;
+    width: 60px;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 89%;
+    margin-top: -13%;
+}
+

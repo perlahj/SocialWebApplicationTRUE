@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SozialWebApplication.Services;
 using SozialWebApplication.Models;
 using SozialWebApplication.Models.ViewModels;
+using SozialWebApplication.ViewModel;
 
 namespace SozialWebApplication.Controllers
 {
@@ -13,42 +14,64 @@ namespace SozialWebApplication.Controllers
     {
 
 		private UserService us = new UserService();
+		private NameCardViewModel nameCardVM = new NameCardViewModel();
 		
 		public ActionResult OwnNameCard()
         {
-            //[ChildActionOnlyAttribute]
-            
-          /*  var ownnamecard = User.Identity.Name*/
-            /*return PartialView();*/
-            //return PartialView("OwnNameCard");
-
-			NameCardViewModel nameCardVM = new NameCardViewModel();
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 			
-			return View(nameCardVM);
+			return PartialView("~/Views/NameCards/OwnNameCard.cshtml", nameCardVM);
         }
 
-        public ActionResult OthersNameCard()
+        public ActionResult OthersNameCard(string id)
         {
-            return View();
+			NameCardViewModel model = new NameCardViewModel();
+			model.userWithId = us.GetUserById(id);
+			return PartialView("~/Views/NameCards/OthersNameCard.cshtml", model);
         }
 
+		[HttpPost]
+		public ActionResult OthersNameCard(string id, FormCollection collection)
+		{
+			string othersUserName = collection.Get("hidden-othersUserName");
+			string action = collection.Get("hidden-follow-unfollow");
+			if(action == "follow")
+			{
+				us.AddNewFollow(User.Identity.Name, othersUserName);
+			}
+			else if(action == "unfollow")
+			{
+				us.RemoveFollow(User.Identity.Name, othersUserName);
+			}
+
+			NameCardViewModel model = new NameCardViewModel();
+			model.userWithId = us.GetUserById(id);
+			return PartialView("~/Views/NameCards/OthersNameCard.cshtml", model);
+		}
+
+		/*[HttpPost]
+		public ActionResult RemoveFollow(string id, FormCollection collection)
+		{
+			string othersUserName = collection.Get("hidden-OthersUserName");
+			us.RemoveFollow(User.Identity.Name, othersUserName);
+			NameCardViewModel model = new NameCardViewModel();
+			model.userWithId = us.GetUserById(id);
+			return PartialView("~/Views/NameCards/OthersNameCard.cshtml", model);
+		} */
 
 		[HttpGet]
-		public ActionResult EditNameCard()
+        public ActionResult EditNameCard()
 		{
-			NameCardViewModel nameCardVM = new NameCardViewModel();
-			//nameCardVM.userWithId = UserService.Instance.GetUserByUserName(User.Identity.Name);
-			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
 
-			return View(nameCardVM);
+            nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
+
+            return PartialView("~/Views/NameCards/EditNameCard.cshtml", nameCardVM);
 		}
+
 		[HttpPost]
 		public ActionResult EditNameCard(FormCollection collection)
         {
-			NameCardViewModel nameCardVM = new NameCardViewModel();
-			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
-			
+	
 			string fullName = collection.Get("input-name");
 			string lineOfStudy = collection.Get("input-los");
 			string email = collection.Get("input-email");
@@ -57,15 +80,30 @@ namespace SozialWebApplication.Controllers
 			us.ChangeLineOfStudy(User.Identity.Name, lineOfStudy);
 			us.ChangeEmail(User.Identity.Name, email);
 
-			return View(nameCardVM);
+            nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
+
+            /*return PartialView("~/Views/NameCards/OwnNameCard.cshtml", nameCardVM);*/
+            /*return RedirectToAction("EditNameCard");*/
+            return new EmptyResult();
         }
 
+		public ActionResult Search()
+		{
+			nameCardVM.AllUsers = us.GetAllUsers();
+			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
+			nameCardVM.SearchResultsUsers = us.SearchAllUsers("");
+			return PartialView("~/Views/NameCards/Search.cshtml", nameCardVM);
+		}
 
-        public ActionResult Search()
-        {
-            return View();
-        }
-
+		[HttpPost]
+		public ActionResult Search(FormCollection collection)
+		{
+			nameCardVM.AllUsers = us.GetAllUsers();
+			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
+			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
+            return PartialView("~/Views/NameCards/Search.cshtml", nameCardVM);
+		}
+		   
 	}
 
 }
