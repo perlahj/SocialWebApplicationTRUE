@@ -1,6 +1,4 @@
 ﻿@model SozialWebApplication.Models.ViewModels.GroupViewModel
-@using SozialWebApplication.Services
-@using SozialWebApplication.Models.Entities
 
 <div class="bc">
     @{
@@ -10,7 +8,7 @@
     <br />
     
     <div class="namecard-button">
-        <a href="~/Home/NewsfeedGroups/111">
+        <a href="NewsfeedGroups/1">
             <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
         </a>
         
@@ -33,6 +31,8 @@
 
     <div class="overflowceeper">
         <div class="feed-body">
+            @using SozialWebApplication.Services
+            @using SozialWebApplication.Models.Entities
             @{if (Model.GroupWithId.Id == 0)
             {
                 <p>News Feed</p>    
@@ -81,11 +81,11 @@
                                 <!--Form for like button-->
                                 @using (Html.BeginForm("ClickLike", "Home", FormMethod.Post))
                                 {
+                                    <input type="submit" value=" " class="like-img" />
                                     <div class="number-of-likes"><p>#@post.Like</p></div>
                                     <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
                                     <input type="hidden" name="hidden-postId" value="@post.Id" />
                                     <input type="hidden" name="hidden-like" value="add-like" />
-                                    <input type="submit" value=" " class="like-img" />
                                 }
                             </div>
 
@@ -94,8 +94,12 @@
                             {
                                 <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
                                 <input type="hidden" name="hidden-postId" value="@post.Id" />
-                                <input type="text" name="comment-input" id="comment-input" class="comment-input" placeholder="What do you think?" />
-                                <input type="submit" value="Send" />
+
+                            <div class="comment">
+                               <!-- <input type="text" name="comment-input" id="comment-input" class="comment-input" placeholder="What do you think?" />-->
+                                <textarea rows="2"  cols="80" name="comment" class="comment-textarea" placeholder="What do you think?"></textarea>
+                                <input type="submit" value="Send" class="submit-comment" />
+                            </div>
                             }
 
                             <!--Display top 25 comments for post-->

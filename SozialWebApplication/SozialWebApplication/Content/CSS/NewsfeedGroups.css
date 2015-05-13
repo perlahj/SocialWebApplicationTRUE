@@ -61,7 +61,7 @@
   line-height: 25px;
   width: 70px;
   font-weight: bold;
-  background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11136784_10152739372817047_3965445374771875884_n.jpg?oh=b1c9db12fd324f42eb53bc33e682042c&oe=55D35DC0);
+  background-image: url('/Myndir/takkar.jpg');
 }
 
 .all-posts {
@@ -80,15 +80,13 @@
 
 .like-img {
   background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10984151_10152737854342047_4597756465764730856_n.jpg?oh=efad8928292b2a614776c82d4860acfe&oe=55DF7DA4);
-  /* border-left: 1px solid black; */
   border: none;
-  /* margin-right: -26%; */
   margin-left: 92%;
   background-size: 100%;
   background-repeat: no-repeat;
   width: 56px;
   height: 56px;
-  margin-top: 2%;
+  margin-top: -5%;
   cursor: pointer;
 }
 
@@ -111,10 +109,35 @@
   margin-left: 94%;
 }
 
-comment-input {
+.comment {
+    margin-left: 27%;
+}
+
+.comment-input {
 
 }
 
 .whole-each-post {
-    margin-bottom: 2%;
+    margin-bottom: 8%;
+}
+
+.post-content {
+    width: 90%;
+    margin-left: 2%;
+}
+
+.submit-comment {
+ margin-left: 2%;
+  margin-top: 1%;
+  border-radius: 4px;
+  border-color: #faa61f;
+  line-height: 23px;
+  width: 50px;
+  font-weight: bold;
+  background-image: url('/Myndir/takkar.jpg');
+}
+
+.comment-textarea {
+  float: left;
+  width: 50%;
 }
