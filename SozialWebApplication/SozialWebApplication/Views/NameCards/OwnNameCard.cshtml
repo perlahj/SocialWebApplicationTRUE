@@ -3,7 +3,14 @@
 <div class="namecard">
     <div class="information">
         <img src="/Myndir/myndlogo.jpg" class="profile-picture" alt="profilepic">
-            <p>@Html.DisplayFor(model => model.userWithId.FullName)</p>
+            @if (Model.userWithId.FullName != null)
+            {
+               <p>@Html.DisplayFor(model => model.userWithId.FullName)</p> 
+            }
+            else
+            {
+                <p>Please update your profile...</p>
+            }
             <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
 
         <div class="send-email">
