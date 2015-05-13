@@ -1,5 +1,36 @@
 ﻿@model SozialWebApplication.Models.ViewModels.NameCardViewModel
-@using (Html.BeginForm("SearchGroups", "Home", FormMethod.Post))
+
+<div class="bc">
+    @{
+        ViewBag.Title = "Banner";
+    }
+
+    <br />
+    <div class="namecard-button">
+        <a href="/Home/NewsfeedGroups/111">
+            <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
+
+        </a>
+        <div class="my-name">
+            @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
+        </div>
+
+        @using (Html.BeginForm("LogOff", "Account", new { ReturnUrl = "/Account/Login" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                <input type="submit" value="Log Out" class="logout-button" />
+            </div>
+        }
+
+    </div>
+
+    <br />
+
+    <div class="overflowceeper">
+        <div class="feed-body">
+            @using (Html.BeginForm("SearchGroups", "Home", FormMethod.Post))
 {
     <div class="searching">
         <input type="text" id="search" name="search" class="search" placeholder="Search ..." />
@@ -69,3 +100,11 @@
     </div>
 
 </div>
+
+        </div>
+    </div>
+
+    <br />
+
+</div>
+

@@ -1,4 +1,4 @@
-﻿$(".my-name a").click(function () {
+﻿/*$(".my-name a").click(function () {
     event.preventDefault();
     $.ajax({
         url: "/NameCards/OwnNameCard",
@@ -9,7 +9,7 @@
     });
 });
 
-/*$("#prufa").click(function () {
+$("#prufa").click(function () {
     alert("veiiii");
     event.preventDefault();
 
@@ -20,7 +20,7 @@
         $(".feed-body").empty();
         $('.feed-body').html(data);
     });
-});*/
+});
 
 $.ajax({
     url: "/Home/NewsfeedGroups",
@@ -28,4 +28,4 @@ $.ajax({
     debugger;
     $(".feed-body").empty();
     $('.feed-body').html(data);
-});
+});*/

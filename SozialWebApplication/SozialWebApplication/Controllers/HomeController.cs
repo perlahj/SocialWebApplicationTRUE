@@ -23,8 +23,18 @@ namespace SozialWebApplication.Controllers
         public ActionResult NewsfeedGroups(int id)
         {
 			GroupViewModel groupVM = new GroupViewModel();
-			groupVM.GroupWithId = gs.GetGroupById(id);
-			groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
+			int newsFeedId = gs.GetGroupIdbyName("News Feed");
+			if (id == newsFeedId)
+			{
+				groupVM.GroupWithId = gs.GetGroupById(id);
+				groupVM.GroupPosts = ps.GetLatestPostsForNewsFeed(User.Identity.Name);
+			}
+			else
+			{
+				groupVM.GroupWithId = gs.GetGroupById(id);
+				groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
+			}
+
 			return View(groupVM);
         }
 
@@ -35,8 +45,18 @@ namespace SozialWebApplication.Controllers
 			ps.AddNewPost(User.Identity.Name, id, postBody);
 
 			GroupViewModel groupVM = new GroupViewModel();
-			groupVM.GroupWithId = gs.GetGroupById(id);
-			groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
+			int newsFeedId = gs.GetGroupIdbyName("News Feed");
+			if (id == newsFeedId)
+			{
+				groupVM.GroupWithId = gs.GetGroupById(id);
+				groupVM.GroupPosts = ps.GetLatestPostsForNewsFeed(User.Identity.Name);
+			}
+			else
+			{
+				groupVM.GroupWithId = gs.GetGroupById(id);
+				groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
+			}
+			
 
 			return View(groupVM);
 		}
@@ -83,7 +103,7 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			nameCardVM.SearchResultsGroups = gs.SearchAllGroups("");
-            return PartialView("~/Views/Home/SearchGroups.cshtml", nameCardVM);
+            return View(nameCardVM);
 		}
 
 		[HttpPost]
@@ -92,7 +112,7 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			nameCardVM.SearchResultsGroups = gs.SearchAllGroups(collection.Get("search"));
-            return PartialView("~/Views/Home/SearchGroups.cshtml", nameCardVM);
+            return View(nameCardVM);
 		}
 
 		[HttpPost]
@@ -111,7 +131,7 @@ namespace SozialWebApplication.Controllers
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			nameCardVM.SearchResultsGroups = gs.SearchAllGroups(collection.Get(""));
-			return PartialView("~/Views/Home/SearchGroups.cshtml", nameCardVM);
+			return View("SearchGroups", nameCardVM);
 		}
 
 

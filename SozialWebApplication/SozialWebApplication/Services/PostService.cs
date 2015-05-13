@@ -56,8 +56,10 @@ namespace SozialWebApplication.Services
 		// Has not been tested
 		public List<Post> GetLatestPostsForNewsFeed(string userName)
 		{
+			GroupService gs = new GroupService();
+			var newsFeedId = gs.GetGroupIdbyName("News Feed");
+			var allPosts = GetAllPostsForGroup(newsFeedId);
 			UserService us = new UserService();
-			var allPosts = GetAllPostsForGroup(0);
 			var allFollowing = us.GetAllFollowing(userName);
 
 			List<Post> allNewsFeedPosts = new List<Post>();
