@@ -47,13 +47,13 @@
                 {
                     <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
                     <input type="hidden" name="hidden-follow-unfollow" value="unfollow" />
-                    <a href="OthersNameCard"><input type="submit" value="Unfollow" /></a>
+                    <a href="OthersNameCard"><input type="submit" value="" class="unfollow-others" /></a>
                 }
                 else
                 {
                     <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
                     <input type="hidden" name="hidden-follow-unfollow" value="follow" />
-                    <a href="OthersNameCard"><input type="submit" value="Follow" /></a>
+                    <a href="OthersNameCard"><input type="submit" value="" class="follow-others" /></a>
                 }
 
 

@@ -67,18 +67,6 @@
    height: 39px;
 }
 
-.follow-others {
-   margin-left: 67%;
-   margin-top: 2%;
-   background-image: url('/Myndir/AddFollower.png');
-   background-repeat: no-repeat;
-   background-size: 100%;
-   cursor: pointer;
-   border: none;
-   width: 51px;
-   height: 39px;
-}
-
 .match-others {
    margin-left: 68%;
    margin-top: 16%;
@@ -146,4 +134,33 @@
 .send-email > a:hover {
     text-decoration:underline;
     color: #ffd600;
+}
+
+.follow-others, .unfollow-others {
+    margin-left: 62%;
+    margin-top: 20%;
+}
+
+.follow-others {
+   background-image: url('/Myndir/AddFollower.png');
+   background-repeat: no-repeat;
+   background-size: 100%;
+   cursor: pointer;
+   border: none;
+   width: 51px;
+   height: 39px;
+   margin-top: 3%;
+   margin-left: 67%;
+}
+
+.unfollow-others {
+   background-image: url('/Myndir/Unfollow.png');
+   background-repeat: no-repeat;
+   background-size: 100%;
+   cursor: pointer;
+   border: none;
+   width: 48px;
+   height: 39px;
+   margin-top: 3%;
+   margin-left: 67%;
 }
