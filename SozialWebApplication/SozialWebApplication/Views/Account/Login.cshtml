@@ -1,11 +1,14 @@
 ﻿@model SozialWebApplication.Models.LandingPageModel
+@using SozialWebApplication.Services
+
+<!--'att'SozialWebApplication.Services.GroupService-->
 
 @{
     ViewBag.Title = "Log in";
 }
 
 <div>
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = "/Home/NewsfeedGroups/1" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = "/Home/Banner" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
     <div class="errorMessage">

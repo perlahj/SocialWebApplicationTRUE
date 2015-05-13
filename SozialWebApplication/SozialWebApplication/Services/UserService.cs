@@ -148,7 +148,7 @@ namespace SozialWebApplication.Services
 		{
 			List<string> userNames = (from un in db.FollowerConnections
 									  where un.UserFollowing == userName
-									  select un.UserFollowing).ToList();
+									  select un.UserToFollow).ToList();
 
 			List<ApplicationUser> userFollowingList = new List<ApplicationUser>();
 			foreach (var item in userNames)
