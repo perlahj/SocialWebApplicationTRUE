@@ -53,7 +53,6 @@ namespace SozialWebApplication.Services
 		public void AddNewsFeed()
 		{
 			Group g = new Group();
-			g.Id = 999;
 			g.GroupName = "News Feed";
 			db.Groups.Add(g);
 			db.SaveChanges();

@@ -120,13 +120,20 @@ namespace SozialWebApplication.Controllers
 		public ActionResult AddNewGroup(FormCollection collection)
 		{
 			string groupName = collection.Get("newgroup-name");
+			// If user creates a group without a name.
+			if(String.IsNullOrEmpty(groupName))
+			{
+				Random rnd = new Random();
+				int random = rnd.Next(1, 999);
+				string randomNumber = Convert.ToString(random);
+				groupName = "Group" + randomNumber;
+			}
 			gs.AddNewGroup(groupName);
 			int groupId = gs.GetGroupIdbyName(groupName);
 			// Register user to the new group.
 			gs.AddUserToGroup(groupId, User.Identity.Name);
 			// Post to the newly created group.
 			string postBody = User.Identity.Name + " created the group " + groupName + "!";
-			
 			ps.AddNewPost(User.Identity.Name, groupId, postBody);
 			
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
