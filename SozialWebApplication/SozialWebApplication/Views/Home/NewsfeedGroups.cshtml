@@ -121,13 +121,15 @@
                             <div class="CommentDisplayParent">
                                 <div class="CommentDisplay">
                                     @foreach (var comment in commentsForPost)
-                                    {
+{
 
-                                        <div class="comment-post-name">
-                                            <p>@comment.UserName</p>
-                                        </div>
-                                        <div class="comment-post-date">
-                                            <p>@comment.DateCreated</p>
+                                        <div class="comment-info">
+                                            <div class="comment-post-name">
+                                                <p>@comment.UserName</p>
+                                            </div>
+                                            <div class="comment-post-date">
+                                                <p>@comment.DateCreated</p>
+                                            </div>
                                         </div>
                                         <p class="post-comment">@comment.Body</p>
 
