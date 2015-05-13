@@ -80,6 +80,35 @@ namespace SozialWebApplication.Controllers
 		}
 
 		[HttpPost]
+		public ActionResult ClickAddToFavorite(FormCollection collection)
+		{
+			string groupIdString = collection.Get("hidden-groupId");
+			int groupId = Convert.ToInt32(groupIdString);
+
+			string action = collection.Get("hidden-favgroup");
+			if (action == "add-group")
+			{
+				if (!gs.IsUserInGroup(groupId, User.Identity.Name))
+				{
+					gs.AddUserToGroup(groupId, User.Identity.Name);
+				}
+			}
+			else if (action == "remove-group")
+			{
+				if (gs.IsUserInGroup(groupId, User.Identity.Name))
+				{
+					gs.RemoveUserFromGroup(groupId, User.Identity.Name);
+				}
+			}
+
+			GroupViewModel groupVM = new GroupViewModel();
+			groupVM.GroupWithId = gs.GetGroupById(groupId);
+			groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);
+
+			return View("NewsfeedGroups", groupVM);
+		}
+
+		[HttpPost]
 		public ActionResult AddComment(FormCollection collection)
 		{
 			string postIdString = collection.Get("hidden-postId");
