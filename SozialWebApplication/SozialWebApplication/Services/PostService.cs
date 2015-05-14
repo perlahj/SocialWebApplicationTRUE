@@ -114,10 +114,10 @@ namespace SozialWebApplication.Services
 		{
 			// User posts e.g.https://youtu.be/-xBro-i-rZQ, we only want to store "-xBro-i-rZQ".
 			int length = str.Length;
-			/*if (str.Substring(0, 11 == "https://www")) ;
+			/*if (str.Substring(0, 11 == "https://www"));
 			{
 				return str.Substring(32, (length - 32));
-			} */
+			}*/
 			return str.Substring(17, (length - 17));
 		}
     }
