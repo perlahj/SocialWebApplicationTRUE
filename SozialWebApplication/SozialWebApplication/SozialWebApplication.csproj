@@ -274,7 +274,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Repositories\" />
     <Folder Include="Views\LoginRegister\" />
   </ItemGroup>
   <ItemGroup>

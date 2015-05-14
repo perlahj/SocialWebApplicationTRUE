@@ -33,8 +33,6 @@ namespace SozialWebApplication.Models
 		public DbSet<MatchConnection> MatchConnections { get; set; }
 		public DbSet<GroupConnection> GroupConnections { get; set; }
 		public DbSet<Like> Likes { get; set; }
-		//public DbSet<PostConnection> PostConnections { get; set; }
-		//public DbSet<CommentConnection> CommentConnections { get; set; }
 
 		public ApplicationDbContext()
 			: base("DefaultConnection")
