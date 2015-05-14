@@ -18,7 +18,7 @@ namespace SozialWebApplication.Controllers
     {
 		// For adding every new user to group: News Feed
 		GroupService gs = new GroupService();
-		// To make every new user followe him/herself.
+		// To make every new user follow him/herself.
 		UserService us = new UserService();
 
 		public AccountController()

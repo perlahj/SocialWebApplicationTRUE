@@ -28,6 +28,7 @@ namespace SozialWebApplication.Services
 			var userWithUserName = (from user in db.Users
 						where user.UserName == userName
 						select user).FirstOrDefault();
+			
 			userWithUserName.FullName = newFullName;
 			db.SaveChanges();						 
 		}
@@ -37,6 +38,7 @@ namespace SozialWebApplication.Services
 			var userWithUserName = (from user in db.Users
 									where user.UserName == userName
 									select user).FirstOrDefault();
+			
 			userWithUserName.LineOfStudy = newLineOfStudy;
 			db.SaveChanges();
 		}
@@ -46,6 +48,7 @@ namespace SozialWebApplication.Services
 			var userWithUserName = (from user in db.Users
 									where user.UserName == userName
 									select user).FirstOrDefault();
+			
 			userWithUserName.Email = newEmail;
 			db.SaveChanges();
 		}
@@ -63,6 +66,7 @@ namespace SozialWebApplication.Services
 			var user = (from u in db.Users
 						where u.Id == id
 						select u).FirstOrDefault();
+			
 			return user;
 		} 
 
@@ -78,12 +82,12 @@ namespace SozialWebApplication.Services
 
 		public List<ApplicationUser> SearchAllUsers(string searchStr)
 		{	
-			if(String.IsNullOrEmpty(searchStr))
+			if (String.IsNullOrEmpty(searchStr))
 			{
 				return new List<ApplicationUser>();
 			}
-			var allUsers = GetAllUsers();
 			
+			var allUsers = GetAllUsers();
 			var searchResults = new List<ApplicationUser>();
 			foreach (var item in allUsers)
 			{
@@ -92,28 +96,9 @@ namespace SozialWebApplication.Services
 					searchResults.Add(item);
 				}
 			}
-			/*var searchResults = (from r in allUsers
-								 where r.FullName.StartsWith(searchStr)
-								 orderby r.FullName ascending
-								 select r).ToList();  */
-			
-			//var searchResults = allUsers.Where(x => x.FullName.StartsWith(searchStr)).ToList();
-		
-
-			/*List<ApplicationUser> searchResults = new List<ApplicationUser>();
-			foreach (var item in allUsers)
-			{
-			   var result = allUsers.Find(x => x.FullName.Contains(searchStr));
-				searchResults.Add(result);	
-			}  */
-
-			/*var searchResults = (from sr in allUsers
-								 where (m => m.FullName.StartsWith(searchStr))
-								 select sr).ToList();  */
 			
 			return searchResults;
 		}
-
 
 		public void AddNewFollow(string userFollowing, string userToFollow)
 		{
@@ -130,6 +115,7 @@ namespace SozialWebApplication.Services
 									  where dc.UserFollowing == userFollowing &&
 									  dc.UserToFollow == userToFollow
 									  select dc).FirstOrDefault();
+			
 			db.FollowerConnections.Remove(followerConnection);
 			db.SaveChanges();
 		}
@@ -143,7 +129,6 @@ namespace SozialWebApplication.Services
 			return followerConnection != null;
 		}
 
-		// Has not been tested
 		public List<ApplicationUser> GetAllFollowing(string userName)
 		{
 			List<string> userNames = (from un in db.FollowerConnections
@@ -177,6 +162,7 @@ namespace SozialWebApplication.Services
 								   where mc.UserMatching == userRemoving &&
 								   mc.UserMatched == userToRemove
 								   select mc).FirstOrDefault();
+			
 			db.MatchConnections.Remove(matchConnection);
 			db.SaveChanges();
 
@@ -188,6 +174,7 @@ namespace SozialWebApplication.Services
 								   where mc.UserMatching == userMatching &&
 								   mc.UserMatched == userMatched
 								   select mc).FirstOrDefault();
+			
 			return matchConnection != null;
 		}
 
@@ -206,7 +193,6 @@ namespace SozialWebApplication.Services
 			return matchConnection != null;
 		}
 
-		// Needs to be tested!
 		public List<ApplicationUser> GetAllDoubleMatches(string userName)
 		{
 			// Make a list of single matches
@@ -230,10 +216,9 @@ namespace SozialWebApplication.Services
 			{
 				var doubleMatchUser = (from dmu in db.Users
 									   where dmu.UserName == item.UserMatched
-									   select dmu).SingleOrDefault();
+									   select dmu).FirstOrDefault();
 				doubleMatchesUsers.Add(doubleMatchUser);
 			}
-
 
 			return doubleMatchesUsers;
 		}

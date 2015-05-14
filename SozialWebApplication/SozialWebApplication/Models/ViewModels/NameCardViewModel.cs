@@ -21,6 +21,7 @@ namespace SozialWebApplication.Models.ViewModels
 		public List<Group> AllUserGroups { get; set; }
 		public List<Group> AllGroups { get; set; }
 		public List<Group> SearchResultsGroups { get; set; }
+		public string CreateGroupMessage { get; set; }
 
 		// Matches.
         public List<ApplicationUser> AllMatches { get; set; }
