@@ -142,8 +142,7 @@ namespace SozialWebApplication.Services
 		public List<ApplicationUser> GetAllFollowing(string userName)
 		{
 			List<string> userNames = (from un in db.FollowerConnections
-									  where un.UserFollowing == userName &&
-									  un.UserToFollow != userName
+									  where un.UserFollowing == userName
 									  select un.UserToFollow).ToList();
 
 			List<ApplicationUser> userFollowingList = new List<ApplicationUser>();
