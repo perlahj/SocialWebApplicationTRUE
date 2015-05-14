@@ -1,9 +1,8 @@
 ﻿.newsfeed {
     margin-top: 6%;
   margin-left: 10%;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   margin-right: 10%;
-  /* border-radius: 25px; */
   height: 167px;
 
 }
@@ -168,7 +167,6 @@
 }
 
 .CommentDisplay {
-  overflow-y: scroll;
   height: 98px;
   width: 955px;
   margin-top: 1%;
@@ -186,7 +184,7 @@
 
 .comment-post-date {
     margin-top: -3%;
-    margin-left: 87%;
+    margin-left: 86%;
     font-weight: bold;
 }
 
@@ -211,7 +209,7 @@
 }
 
 .post-size-settings-photo img{
-    width: 200px;
+    width: 550px;
 }
 
 .post-size-settings-video{
