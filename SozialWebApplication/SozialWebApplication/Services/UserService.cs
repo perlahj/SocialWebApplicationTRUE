@@ -53,6 +53,16 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
+		public void ChangeProfilePicture(string userName, string newPicture)
+		{
+			var userWithUserName = (from user in db.Users
+									where user.UserName == userName
+									select user).FirstOrDefault();
+
+			userWithUserName.ProfilePicture = newPicture;
+			db.SaveChanges();
+		}
+
 		public ApplicationUser GetUserByUserName(string userName)
 		{
 			var user = (from u in db.Users
