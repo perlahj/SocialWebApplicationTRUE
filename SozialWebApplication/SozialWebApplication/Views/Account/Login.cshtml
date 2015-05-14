@@ -11,6 +11,7 @@
         @using (Html.BeginForm("Login", "Account", new { ReturnUrl = "/Home/NewsfeedGroups/1" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             @Html.AntiForgeryToken()
+            
             <div class="errorMessage">
                 @Html.ValidationSummary(true)
             </div>
@@ -21,6 +22,7 @@
                     @Html.LabelFor(m => m.LoginViewModel.UserName, new { @class = "login-label" })
                     @Html.TextBoxFor(m => m.LoginViewModel.UserName, new { @class = "input" })
                     <!--"att"Html.ValidationMessageFor(m => m.LoginViewModel.UserName)-->
+
                     @Html.LabelFor(m => m.LoginViewModel.Password, new { @class = "login-label" })
                     @Html.PasswordFor(m => m.LoginViewModel.Password, new { @class = "input" })
                     <!--"att"Html.ValidationMessageFor(m => m.LoginViewModel.Password)-->
@@ -52,8 +54,6 @@
             <div>
                 <div class="register">
 
-                    <!-- "at"Html.LabelFor(m => m.Email, new { "at"class = "register-label" })
-                    "at"Html.PasswordFor(m => m.Email, new { "at"class = "input" }) -->
                     @Html.LabelFor(m => m.RegisterViewModel.UserName, new { @class = "register-label" })
                     @Html.TextBoxFor(m => m.RegisterViewModel.UserName, new { @class = "input" })
                 </div>
@@ -76,23 +76,9 @@
     </div>
 
     <div class="logo">
-        <img src="/Myndir/logo.jpg" class="front-logo" alt="front-logo" />
+        <img src="/Myndir/Logo.jpg" class="front-logo" alt="front-logo" />
     </div>
 </div>
-
-<!--<script>
-    $(".register-button").click(function () {
-        event.preventDefault();
-
-        $.ajax({
-            url: "/NameCards/Search",
-        }).success(function (data) {
-            debugger;
-            $(".feed-body").empty();
-            $('.feed-body').html(data);
-        });
-    });
-</script>-->
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -220,7 +220,7 @@
 }
 
 .add-group {
-  background-image: url('/Myndir/add-group.jpg');
+  background-image: url('/Myndir/AddGroup.jpg');
   cursor: pointer;
   background-repeat: no-repeat;
   height: 24px;
@@ -228,7 +228,6 @@
   margin-left: 1010px;
   width: 160px;
   margin-top: 8px;
-
 }
 
 .remove-group {

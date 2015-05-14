@@ -2,7 +2,7 @@
 
 <div class="bc">
     @{
-        ViewBag.Title = "Banner";
+        ViewBag.Title = "Sozial";
     }
 
     <br />
@@ -48,6 +48,7 @@
                                 <input type="hidden" name="hidden-favgroup" value="add-group" />
                                 <input type="submit" value="" class="add-group" />
                             }
+                            
                             else
                             {
                                 <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
@@ -83,6 +84,7 @@
                 </div>
                 <input type="submit" value="Post" class="post-submit" />
             }
+
             <!--Display recent posts-->
             <div class="all-posts">
                 @foreach (var post in Model.GroupPosts)
@@ -116,8 +118,6 @@
                             </div>
                              
                             <div class="like">
-                                <!-- <input type="button" class="like-img" /> -->
-                    
                                 <!--Form for like button-->
                                 @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
                                 {
@@ -128,6 +128,7 @@
                                     <input type="hidden" name="hidden-like" value="add-like" />
                                 }
                             </div>
+
                             <div class="comment-form">
                                 <!--Form for new comment-->
                                 @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
@@ -157,22 +158,16 @@
                                                 <p>@comment.DateCreated</p>
                                             </div>
                                             <p>@comment.Body</p>
-
-
                                         </div>
                                     </div>
                                 }
+
                             </div>
+                        </div>
                     </div>
-                            
-               
-            </div>
                 }
         </div> <!--feed-body-->
     </div> <!--overflowceeper-->
     <br />
     </div>
-    </div>
-
-
-
+</div>
