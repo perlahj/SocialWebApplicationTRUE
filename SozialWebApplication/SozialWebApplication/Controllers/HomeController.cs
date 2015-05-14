@@ -120,7 +120,7 @@ namespace SozialWebApplication.Controllers
 			return View(groupVM);
 		}
 
-		[HttpPost]
+		/*[HttpPost]
 		public ActionResult ClickLike(FormCollection collection)
 		{
 			string postIdString = collection.Get("hidden-postId");
@@ -135,9 +135,9 @@ namespace SozialWebApplication.Controllers
 			groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);
 
             return View("NewsfeedGroups", groupVM);
-		}
+		} */
 
-		[HttpPost]
+		/*[HttpPost]
 		public ActionResult ClickAddToFavorite(FormCollection collection)
 		{
 			string groupIdString = collection.Get("hidden-groupId");
@@ -184,7 +184,7 @@ namespace SozialWebApplication.Controllers
 			groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);
 
 			return RedirectToAction("NewsfeedGroups", groupVM);
-		}
+		}  */
 
 		public ActionResult SearchGroups()
 		{
