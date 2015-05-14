@@ -79,6 +79,7 @@ namespace SozialWebApplication.Services
 		public List<Group> GetAllGroups()
 		{
 			var groups = (from g in db.Groups
+						  where g.GroupName != "News Feed"
 						  select g).ToList();
 			return groups;
 		}
@@ -112,7 +113,8 @@ namespace SozialWebApplication.Services
 			foreach(var gId in groupIds)
 			{
 				var group = (from g in db.Groups
-							where g.Id == gId
+							where g.Id == gId &&
+							g.GroupName != "News Feed"
 							select g).FirstOrDefault();
 				groups.Add(group);
 			}
