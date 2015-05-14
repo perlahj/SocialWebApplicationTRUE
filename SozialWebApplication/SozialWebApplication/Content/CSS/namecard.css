@@ -5,9 +5,9 @@
 .information {
 
     font-weight: bold;
-    margin-left: 567px;
+    margin-left: 476px;
     position: absolute;
-    margin-top: 5%;
+    padding-top: 6%;
     text-align: center;
 }
 
@@ -122,9 +122,7 @@
 }
 
 .save {
-  margin-top: 3%;
-  margin-left: -25%;
-  margin-bottom: 1%;
+  margin-left: 17%;
   border-radius: 4px;
   border-color: #faa61f;
   line-height: 25px;
@@ -140,8 +138,7 @@
 }
 
 .edit-information {
-  margin-left: 44%;
-  text-align: center;
+  margin-left: 34%;
   margin-top: 5%;
 }
 
@@ -187,4 +184,13 @@
 
 ::-webkit-scrollbar{
     display: block;
+}
+
+.namecard img
+{
+    width: 250px;
+    border-radius: 143px;
+    border: 1px solid;
+    margin-left: 40px;
+
 }
