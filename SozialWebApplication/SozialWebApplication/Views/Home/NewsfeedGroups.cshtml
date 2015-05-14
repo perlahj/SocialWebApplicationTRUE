@@ -1,8 +1,10 @@
 ﻿@model SozialWebApplication.Models.ViewModels.GroupViewModel
+@using SozialWebApplication.Services
+@using SozialWebApplication.Models.Entities
 
 <div class="bc">
     @{
-        ViewBag.Title = "Banner";
+        ViewBag.Title = "Sozial";
     }
 
     <br />
@@ -31,8 +33,6 @@
 
     <div class="overflowceeper">
         <div class="feed-body">
-            @using SozialWebApplication.Services
-            @using SozialWebApplication.Models.Entities
 
                 <!--Add group to favorite or remove from favorite groups.-->
                 <div class="add-favgroup">
@@ -48,6 +48,7 @@
                                 <input type="hidden" name="hidden-favgroup" value="add-group" />
                                 <input type="submit" value="" class="add-group" />
                             }
+                            
                             else
                             {
                                 <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
@@ -83,14 +84,23 @@
                 </div>
                 <input type="submit" value="Post" class="post-submit" />
             }
+
             <!--Display recent posts-->
             <div class="all-posts">
                 @foreach (var post in Model.GroupPosts)
                 {
+                    var postingUser = UserService.Instance.GetUserByUserName(post.UserName);
                     <div class="whole-each-post">
-                        <p class="post-name">@post.UserName</p>
+                        <img src="@postingUser.ProfilePicture" alt="@Profile picture">
+                        @if (postingUser.FullName != null)
+                        {
+                            <p class="post-name">@postingUser.FullName</p>
+                        }
+                        else
+                        {
+                            <p class="post-name">@postingUser.UserName</p>
+                        }
                         <p class="post-date">@post.DateCreated</p>
-            
                         <div class="each-post">
                             <div class="post-content">
                                 @if (post.PostType == SozialWebApplication.Models.PostType.Text)
@@ -117,8 +127,6 @@
                             </div>
                              
                             <div class="like">
-                                <!-- <input type="button" class="like-img" /> -->
-                    
                                 <!--Form for like button-->
                                 @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
                                 {
@@ -129,6 +137,7 @@
                                     <input type="hidden" name="hidden-like" value="add-like" />
                                 }
                             </div>
+
                             <div class="comment-form">
                                 <!--Form for new comment-->
                                 @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
@@ -137,7 +146,6 @@
                                     <input type="hidden" name="hidden-postId" value="@post.Id" />
 
                                     <div class="comment">
-                                        <!-- <input type="text" name="comment-input" id="comment-input" class="comment-input" placeholder="What do you think?" />-->
                                         <textarea rows="2" cols="80" name="comment-input" class="comment-textarea" placeholder="What do you think?"></textarea>
                                         <input type="submit" value="Send" class="submit-comment" />
                                     </div>
@@ -148,32 +156,36 @@
 
                                 @foreach (var comment in commentsForPost)
                                 {
+                                    var commentingUser = UserService.Instance.GetUserByUserName(comment.UserName);
                                     <div class="CommentDisplayParent">
                                         <div class="CommentDisplay">
 
+                                            <img src="@commentingUser.ProfilePicture" alt="@Profile picture">
                                             <div class="comment-post-name">
-                                                <p>@comment.UserName</p>
+                                                @if (commentingUser.FullName != null)
+                                                {
+                                                    <p>@commentingUser.FullName</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>@commentingUser.UserName</p>
+                                                }
+                                                
                                             </div>
                                             <div class="comment-post-date">
                                                 <p>@comment.DateCreated</p>
                                             </div>
                                             <p>@comment.Body</p>
-
-
                                         </div>
                                     </div>
                                 }
+
                             </div>
+                        </div>
                     </div>
-                            
-               
-            </div>
                 }
         </div> <!--feed-body-->
     </div> <!--overflowceeper-->
     <br />
     </div>
-    </div>
-
-
-
+</div>

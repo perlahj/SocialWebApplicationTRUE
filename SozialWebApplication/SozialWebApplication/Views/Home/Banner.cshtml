@@ -1,21 +1,22 @@
-﻿<div class="bc">
-    @{
+﻿<!-- <div class="bc">
+    "at"{
         ViewBag.Title = "Banner";
     }
 
     <br/>
+
     <div class="namecard-button">
         <a href="/Home/NewsfeedGroups/1">
-            <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
-
+            <img src="/Myndir/Logo.jpg" class="name-logo" alt="name-logo" />
         </a>
+
         <div class="my-name">
-            @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
+            "at"Html.ActionLink("at"Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
         </div>
 
-        @using (Html.BeginForm("LogOff", "Account", new { ReturnUrl = "/Account/Login" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        "at"using (Html.BeginForm("LogOff", "Account", new { ReturnUrl = "/Account/Login" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
-            @Html.AntiForgeryToken()
+            "at"Html.AntiForgeryToken()
 
                 <div>
                     <input type="submit" value="Log Out" class="logout-button" />
@@ -28,19 +29,19 @@
 
     <div class="overflowceeper">
         <div class="feed-body">
-            <!-- <div id="result">
+            <div id="result">
                  "at"Ajax.ActionLink(
                  "load partial view",
                  "Load",
                  "Home",
                  new AjaxOptions { UpdateTargetId = "result" })
-             <br/>-->
+             <br/>
             <iframe src="~/NameCards/OwnNameCard"></iframe>
-            <!--"att"{Html.RenderPartial("att""~/NameCards/OwnNameCard");}-->   
-            <!--Html.Partial("~/Views/NAmeCards/OwnNameCard.cshtml")-->
+            <!--"att"{Html.RenderPartial("att""~/NameCards/OwnNameCard");}
+            <!--Html.Partial("~/Views/NAmeCards/OwnNameCard.cshtml")
         </div>
    </div>
 
     <br/>
  
-</div>
+</div>-->

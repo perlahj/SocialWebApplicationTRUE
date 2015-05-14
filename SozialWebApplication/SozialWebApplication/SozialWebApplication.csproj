@@ -186,8 +186,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\CSS\Banner.css" />
-    <Content Include="Content\CSS\bootstrap.css" />
-    <Content Include="Content\CSS\bootstrap.min.css" />
     <Content Include="Content\CSS\Matches.css" />
     <Content Include="Content\CSS\namecard.css" />
     <Content Include="Content\CSS\NewsfeedGroups.css" />
@@ -196,36 +194,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\CSS\Site.css" />
-    <Content Include="Myndir\add-group.jpg" />
     <Content Include="Myndir\AddGroup.jpg" />
-    <Content Include="Myndir\AddGroups.jpg" />
     <Content Include="Myndir\Background.jpg" />
-    <Content Include="Myndir\remove-group.jpg" />
     <Content Include="Myndir\RemoveGroup.jpg" />
     <Content Include="Myndir\Unmatch.png" />
-    <Content Include="Myndir\input.jpg" />
-    <Content Include="Myndir\match.jpg" />
-    <Content Include="Myndir\match.png" />
-    <Content Include="Myndir\minus.jpg" />
-    <Content Include="Myndir\myndlogo.jpg" />
+    <Content Include="Myndir\InputBoxBackground.jpg" />
+    <Content Include="Myndir\MatchList.jpg" />
+    <Content Include="Myndir\Match.png" />
+    <Content Include="Myndir\DefaultProfile.jpg" />
     <Content Include="Myndir\AddFollower.png" />
-    <Content Include="Myndir\addgroup.png" />
-    <Content Include="Myndir\DoubleMatch.png" />
     <Content Include="Myndir\Edit.png" />
     <Content Include="Myndir\Followers.png" />
-    <Content Include="Myndir\groups.png" />
-    <Content Include="Myndir\leavegroup.png" />
-    <Content Include="Myndir\Like-a+¦.png" />
-    <Content Include="Myndir\logo.jpg" />
-    <Content Include="Myndir\Matched.png" />
-    <Content Include="Myndir\Mynd.png" />
+    <Content Include="Myndir\Groups.png" />
+    <Content Include="Myndir\Like.png" />
+    <Content Include="Myndir\Logo.jpg" />
+    <Content Include="Myndir\PostPicture.png" />
     <Content Include="Myndir\Photo.png" />
-    <Content Include="Myndir\search.jpg" />
-    <Content Include="Myndir\takkar.jpg" />
-    <Content Include="Myndir\TextLogo.png" />
+    <Content Include="Myndir\SearchButton.jpg" />
+    <Content Include="Myndir\ButtonBackground.jpg" />
+    <Content Include="Myndir\PostText.png" />
     <Content Include="Myndir\UnFollow.png" />
-    <Content Include="Myndir\UnLikeo¦êa+¦.png" />
-    <Content Include="Myndir\Video.png" />
+    <Content Include="Myndir\PostVideo.png" />
     <Content Include="Scripts\aWholeLottaJavascript.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -253,9 +242,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -265,9 +251,7 @@
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Banner.cshtml" />
     <Content Include="Views\NameCards\OwnNameCard.cshtml" />
     <Content Include="Views\NameCards\OthersNameCard.cshtml" />
     <Content Include="Views\NameCards\EditNameCard.cshtml" />
@@ -278,7 +262,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\LoginRegister\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
