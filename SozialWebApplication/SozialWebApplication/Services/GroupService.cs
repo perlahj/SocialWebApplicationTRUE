@@ -45,15 +45,17 @@ namespace SozialWebApplication.Services
 		public bool AddNewGroup (string groupName)
 		{
 			// Check if another group with same name exists. 
-			if (GetGroupIdbyName(groupName) == 0)
+			if ((GetGroupIdbyName(groupName) != 0) || String.IsNullOrEmpty(groupName))
 			{
-				Group g = new Group();
-				g.GroupName = groupName;
-				db.Groups.Add(g);
-				db.SaveChanges();
-				return true;
+				return false;
 			}
-			return false;
+			
+			Group g = new Group();
+			g.GroupName = groupName;
+			db.Groups.Add(g);
+			db.SaveChanges();
+
+			return true;
 			
 		}
 

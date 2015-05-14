@@ -34,7 +34,7 @@
 
             <div class="add-and-search">
 
-                <!-- Adding -->
+                <!-- Create a new group -->
                 @using (Html.BeginForm("SearchGroups", "Home", FormMethod.Post))
                 {
                     <div class="adding-groups">
@@ -44,6 +44,7 @@
                             <input type="submit" value="Create group" name="submit" class="addnewgroup-button" />
                         </div>
                     </div>
+                    <p>@Model.CreateGroupMessage</p>
                 }
 
                 <!-- Searching -->

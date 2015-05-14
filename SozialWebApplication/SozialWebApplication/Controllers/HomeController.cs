@@ -121,6 +121,7 @@ namespace SozialWebApplication.Controllers
 
 		public ActionResult SearchGroups()
 		{
+			NameCardViewModel nameCardVM = new NameCardViewModel();
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			nameCardVM.SearchResultsGroups = gs.SearchAllGroups("");
@@ -130,35 +131,43 @@ namespace SozialWebApplication.Controllers
 		[HttpPost]
 		public ActionResult SearchGroups(FormCollection collection)
 		{
+			NameCardViewModel nameCardVM = new NameCardViewModel();
+
 			string submitButton = collection.Get("submit");
 			if (submitButton == "Create group")
 			{
 				string groupName = collection.Get("newgroup-name");
 				
-				// If user creates a group without a name.
-				if(String.IsNullOrEmpty(groupName))
+				if (gs.AddNewGroup(groupName))
 				{
-					Random rnd = new Random();
-					int random = rnd.Next(1, 999);
-					string randomNumber = Convert.ToString(random);
-					groupName = "Group" + randomNumber;
-				}  
-				
-				bool createGroup = gs.AddNewGroup(groupName);
-			
-				int groupId = gs.GetGroupIdbyName(groupName);
-				// Add the new group to list of users favorite groups.
-				gs.AddUserToGroup(groupId, User.Identity.Name);
-				// Post to the newly created group.
-				string postBody = User.Identity.Name + " created the group " + groupName + "!";
-				ps.AddNewPost(User.Identity.Name, groupId, postBody, PostType.Text);
+					int groupId = gs.GetGroupIdbyName(groupName);
+					// Add the new group to list of users favorite groups.
+					gs.AddUserToGroup(groupId, User.Identity.Name);
+					// Post to the newly created group.
+					string postBody = User.Identity.Name + " created the group " + groupName + "!";
+					ps.AddNewPost(User.Identity.Name, groupId, postBody, PostType.Text);
+					// Display a message. 
+					nameCardVM.CreateGroupMessage = "You have created a new group.";
+				}
+				else
+				{
+					if (String.IsNullOrEmpty(groupName))
+					{
+						nameCardVM.CreateGroupMessage = "Please select a name for your group.";
+					}
+					else
+					{
+					   nameCardVM.CreateGroupMessage = "The group name you chose is already taken.";
+					}
+				}
 			}
 
 			// Make the viewmodel.
+			
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			string searchString = collection.Get("search");
-			if (String.IsNullOrEmpty(searchString))
+			if(String.IsNullOrEmpty(searchString))
 			{
 				nameCardVM.SearchResultsGroups = gs.SearchAllGroups(collection.Get(""));
 			}
@@ -169,36 +178,6 @@ namespace SozialWebApplication.Controllers
 
             return View(nameCardVM);
 		}
-
-		[HttpPost]
-		public ActionResult AddNewGroup(FormCollection collection)
-		{
-			string groupName = collection.Get("newgroup-name");
-			// If user creates a group without a name.
-			if(String.IsNullOrEmpty(groupName))
-			{
-				Random rnd = new Random();
-				int random = rnd.Next(1, 999);
-				string randomNumber = Convert.ToString(random);
-				groupName = "Group" + randomNumber;
-			}
-			gs.AddNewGroup(groupName);
-			
-			int groupId = gs.GetGroupIdbyName(groupName);
-			// Add the new group to list of users favorite groups.
-			gs.AddUserToGroup(groupId, User.Identity.Name);
-			// Post to the newly created group.
-			string postBody = User.Identity.Name + " created the group " + groupName + "!";
-			ps.AddNewPost(User.Identity.Name, groupId, postBody, PostType.Text);
-			
-			// Make the viewmodel.
-			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
-			nameCardVM.AllGroups = gs.GetAllGroups();
-			nameCardVM.SearchResultsGroups = gs.SearchAllGroups(collection.Get(""));
-			return View("SearchGroups", nameCardVM);
-		}
-
-
 
         public ActionResult CheckMatch()
         {
