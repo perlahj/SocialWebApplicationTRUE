@@ -36,6 +36,7 @@
             <div class="groupName">
                 <p>@Model.GroupWithId.GroupName</p>
             </div>
+
         <!--Add group to favorite or remove from favorite groups.-->    
         <div class="add-favgroup">
           
@@ -48,13 +49,13 @@
                         {
                              <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
                             <input type="hidden" name="hidden-favgroup" value="add-group" />
-                            <input type="submit" value="Add group to favorite" class="fav-submit" />
+                            <input type="submit" value="" class="add-group" />
                         }
                         else
                         {
                            <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
                             <input type="hidden" name="hidden-favgroup" value="remove-group" />
-                            <input type="submit" value="Remove group from favorite" class="fav-submit" /> 
+                            <input type="submit" value="" class="remove-group" /> 
                         }
 
                     }
