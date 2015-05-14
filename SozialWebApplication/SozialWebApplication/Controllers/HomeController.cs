@@ -14,6 +14,7 @@ namespace SozialWebApplication.Controllers
 		private GroupService gs = new GroupService();
 		private PostService ps = new PostService();
         private UserService us = new UserService();
+		NameCardViewModel nameCardVM = new NameCardViewModel();
 		
 		public ActionResult Banner()
 		{
@@ -120,7 +121,7 @@ namespace SozialWebApplication.Controllers
 
 		public ActionResult SearchGroups()
 		{
-			NameCardViewModel nameCardVM = new NameCardViewModel();
+			//NameCardViewModel nameCardVM = new NameCardViewModel();
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			nameCardVM.SearchResultsGroups = gs.SearchAllGroups("");
