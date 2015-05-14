@@ -6,28 +6,26 @@ using System.Web.Mvc;
 using SozialWebApplication.Services;
 using SozialWebApplication.Models;
 using SozialWebApplication.Models.ViewModels;
-using SozialWebApplication.ViewModel;
 
 namespace SozialWebApplication.Controllers
 {
     public class NameCardsController : Controller
     {
-
 		private UserService us = new UserService();
 		private NameCardViewModel nameCardVM = new NameCardViewModel();
 		
 		public ActionResult OwnNameCard()
         {
+			NameCardViewModel nameCardVMmodel = new NameCardViewModel();
 			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
-			
 			return View(nameCardVM);
         }
 
         public ActionResult OthersNameCard(string id)
         {
-			NameCardViewModel model = new NameCardViewModel();
-			model.userWithId = us.GetUserById(id);
-			return View(model);
+			NameCardViewModel nameCardVMmodel = new NameCardViewModel();
+			nameCardVMmodel.userWithId = us.GetUserById(id);
+			return View(nameCardVMmodel);
         }
 
 		[HttpPost]
@@ -35,11 +33,11 @@ namespace SozialWebApplication.Controllers
 		{
 			string othersUserName = collection.Get("hidden-othersUserName");
 			string action = collection.Get("hidden-follow-unfollow");
-			if(action == "follow")
+			if (action == "follow")
 			{
 				us.AddNewFollow(User.Identity.Name, othersUserName);
 			}
-			else if(action == "unfollow")
+			else if (action == "unfollow")
 			{
 				us.RemoveFollow(User.Identity.Name, othersUserName);
 			}
@@ -54,27 +52,16 @@ namespace SozialWebApplication.Controllers
                 us.RemoveMatch(User.Identity.Name, othersUserName);
             }
 
-			NameCardViewModel model = new NameCardViewModel();
-			model.userWithId = us.GetUserById(id);
-			return View(model);
+			NameCardViewModel nameCardVMmodel = new NameCardViewModel();
+			nameCardVMmodel.userWithId = us.GetUserById(id);
+			return View(nameCardVMmodel);
 		}
-
-		/*[HttpPost]
-		public ActionResult RemoveFollow(string id, FormCollection collection)
-		{
-			string othersUserName = collection.Get("hidden-OthersUserName");
-			us.RemoveFollow(User.Identity.Name, othersUserName);
-			NameCardViewModel model = new NameCardViewModel();
-			model.userWithId = us.GetUserById(id);
-			return PartialView("~/Views/NameCards/OthersNameCard.cshtml", model);
-		} */
 
 		[HttpGet]
         public ActionResult EditNameCard()
 		{
-
-            nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
-
+			NameCardViewModel nameCardVMmodel = new NameCardViewModel();
+			nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
             return View(nameCardVM);
 		}
 
@@ -98,18 +85,19 @@ namespace SozialWebApplication.Controllers
 			{
 				email = currentUser.Email;
 			}
-			
+
+			NameCardViewModel nameCardVMmodel = new NameCardViewModel();
 			us.ChangeFullName(User.Identity.Name, fullName);
 			us.ChangeLineOfStudy(User.Identity.Name, lineOfStudy);
 			us.ChangeEmail(User.Identity.Name, email);
 
             nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
-
             return View(nameCardVM);
         }
 
 		public ActionResult Search()
 		{
+			NameCardViewModel nameCardVMmodel = new NameCardViewModel();
 			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers("");
@@ -119,12 +107,11 @@ namespace SozialWebApplication.Controllers
 		[HttpPost]
 		public ActionResult Search(FormCollection collection)
 		{
+			NameCardViewModel nameCardVMmodel = new NameCardViewModel();
 			nameCardVM.AllUsers = us.GetAllUsers();
 			nameCardVM.AllFollowing = us.GetAllFollowing(User.Identity.Name);
 			nameCardVM.SearchResultsUsers = us.SearchAllUsers(collection.Get("search"));
             return View(nameCardVM);
-		}
-		   
+		}   
 	}
-
 }

@@ -230,7 +230,7 @@ namespace SozialWebApplication.Services
 			{
 				var doubleMatchUser = (from dmu in db.Users
 									   where dmu.UserName == item.UserMatched
-									   select dmu).SingleOrDefault();
+									   select dmu).FirstOrDefault();
 				doubleMatchesUsers.Add(doubleMatchUser);
 			}
 

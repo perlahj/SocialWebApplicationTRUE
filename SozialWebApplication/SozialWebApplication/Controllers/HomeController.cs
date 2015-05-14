@@ -13,7 +13,6 @@ namespace SozialWebApplication.Controllers
 	{
 		private GroupService gs = new GroupService();
 		private PostService ps = new PostService();
-		private NameCardViewModel nameCardVM = new NameCardViewModel();
         private UserService us = new UserService();
 		
 		public ActionResult Banner()
@@ -25,7 +24,7 @@ namespace SozialWebApplication.Controllers
         {
 			GroupViewModel groupVM = new GroupViewModel();
 			int newsFeedId = gs.GetGroupIdbyName("News Feed");
-			if (id == newsFeedId)
+			if(id == newsFeedId)
 			{
 				groupVM.GroupWithId = gs.GetGroupById(id);
 				groupVM.GroupPosts = ps.GetLatestPostsForNewsFeed(User.Identity.Name);
@@ -48,21 +47,21 @@ namespace SozialWebApplication.Controllers
 			
 			// Post text.
 			string postBody = collection.Get("text-input");
-			if (!String.IsNullOrEmpty(postBody))
+			if(!String.IsNullOrEmpty(postBody))
 			{
 				ps.AddNewPost(User.Identity.Name, groupId, postBody, PostType.Text);
 			}
 			
 			// Post a photo.
 			string photoBody = collection.Get("photo-input");
-			if (!String.IsNullOrEmpty(photoBody))
+			if(!String.IsNullOrEmpty(photoBody))
 			{
 				ps.AddNewPost(User.Identity.Name, groupId, photoBody, PostType.Photo);
 			}
 
 			// Post a video.
 			string videoBody = collection.Get("video-input");
-			if (!String.IsNullOrEmpty(videoBody))
+			if(!String.IsNullOrEmpty(videoBody))
 			{
 				videoBody = ps.ParseVideoString(videoBody);
 				ps.AddNewPost(User.Identity.Name, groupId, videoBody, PostType.Video);
@@ -71,14 +70,14 @@ namespace SozialWebApplication.Controllers
 			// Like post.
 			string postIdString = collection.Get("hidden-postId");
 			int postId = Convert.ToInt32(postIdString);
-			if (!String.IsNullOrEmpty(postIdString))
+			if(!String.IsNullOrEmpty(postIdString))
 			{
 				ps.AddLike(postId);
 			}
 
 			// Add a comment.
 			string commentBody = collection.Get("comment-input");
-			if (!String.IsNullOrEmpty(commentBody))
+			if(!String.IsNullOrEmpty(commentBody))
 			{
 				ps.AddNewComment(User.Identity.Name, postId, commentBody);
 			}
@@ -181,9 +180,7 @@ namespace SozialWebApplication.Controllers
 
         public ActionResult CheckMatch()
         {
-            //us.AddMatch("Palli", "astagis");
-            //us.AddMatch("Malli", "astagis");
-            // senda model inn i rett view og tha er haegt ad vinna med gognin
+			NameCardViewModel nameCardVM = new NameCardViewModel();
             nameCardVM.AllMatches = us.GetAllDoubleMatches(User.Identity.Name);
 
             return View( nameCardVM);
