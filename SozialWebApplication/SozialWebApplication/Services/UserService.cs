@@ -53,6 +53,16 @@ namespace SozialWebApplication.Services
 			db.SaveChanges();
 		}
 
+		public void ChangeProfilePicture(string userName, string newPicture)
+		{
+			var userWithUserName = (from user in db.Users
+									where user.UserName == userName
+									select user).FirstOrDefault();
+
+			userWithUserName.ProfilePicture = newPicture;
+			db.SaveChanges();
+		}
+
 		public ApplicationUser GetUserByUserName(string userName)
 		{
 			var user = (from u in db.Users
@@ -221,6 +231,36 @@ namespace SozialWebApplication.Services
 			}
 
 			return doubleMatchesUsers;
+		}
+
+		public void SetDefaultProfilePicture(string userName)
+		{
+			string pic1 = "www.iconarchive.com/download/i59028/hopstarter/superhero-avatar/Avengers-Thor.ico";
+			string pic2 = "www.iconarchive.com/download/i59020/hopstarter/superhero-avatar/Avengers-Black-Widow.ico";
+			string pic3 = "icons.iconarchive.com/icons/hopstarter/superhero-avatar/256/Avengers-Iron-Man-icon.png";
+			string pic4 = "icons.iconarchive.com/icons/hopstarter/superhero-avatar/256/Avengers-Hulk-icon.png";
+			string pic5 = "www.iconarchive.com/download/i59021/hopstarter/superhero-avatar/Avengers-Captain-America.ico";
+			Random rnd = new Random();																					  
+			int random = rnd.Next(1,6);
+			switch (random)
+			{
+				case 1:
+					ChangeProfilePicture(userName, "http://" + pic1);
+					break;
+				case 2:
+					ChangeProfilePicture(userName, "http://" + pic2);
+					break;
+				case 3:
+					ChangeProfilePicture(userName, "http://" + pic3);
+					break;
+				case 4:
+					ChangeProfilePicture(userName, "http://" + pic4);
+					break;
+				default:
+					ChangeProfilePicture(userName, "http://" + pic5);
+					break;
+
+			}
 		}
 
 	}

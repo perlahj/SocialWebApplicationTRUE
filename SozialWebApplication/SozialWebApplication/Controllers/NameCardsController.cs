@@ -85,11 +85,17 @@ namespace SozialWebApplication.Controllers
 			{
 				email = currentUser.Email;
 			}
+			string profilePicture = collection.Get("input-picture");
+			if (String.IsNullOrEmpty(profilePicture))
+			{
+				profilePicture = currentUser.ProfilePicture;
+			}
 
 			NameCardViewModel nameCardVMmodel = new NameCardViewModel();
 			us.ChangeFullName(User.Identity.Name, fullName);
 			us.ChangeLineOfStudy(User.Identity.Name, lineOfStudy);
 			us.ChangeEmail(User.Identity.Name, email);
+			us.ChangeProfilePicture(User.Identity.Name, profilePicture);
 
             nameCardVM.userWithId = us.GetUserByUserName(User.Identity.Name);
             return View(nameCardVM);

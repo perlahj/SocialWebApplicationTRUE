@@ -89,20 +89,6 @@ namespace SozialWebApplication.Services
 			post.Like++;
 			db.SaveChanges();
 		}
- 
-		public void RemoveLike(int postId)
-		{
-			var post = (from p in db.Posts
-						where p.Id == postId
-						select p).FirstOrDefault();
-
-			if (post.Like > 0)
-			{
-				post.Like--;
-			}
-			
-			db.SaveChanges();
-		}
 
 		public void AddNewComment(string userName, int postId,string body)
 		{
@@ -128,10 +114,10 @@ namespace SozialWebApplication.Services
 		{
 			// User posts e.g.https://youtu.be/-xBro-i-rZQ, we only want to store "-xBro-i-rZQ".
 			int length = str.Length;
-			/*if (str.Substring(0, 11 == "https://www")) ;
+			if (str.Substring(6, 5) == "//www")
 			{
 				return str.Substring(32, (length - 32));
-			} */
+			} 
 			return str.Substring(17, (length - 17));
 		}
     }

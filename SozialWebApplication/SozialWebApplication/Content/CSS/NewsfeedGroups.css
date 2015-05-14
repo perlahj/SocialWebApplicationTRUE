@@ -1,14 +1,13 @@
-﻿.newsfeed
-{
+﻿.newsfeed {
     margin-top: 6%;
   margin-left: 10%;
+  /*border: 1px solid black;*/
   margin-right: 10%;
   height: 167px;
 
 }
 
-.newsfeed > p
-{
+.newsfeed > p {
   font-size: 18px;
   font-weight: bold;
   margin-top: -5%;
@@ -17,23 +16,21 @@
   width: 61px;
 }
 
-.groupName p
-{
+.groupName p{
   font-size: 22px;
   font-weight: bold;
-  margin-left: 569px;
-  margin-top: -1px;
+  margin-left: 548px;
+  margin-top: 20px;
 
 }
 
-.post-logo-settings
-{
+.post-logo-settings {
   width: 460px;
   margin-left: 363px;
 }
 
 .input-text {
-    background-image: url('/Myndir/PostText.png');
+    background-image: url('/Myndir/TextLogo.png');
     background-size: 100%;
     width: 15%;
     height: 50px;
@@ -43,9 +40,8 @@
     margin-left: -228px;
 }
 
-.input-img
-{
-  background-image: url('/Myndir/PostPicture.png');
+.input-img {
+  background-image: url('/Myndir/Mynd.png');
   background-size: 100%;
   width: 15%;
   height: 50px;
@@ -56,9 +52,8 @@
   margin-left: 235px;
 }
 
-.input-youtube
-{
-  background-image: url('/Myndir/PostVideo.png');
+.input-youtube {
+  background-image: url('/Myndir/Video.png');
   background-size: 100%;
   width: 15%;
   height: 50px;
@@ -69,8 +64,9 @@
   margin-left: 239px;
 }
 
-.post-input
-{
+
+
+.post-input {
   border: none;
   width: 221px;
   height: 102px;
@@ -79,36 +75,32 @@
   text-align: center;
 }
 
-.post-submit
-{
-  background-image: url('/Myndir/ButtonBackground.jpg');
-  margin-left: 48%;
+.post-submit {
+  margin-left: 561px;
   margin-top: 1%;
   border-radius: 4px;
   border-color: #faa61f;
   line-height: 25px;
   width: 70px;
   font-weight: bold;
+  background-image: url('/Myndir/takkar.jpg');
 }
 
-.all-posts
-{
+.all-posts {
   margin-left: 33%;
   margin-top: 5%;
   margin-bottom: 5%;
 }
 
-.each-post
-{
+.each-post {
   border: 1px solid #A8A8A8;
   margin-right: 13%;
   margin-left: -35%;
   padding-top: 2%;
 }
 
-.like-img
-{
-  background-image: url('/Myndir/Like.png');
+.like-img {
+  background-image: url(https://scontent-lhr.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10984151_10152737854342047_4597756465764730856_n.jpg?oh=efad8928292b2a614776c82d4860acfe&oe=55DF7DA4);
   border: none;
   margin-left: 92%;
   background-size: 100%;
@@ -119,62 +111,57 @@
   cursor: pointer;
 }
 
-.post-name
-{
+.post-name {
   margin-left: -32%;
   margin-bottom: -4%;
   font-weight: bold;
 }
 
-.post-date
-{
+.post-date {
   margin-left: 70%;
   margin-bottom: 0%;
   font-weight: bold;
 }
 
-.post-comment
-{
+.post-comment{
   margin-left: -32%;
   margin-top: 0%;
 }
 
-.number-of-likes
-{
+.number-of-likes {
   margin-left: 94%;
 }
 
-.comment
-{
+.comment {
     border-bottom: 1px solid #A8A8A8;
     padding-bottom: 2%;
 }
 
-.whole-each-post
-{
+.comment-input {
+
+}
+
+.whole-each-post {
     margin-bottom: 27%;
 }
 
-.post-content
-{
+.post-content {
     width: 90%;
     margin-left: 2%;
 }
 
-.submit-comment
-{
-  margin-left: 2%;
+.submit-comment {
+ margin-left: 2%;
   margin-top: 1%;
   border-radius: 4px;
   border-color: #faa61f;
   line-height: 23px;
   width: 50px;
   font-weight: bold;
-  background-image: url('/Myndir/ButtonBackground.jpg');
+  background-image: url('/Myndir/takkar.jpg');
 }
 
-.comment-textarea
-{
+.comment-textarea {
   float: left;
   width: 92%;
   border: none;
@@ -182,70 +169,58 @@
   resize: none;
 }
 
-.CommentDisplay
-{
+.CommentDisplay {
   height: 98px;
   width: 955px;
   margin-top: 1%;
   
 }
 
-.comment-form
-{
+.comment-form{
     background-color: #FDEBB9;
     padding: 1%;
 }
 
-.comment-info
-{
+.comment-info{
     display: inline;
 }
 
-.comment-post-date
-{
+.comment-post-date {
     margin-top: -3%;
     margin-left: 86%;
     font-weight: bold;
 }
 
-.comment-post-name 
-{
+.comment-post-name{
     margin-left: 2%;
     font-weight: bold;
 }
-
-.photo-input
-{
+.photo-input{
     margin-left: 136px;
     border: none;
     height: 103px;
 }
 
-.video-input
-{
+.video-input{
     margin-left: 165px;
     border: none;
     height: 103px;
 }
 
-.post-size-settings-photo
-{
+.post-size-settings-photo{
     text-align: center;
 }
 
-.post-size-settings-photo img
-{
+.post-size-settings-photo img{
     width: 550px;
 }
 
-.post-size-settings-video
-{
+.post-size-settings-video{
     text-align: center;
 }
 
-.add-group
-{
-  background-image: url('/Myndir/AddGroup.jpg');
+.add-group {
+  background-image: url('/Myndir/add-group.jpg');
   cursor: pointer;
   background-repeat: no-repeat;
   height: 24px;
@@ -253,12 +228,12 @@
   margin-left: 1010px;
   width: 160px;
   margin-top: 8px;
+
 }
 
-.remove-group
-{
+.remove-group {
   background-image: url('/Myndir/remove-group.jpg');
-  cursor: pointer;
+cursor: pointer;
   background-repeat: no-repeat;
   height: 24px;
   border: none;
@@ -267,7 +242,12 @@
   margin-top: 8px;
 }
 
-.group-and-button
-{
+.group-and-button {
     margin-bottom: 20px;
+}
+
+.post
+{
+    border: 1px solid #A8A8A8;
+    margin-top: -50px;
 }
