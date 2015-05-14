@@ -97,6 +97,8 @@ namespace SozialWebApplication.Controllers
 					gs.AddUserToGroup(groupId, user.UserName);
 					// Make every new follower follow him/herself.
 					us.AddNewFollow(user.UserName, user.UserName);
+					// Set default profile picture
+					us.SetDefaultProfilePicture(user.UserName);
                     return RedirectToAction("Login", "Account");
                 }
                 else
