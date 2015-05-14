@@ -41,13 +41,20 @@ namespace SozialWebApplication.Services
 			return groupId;
 		}
 		
-		// It is possible to add multiple groups with same name.
-		public void AddNewGroup (string groupName)
+		// Return true if group was made false otherwise.
+		public bool AddNewGroup (string groupName)
 		{
-			Group g = new Group();
-			g.GroupName = groupName;
-			db.Groups.Add(g);
-			db.SaveChanges();
+			// Check if another group with same name exists. 
+			if (GetGroupIdbyName(groupName) == 0)
+			{
+				Group g = new Group();
+				g.GroupName = groupName;
+				db.Groups.Add(g);
+				db.SaveChanges();
+				return true;
+			}
+			return false;
+			
 		}
 
 		public void AddNewsFeed()
@@ -141,7 +148,6 @@ namespace SozialWebApplication.Services
 			
 			return userInGroup != null;
 		}
-
 
 	}
 }
