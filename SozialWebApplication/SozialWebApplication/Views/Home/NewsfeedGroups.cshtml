@@ -8,7 +8,7 @@
     <br />
     
     <div class="namecard-button">
-        <a href="NewsfeedGroups/1">
+        <a href="/Home/NewsfeedGroups/1">
             <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
         </a>
         
@@ -40,21 +40,21 @@
         <div class="add-favgroup">
           
                 @if (Model.GroupWithId.GroupName != "News Feed")
-                { 
-                    using (Html.BeginForm("ClickAddToFavorite", "Home", FormMethod.Post))
+                {
+                    using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
                     {
 
                         if(!SozialWebApplication.Services.GroupService.Instance.IsUserInGroup(Model.GroupWithId.Id, User.Identity.Name))
                         {
                              <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
                             <input type="hidden" name="hidden-favgroup" value="add-group" />
-                            <input type="submit" value="Add group to favorite" class="fav-submit" />
+                            <input type="submit" value="Add group to favorite" class="add-group" />
                         }
                         else
                         {
                            <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
                             <input type="hidden" name="hidden-favgroup" value="remove-group" />
-                            <input type="submit" value="Remove group from favorite" class="fav-submit" /> 
+                            <input type="submit" value="Remove group from favorite" class="remove-group" /> 
                         }
 
                     }
@@ -71,6 +71,7 @@
                             <input type="button" class="input-youtube" />
                         </div>
                         <div class="post-input-settings">
+                            <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
                             <input type="text" name="text-input" id="post-input" class="post-input" placeholder="Express yourself..." />
                             <input type="text" name="photo-input" id="photo-input" class="photo-input" placeholder="Copy photo url here..." />
                             <input type="text" name="video-input" id="video-input" class="video-input" placeholder="Copy YouTube video url here..." />
@@ -116,7 +117,7 @@
                                 <!-- <input type="button" class="like-img" /> -->
                     
                                 <!--Form for like button-->
-                                @using (Html.BeginForm("ClickLike", "Home", FormMethod.Post))
+                                @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
                                 {
                                     <input type="submit" value=" " class="like-img" />
                                     <div class="number-of-likes"><p>#@post.Like</p></div>
@@ -127,7 +128,7 @@
                             </div>
                             <div class="comment-form">
                                 <!--Form for new comment-->
-                                @using (Html.BeginForm("AddComment", "Home", FormMethod.Post))
+                                @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
                                 {
                                     <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
                                     <input type="hidden" name="hidden-postId" value="@post.Id" />
@@ -154,6 +155,7 @@
                                                 <p>@comment.DateCreated</p>
                                             </div>
                                             <p class="post-comment">@comment.Body</p>
+                                            <p>@comment.Body</p>
 
 
                                         </div>
