@@ -108,15 +108,15 @@ namespace SozialWebApplication.Services
 		public List<Group> GetAllGroupsForUser(string userName)
 		{
 			List<int> groupIds = (from gc in db.GroupConnections
-									where gc.UserName == userName
+									where gc.UserName == userName &&
+									gc.Id != 1
 									select gc.GroupId).ToList();
 			
 			List<Group> groups = new List<Group>();
 			foreach(var gId in groupIds)
 			{
 				var group = (from g in db.Groups
-							where g.Id == gId //&&
-							//g.GroupName != "News Feed"
+							where g.Id == gId
 							select g).FirstOrDefault();
 				
 				groups.Add(group);
