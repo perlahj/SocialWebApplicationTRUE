@@ -1,4 +1,6 @@
 ﻿@model SozialWebApplication.Models.ViewModels.GroupViewModel
+@using SozialWebApplication.Services
+@using SozialWebApplication.Models.Entities
 
 <div class="bc">
     @{
@@ -31,8 +33,6 @@
 
     <div class="overflowceeper">
         <div class="feed-body">
-            @using SozialWebApplication.Services
-            @using SozialWebApplication.Models.Entities
 
                 <!--Add group to favorite or remove from favorite groups.-->
                 <div class="add-favgroup">
@@ -89,10 +89,18 @@
             <div class="all-posts">
                 @foreach (var post in Model.GroupPosts)
                 {
+                    var postingUser = UserService.Instance.GetUserByUserName(post.UserName);
                     <div class="whole-each-post">
-                        <p class="post-name">@post.UserName</p>
+                        <img src="@postingUser.ProfilePicture" alt="@Profile picture">
+                        @if (postingUser.FullName != null)
+                        {
+                            <p class="post-name">@postingUser.FullName</p>
+                        }
+                        else
+                        {
+                            <p class="post-name">@postingUser.UserName</p>
+                        }
                         <p class="post-date">@post.DateCreated</p>
-            
                         <div class="each-post">
                             <div class="post-content">
                                 @if (post.PostType == SozialWebApplication.Models.PostType.Text)
@@ -148,11 +156,21 @@
 
                                 @foreach (var comment in commentsForPost)
                                 {
+                                    var commentingUser = UserService.Instance.GetUserByUserName(comment.UserName);
                                     <div class="CommentDisplayParent">
                                         <div class="CommentDisplay">
 
+                                            <img src="@commentingUser.ProfilePicture" alt="@Profile picture">
                                             <div class="comment-post-name">
-                                                <p>@comment.UserName</p>
+                                                @if (commentingUser.FullName != null)
+                                                {
+                                                    <p>@commentingUser.FullName</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>@commentingUser.UserName</p>
+                                                }
+                                                
                                             </div>
                                             <div class="comment-post-date">
                                                 <p>@comment.DateCreated</p>
