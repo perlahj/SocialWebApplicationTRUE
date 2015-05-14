@@ -2,15 +2,16 @@
 
 <div class="bc">
     @{
-        ViewBag.Title = "Banner";
+        ViewBag.Title = "Sozial";
     }
 
     <br />
+
     <div class="namecard-button">
         <a href="/Home/NewsfeedGroups/1">
-            <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
-
+            <img src="/Myndir/Logo.jpg" class="name-logo" alt="name-logo" />
         </a>
+
         <div class="my-name">
             @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
         </div>
@@ -32,81 +33,25 @@
         <div class="feed-body">
             <div class="namecard">
                 <div class="information">
-                    <img src="/Myndir/myndlogo.jpg" class="profile-picture" alt="profilepic">
+
+                    <!-- Setja if setningu: ef notandi hefur ekki sett inn mynd, þá kemur þessi default -->
+                    <img src="/Myndir/DefaultProfile.jpg" class="profile-picture" alt="profilepic">
                     <p>@Html.DisplayFor(model => model.userWithId.FullName)</p>
                     <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
 
                     <div class="send-email">
                         <a href="mailto:@Html.DisplayFor(model => model.userWithId.Email)">@Html.DisplayFor(model => model.userWithId.Email)</a>
                     </div>
-
                 </div>
+
                     <a href="~/NameCards/Search"><input type="button" class="follow" /></a>
                     <a href="~/Home/SearchGroups"><input type="button" class="groups" /></a>
                     <a href="~/NameCards/EditNameCard"><input type="button" class="edit" /></a>
                     <a href="~/Home/CheckMatch"><input type="button" class="match" /></a>
-</div>
-
+            </div>
         </div>
     </div>
 
     <br />
 
 </div>
-
-
-
-
-<!--<script>
-    $(".follow").click(function () {
-        event.preventDefault();
-
-        $.ajax({
-            url: "/Home/CheckMatch",
-        }).success(function (data) {
-            debugger;
-            $(".feed-body").empty();
-            $('.feed-body').html(data);
-        });
-    });
-
-    $(".groups").click(function () {
-        event.preventDefault();
-
-        $.ajax({
-            url: "/Home/SearchGroups",
-        }).success(function (data) {
-            debugger;
-            $(".feed-body").empty();
-            $('.feed-body').html(data);
-        });
-    });
-
-
-    $(".edit").click(function () {
-    /*alert("veiiii");*/
-    event.preventDefault();
-
-    $.ajax({
-        url: "/NameCards/EditNameCard",
-    }).success(function (data) {
-        debugger;
-        $(".feed-body").empty();
-        $('.feed-body').html(data);
-    });
-    });
-
-    $(".match").click(function () {
-        event.preventDefault();
-
-        $.ajax({
-            url: "/NameCards/Search",
-        }).success(function (data) {
-            debugger;
-            $(".feed-body").empty();
-            $('.feed-body').html(data);
-        });
-    });
-
-</script>
--->

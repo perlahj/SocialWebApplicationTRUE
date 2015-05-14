@@ -3,15 +3,16 @@
 
 <div class="bc">
     @{
-        ViewBag.Title = "Banner";
+        ViewBag.Title = "Sozial";
     }
 
     <br />
+
     <div class="namecard-button">
         <a href="/Home/NewsfeedGroups/1">
-            <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
-
+            <img src="/Myndir/Logo.jpg" class="name-logo" alt="name-logo" />
         </a>
+
         <div class="my-name">
             @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
         </div>
@@ -33,21 +34,25 @@
         <div class="feed-body">
             <div>
                 <div class="information">
-                    <img src="/Myndir/myndlogo.jpg" class="profile-picture" alt="profilepic">
+
+                    <!-- Setja if setningu: ef notandi hefur ekki sett inn mynd, þá kemur þessi default -->
+                    <img src="/Myndir/DefaultProfile.jpg" class="profile-picture" alt="profilepic">
+                    
                     @if(String.IsNullOrEmpty(Model.userWithId.FullName))
                     {
                        <p>@Html.DisplayFor(model => model.userWithId.UserName)</p>
                     }
+                    
                     else
                     {
                        <p>@Html.DisplayFor(model => model.userWithId.FullName)</p> 
                     }
+
                     <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
                     <p>@Html.DisplayFor(model => model.userWithId.Email)</p>
                 </div>
-                <!--<input type="button" class="follow-others" />
-        <input type="button" class="match-others" /> -->
             </div>
+
             @using (Html.BeginForm("OthersNameCard", "NameCards", FormMethod.Post))
             {
                 if (SozialWebApplication.Services.UserService.Instance.IsFollowing(User.Identity.Name, Model.userWithId.UserName))
@@ -56,6 +61,7 @@
                     <input type="hidden" name="hidden-follow-unfollow" value="unfollow" />
                     <a href="OthersNameCard"><input type="submit" value="" class="unfollow-others" /></a>
                 }
+                
                 else
                 {
                     <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
@@ -80,12 +86,9 @@
                     <a href="OthersNameCard"><input type="submit" value="" class="match-others" /></a>
                 }
             }
-
-
         </div>
     </div>
 
     <br />
 
 </div>
-

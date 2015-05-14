@@ -1,21 +1,27 @@
-﻿* {
+﻿*
+{
     font-family: Calibri;
     font-size: 14px;
 }
 
-.site-size, .bc{
+.site-size, .bc
+{
     min-width: 1254px;
 }
 
-h2 {
+h2
+{
     font-size: 30px;
 }
-.checkbox-group {
+
+.checkbox-group
+{
     margin-left: 63%;
     margin-top: 1%;
 }
 
-.checkbox {
+.checkbox
+{
     position: absolute;
     width: 20px;
     height: 19px;
@@ -27,40 +33,46 @@ h2 {
     margin-left: 2%;
 }
 
-.register-group {
+.register-group
+{
     margin-left: 61%;
     margin-top: 6%;
 }
 
-.login-group {
+.login-group
+{
    display: inline-flexbox;
    margin-left: 15%;
    margin-top: 5%;
 }
 
 .login-button,
-.register-button {
+.register-button
+{
   border-radius: 4px;
   border-color: #faa61f;
   line-height: 25px;
   width: 70px;
   font-weight: bold;
-  background-image: url(/Myndir/takkar.jpg);
+  background-image: url(/Myndir/ButtonBackground.jpg);
 }
 
-.register {
+.register
+{
     height: 65px;
     width: 75px;
 }
 
 .login-label,
-.register-label {
+.register-label
+{
     width: 50px;
     font-weight:bold;
 }
 
-.input {
-    background-image: url(/Myndir/input.jpg);
+.input
+{
+    background-image: url(/Myndir/InputBoxBackground.jpg);
     border: 1px solid #ffd600;
     border-radius: 4px;
     line-height: 25px;
@@ -68,17 +80,20 @@ h2 {
     margin-right: 53px;
 }
 
-.logo {
+.logo
+{
    margin-left: 18%;
    margin-top: -25%;
    margin-bottom: 7%;
 }
 
-.front-logo {
+.front-logo
+{
     height: 270px;
 }
 
-.register-button{
+.register-button
+{
     margin-top: 15px;
 }
 
@@ -93,7 +108,8 @@ ul
     list-style-type: none;
 }
 
-a:link, a:visited {
+a:link, a:visited
+{
     text-decoration: none;
     color: black;
 }

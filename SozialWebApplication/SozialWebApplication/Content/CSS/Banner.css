@@ -1,25 +1,32 @@
-﻿.bc{
+﻿.bc
+{
     background: url('/Myndir/Background.jpg') center;
     background-size: 100%;
 }
 
-.namecard-button, .feed-body{
+.namecard-button, .feed-body
+{
     background-color: white;
     margin-left: 2%;
     margin-right: 2%;
     border-radius: 25px;
     height: 100px;
 }
-.namecard-button{
+
+.namecard-button
+{
     text-align: center;
 }
-.name-logo{
+
+.name-logo
+{
     height: 80px;
     margin: 1%;
     margin-left: -1097px
 }
 
-h3{
+h3
+{
     display: inline;
     font-size: 66px;
     position: absolute;
@@ -30,6 +37,7 @@ h3{
 {
     display: inline;
 }
+
 .my-name a
 {
     text-decoration: none;
@@ -41,18 +49,21 @@ h3{
     margin-top: 2%;
 }
 
-iframe{
+iframe
+{
     border: none;
     height: 350px;
     width: 550px;
 }
 
-.feed-body{
+.feed-body
+{
     overflow-y: scroll;
     height: 415px;
 }
 
-.logout-button {
+.logout-button
+{
     border: none;
     width: 60px;
     font-weight: bold;
@@ -62,4 +73,3 @@ iframe{
     margin-left: 527px;
     margin-top: -8%;
 }
-
