@@ -40,20 +40,25 @@ namespace SozialWebApplication.Controllers
         }
 
 		[HttpPost]
-		public ActionResult NewsfeedGroups(int id, FormCollection collection)
+		//public ActionResult NewsfeedGroups(int groupId, FormCollection collection)
+		public ActionResult NewsfeedGroups(FormCollection collection)
 		{
+			// Get the group id. We know this is not best practice.
+			string groupIdString = collection.Get("hidden-groupId");
+			int groupId = Convert.ToInt32(groupIdString);
+			
 			// Post text.
 			string postBody = collection.Get("text-input");
 			if (!String.IsNullOrEmpty(postBody))
 			{
-				ps.AddNewPost(User.Identity.Name, id, postBody, PostType.Text);
+				ps.AddNewPost(User.Identity.Name, groupId, postBody, PostType.Text);
 			}
 			
 			// Post a photo.
 			string photoBody = collection.Get("photo-input");
 			if (!String.IsNullOrEmpty(photoBody))
 			{
-				ps.AddNewPost(User.Identity.Name, id, photoBody, PostType.Photo);
+				ps.AddNewPost(User.Identity.Name, groupId, photoBody, PostType.Photo);
 			}
 
 			// Post a video.
@@ -61,28 +66,61 @@ namespace SozialWebApplication.Controllers
 			if (!String.IsNullOrEmpty(videoBody))
 			{
 				videoBody = ps.ParseVideoString(videoBody);
-				ps.AddNewPost(User.Identity.Name, id, videoBody, PostType.Video);
+				ps.AddNewPost(User.Identity.Name, groupId, videoBody, PostType.Video);
+			}
+
+			// Like post.
+			string postIdString = collection.Get("hidden-postId");
+			int postId = Convert.ToInt32(postIdString);
+			if (!String.IsNullOrEmpty(postIdString))
+			{
+				ps.AddLike(postId);
+			}
+
+			// Add a comment.
+			string commentBody = collection.Get("comment-input");
+			if (!String.IsNullOrEmpty(commentBody))
+			{
+				ps.AddNewComment(User.Identity.Name, postId, commentBody);
+			}
+
+			// Add or remove group from favorite.
+			string action = collection.Get("hidden-favgroup");
+			if (!String.IsNullOrEmpty(action))
+			{
+				if (action == "add-group")
+				{
+					if (!gs.IsUserInGroup(groupId, User.Identity.Name))
+					{
+						gs.AddUserToGroup(groupId, User.Identity.Name);
+					}
+				}
+				else if (action == "remove-group")
+				{
+					if (gs.IsUserInGroup(groupId, User.Identity.Name))
+					{
+						gs.RemoveUserFromGroup(groupId, User.Identity.Name);
+					}
+				}
 			}
 			
 			// Make the viewmodel.
 			GroupViewModel groupVM = new GroupViewModel();
 			int newsFeedId = gs.GetGroupIdbyName("News Feed");
-			if (id == newsFeedId)
+			if (groupId == newsFeedId)
 			{
-				groupVM.GroupWithId = gs.GetGroupById(id);
 				groupVM.GroupPosts = ps.GetLatestPostsForNewsFeed(User.Identity.Name);
 			}
 			else
 			{
-				groupVM.GroupWithId = gs.GetGroupById(id);
-				groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
+				
+				groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);
 			}
-			
-
+			groupVM.GroupWithId = gs.GetGroupById(groupId);
 			return View(groupVM);
 		}
 
-		[HttpPost]
+		/*[HttpPost]
 		public ActionResult ClickLike(FormCollection collection)
 		{
 			string postIdString = collection.Get("hidden-postId");
@@ -97,9 +135,9 @@ namespace SozialWebApplication.Controllers
 			groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);
 
             return View("NewsfeedGroups", groupVM);
-		}
+		} */
 
-		[HttpPost]
+		/*[HttpPost]
 		public ActionResult ClickAddToFavorite(FormCollection collection)
 		{
 			string groupIdString = collection.Get("hidden-groupId");
@@ -145,8 +183,8 @@ namespace SozialWebApplication.Controllers
 			groupVM.GroupWithId = gs.GetGroupById(groupId);
 			groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);
 
-            return View("NewsfeedGroups", groupVM);
-		}
+			return RedirectToAction("NewsfeedGroups", groupVM);
+		}  */
 
 		public ActionResult SearchGroups()
 		{

@@ -9,19 +9,20 @@ namespace SozialWebApplication.Models.ViewModels
 {
 	public class NameCardViewModel
 	{
-		// OwnNameCard
+		// OwnNameCard.
 		public ApplicationUser userWithId { get; set; }
 
-		// Search
+		// Search.
 		public List<ApplicationUser> AllUsers { get; set; }
 		public List<ApplicationUser> AllFollowing { get; set; }
 		public List<ApplicationUser> SearchResultsUsers { get; set; }
 
-		// SearchGroups
+		// SearchGroups.
 		public List<Group> AllUserGroups { get; set; }
 		public List<Group> AllGroups { get; set; }
 		public List<Group> SearchResultsGroups { get; set; }
 
+		// Matches.
         public List<ApplicationUser> AllMatches { get; set; }
 	}
 }
