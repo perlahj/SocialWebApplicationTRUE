@@ -2,13 +2,13 @@
 
 <div class="bc">
     @{
-        ViewBag.Title = "Banner";
+        ViewBag.Title = "Sozial";
     }
 
     <br />
     <div class="namecard-button">
         <a href="/Home/NewsfeedGroups/1">
-            <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
+            <img src="/Myndir/Logo.jpg" class="name-logo" alt="name-logo" />
 
         </a>
         <div class="my-name">
@@ -31,19 +31,19 @@
     <div class="overflowceeper">
         <div class="feed-body">
             <div class="edit-information">
-                <!--<img src="/Myndir/myndlogo.jpg" class="profile-picture-edit" alt="profilepic">-->
+                <img src="/Myndir/DefaultProfile.jpg" class="profile-picture-edit" alt="profilepic">
 
                 @using (Html.BeginForm("EditNameCard", "NameCards", FormMethod.Post))
                 {
                     <div class="edit-input">
                         <label for="input-name" class="label">Name</label>
                         <input type="text" name="input-name" id="input-name" class="text-input" placeholder=@Html.DisplayFor(model => model.userWithId.FullName) />
+                        
                         <label for="input-los" class="label">Line of study</label>
                         <input type="text" name="input-los" id="input-los" class="text-input" placeholder=@Html.DisplayFor(model => model.userWithId.LineOfStudy) />
+                        
                         <label for="input-email" class="label">Email</label>
                         <input type="text" name="input-email" id="input-email" class="text-input" placeholder=@Html.DisplayFor(model => model.userWithId.Email) />
-                        <label for="input-picture" class="label">Profile picture</label>
-                        <input type="text" name="input-picture" id="input-picture" class="text-input" placeholder="Paste image url here..." />
                     </div>
 
                     <input type="submit" value="Save" class="save" />
@@ -56,34 +56,3 @@
     <br />
 
 </div>
-
-
-
-<!--<script>
-    $(".save").submit(function () {
-        event.preventDefault();
-        /*return false;*/
-        $.ajax({
-            url: "/NameCards/OwnNameCard",
-        }).success(function (data) {
-            debugger;
-            $(".feed-body").empty();
-            $('.feed-body').html(data);
-        });
-    });
-
-    $(".back").click(function () {
-        event.preventDefault();
-
-        $.ajax({
-            url: "/NameCards/OwnNameCard",
-        }).success(function (data) {
-            debugger;
-            $(".feed-body").empty();
-            $('.feed-body').html(data);
-        });
-    });
-</script>
-    -->
-
-

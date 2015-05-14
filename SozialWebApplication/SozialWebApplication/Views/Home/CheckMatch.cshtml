@@ -2,15 +2,16 @@
 
 <div class="bc">
     @{
-        ViewBag.Title = "Banner";
+        ViewBag.Title = "Sozial";
     }
 
     <br />
+
     <div class="namecard-button">
         <a href="/Home/NewsfeedGroups/1">
-            <img src="/Myndir/logo.jpg" class="name-logo" alt="name-logo" />
-
+            <img src="/Myndir/Logo.jpg" class="name-logo" alt="name-logo" />
         </a>
+
         <div class="my-name">
             @Html.ActionLink(@Html.ViewContext.HttpContext.User.Identity.Name, "OwnNameCard", "NameCards")
         </div>
