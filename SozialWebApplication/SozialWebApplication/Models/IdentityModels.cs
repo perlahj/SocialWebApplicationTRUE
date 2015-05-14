@@ -22,7 +22,7 @@ namespace SozialWebApplication.Models
 		public string FullName { get; set; }
 		public string LineOfStudy { get; set; }
         public string Email { get; set; }
-		//public string ProfilePicture { get; set; }
+		public string ProfilePicture { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -33,7 +33,6 @@ namespace SozialWebApplication.Models
 		public DbSet<FollowerConnection> FollowerConnections { get; set; }
 		public DbSet<MatchConnection> MatchConnections { get; set; }
 		public DbSet<GroupConnection> GroupConnections { get; set; }
-		//public DbSet<Like> Likes { get; set; }
 
 		public ApplicationDbContext()
 			: base("DefaultConnection")
