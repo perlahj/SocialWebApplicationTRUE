@@ -1,6 +1,7 @@
 ﻿.information > p {
      font-size: 25px;
 }
+
 .information {
      font-weight: bold;
      margin-left: 42%;
@@ -29,6 +30,7 @@
    border: none;
    width: 45px;
    height: 39px;
+   float: left;
 }
 
 .edit {
@@ -41,6 +43,7 @@
    border: none;
    width: 37px;
    height: 39px;
+   float: left;
 }
 
 .match {
@@ -52,11 +55,12 @@
    border: none;
    width: 48px;
    height: 39px;
+   float: left;
 }
 
 .groups {
    margin-left: 67%;
-   margin-top: 6%;
+   margin-top: 9%;
    background-image: url('/Myndir/groups.png');
    background-repeat: no-repeat;
    background-size: 100%;
@@ -64,31 +68,75 @@
    border: none;
    width: 50px;
    height: 39px;
+   float: left;
+}
+
+.follow-others, .unfollow-others {
+
+   cursor: pointer;
+   border: none;
 }
 
 .follow-others {
-   margin-left: 67%;
-   margin-top: 2%;
    background-image: url('/Myndir/AddFollower.png');
    background-repeat: no-repeat;
    background-size: 100%;
-   cursor: pointer;
-   border: none;
-   width: 51px;
-   height: 39px;
+  width: 55px;
+  height: 43px;
+  margin-left: 66%;
+  margin-top: 2.5%;
+}
+
+.unfollow-others {
+   background-image: url('/Myndir/Unfollow.png');
+   background-repeat: no-repeat;
+   background-size: 100%;
+   width: 52px;
+   height: 47px;
+  margin-left: 66.5%;
+  margin-top: 2%;
+}
+
+.match {
+margin-left: 67%;
+  margin-top: 12%;
+  /* margin-bottom: 4%; */
+  background-image: url('/Myndir/match.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+  border: none;
+  width: 48px;
+  height: 39px;
+  float: left;
+  margin-top: -2%;
 }
 
 .match-others {
+  margin-left: 68%;
+  margin-top: 16%;
+  margin-bottom: 4%;
+  background-image: url('/Myndir/match.png');
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+  border: none;
+  width: 41px;
+  height: 39px;
+}
+
+.unmatch-others {
    margin-left: 68%;
    margin-top: 16%;
    margin-bottom: 4%;
-   background-image: url('/Myndir/match.jpg');
+   background-image: url('/Myndir/black-heart.png');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
    border: none;
-   width: 48px;
-   height: 39px;
+  width: 44px;
+  height: 40px;
 }
 
 .save {
