@@ -65,15 +65,16 @@
             {
                 <div class="newsfeed">
                     <div class="post">
-                        <div class="post-img">
+                        <div class="post-logo-settings">
                             <input type="button" class="input-text" />
                             <input type="button" class="input-img" />
                             <input type="button" class="input-youtube" />
                         </div>
-
-                        <input type="text" name="text-input" id="post-input" class="post-input" placeholder="Express yourself..." />
-                        <input type="text" name="photo-input" id="photo-input" class="photo-input" placeholder="Copy photo url here..." />
-                        <input type="text" name="video-input" id="video-input" class="video-input" placeholder="Copy YouTube video url here..." />
+                        <div class="post-input-settings">
+                            <input type="text" name="text-input" id="post-input" class="post-input" placeholder="Express yourself..." />
+                            <input type="text" name="photo-input" id="photo-input" class="photo-input" placeholder="Copy photo url here..." />
+                            <input type="text" name="video-input" id="video-input" class="video-input" placeholder="Copy YouTube video url here..." />
+                        </div>
                     </div>
                 </div>
                 <input type="submit" value="post" class="post-submit" />
@@ -118,40 +119,41 @@
                                     <input type="hidden" name="hidden-like" value="add-like" />
                                 }
                             </div>
+                            <div class="comment-form">
+                                <!--Form for new comment-->
+                                @using (Html.BeginForm("AddComment", "Home", FormMethod.Post))
+                                {
+                                    <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
+                                    <input type="hidden" name="hidden-postId" value="@post.Id" />
 
-                            <!--Form for new comment-->
-                            @using (Html.BeginForm("AddComment", "Home", FormMethod.Post))
-                            {
-                                <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
-                                <input type="hidden" name="hidden-postId" value="@post.Id" />
+                                    <div class="comment">
+                                        <!-- <input type="text" name="comment-input" id="comment-input" class="comment-input" placeholder="What do you think?" />-->
+                                        <textarea rows="2" cols="80" name="comment-input" class="comment-textarea" placeholder="What do you think?"></textarea>
+                                        <input type="submit" value="Send" class="submit-comment" />
+                                    </div>
+                                }
 
-                            <div class="comment">
-                               <!-- <input type="text" name="comment-input" id="comment-input" class="comment-input" placeholder="What do you think?" />-->
-                                <textarea rows="2"  cols="80" name="comment-input" class="comment-textarea" placeholder="What do you think?"></textarea>
-                                <input type="submit" value="Send" class="submit-comment" />
-                            </div>
-                            }
+                                <!--Display top 25 comments for post-->
+                                @{List<Comment> commentsForPost = SozialWebApplication.Services.PostService.Instance.GetAllCommentsForPost(post.Id);}
 
-                            <!--Display top 25 comments for post-->
-                            @{List<Comment> commentsForPost = SozialWebApplication.Services.PostService.Instance.GetAllCommentsForPost(post.Id);}
-                
-                            @foreach (var comment in commentsForPost)
-                            {    
-                                <div class="CommentDisplayParent">
-                                <div class="CommentDisplay">
+                                @foreach (var comment in commentsForPost)
+                                {
+                                    <div class="CommentDisplayParent">
+                                        <div class="CommentDisplay">
 
-                                        <div class="comment-post-name">
-                                            <p>@comment.UserName</p>
+                                            <div class="comment-post-name">
+                                                <p>@comment.UserName</p>
+                                            </div>
+                                            <div class="comment-post-date">
+                                                <p>@comment.DateCreated</p>
+                                            </div>
+                                            <p class="post-comment">@comment.Body</p>
+
+
                                         </div>
-                                        <div class="comment-post-date">
-                                            <p>@comment.DateCreated</p>
-                                        </div>
-                                        <p class="post-comment">@comment.Body</p>
-
-                                    
-                                </div>
+                                    </div>
+                                }
                             </div>
-                            }
                     </div>
                             
                
