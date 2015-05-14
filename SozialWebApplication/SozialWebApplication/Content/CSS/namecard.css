@@ -47,8 +47,8 @@
 }
 
 .match {
-    margin-left: 40px;
-  background-image: url('/Myndir/match.jpg');
+  margin-left: 40px;
+  background-image: url('/Myndir/MatchList.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -59,7 +59,7 @@
 
 .groups {
    margin-left: 48px;
-   background-image: url('/Myndir/groups.png');
+   background-image: url('/Myndir/Groups.png');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
@@ -98,7 +98,7 @@
   margin-left: 68%;
   margin-top: 16%;
   margin-bottom: 4%;
-  background-image: url('/Myndir/match.png');
+  background-image: url('/Myndir/Unmatch.png');
   background-color: white;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -112,7 +112,7 @@
    margin-left: 68%;
    margin-top: 16%;
    margin-bottom: 4%;
-   background-image: url('/Myndir/Unmatch.png');
+   background-image: url('/Myndir/Match.png');
    background-repeat: no-repeat;
    background-size: 100%;
    cursor: pointer;
