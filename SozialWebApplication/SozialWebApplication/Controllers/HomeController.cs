@@ -24,7 +24,7 @@ namespace SozialWebApplication.Controllers
         {
 			GroupViewModel groupVM = new GroupViewModel();
 			int newsFeedId = gs.GetGroupIdbyName("News Feed");
-			if(id == newsFeedId)
+			if (id == newsFeedId)
 			{
 				groupVM.GroupWithId = gs.GetGroupById(id);
 				groupVM.GroupPosts = ps.GetLatestPostsForNewsFeed(User.Identity.Name);
@@ -102,7 +102,7 @@ namespace SozialWebApplication.Controllers
 				}
 			}
 			
-			// Make the viewmodel.
+			// The viewmodel.
 			GroupViewModel groupVM = new GroupViewModel();
 			int newsFeedId = gs.GetGroupIdbyName("News Feed");
 			if (groupId == newsFeedId)
@@ -161,8 +161,7 @@ namespace SozialWebApplication.Controllers
 				}
 			}
 
-			// Make the viewmodel.
-			
+			// The viewmodel.
 			nameCardVM.AllUserGroups = gs.GetAllGroupsForUser(User.Identity.Name);
 			nameCardVM.AllGroups = gs.GetAllGroups();
 			string searchString = collection.Get("search");
@@ -182,7 +181,6 @@ namespace SozialWebApplication.Controllers
         {
 			NameCardViewModel nameCardVM = new NameCardViewModel();
             nameCardVM.AllMatches = us.GetAllDoubleMatches(User.Identity.Name);
-
             return View( nameCardVM);
         }
 	}
