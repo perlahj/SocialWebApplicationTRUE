@@ -42,6 +42,7 @@ namespace SozialWebApplication.Controllers
 		[HttpPost]
 		public ActionResult NewsfeedGroups(int id, FormCollection collection)
 		{
+			// We know 
 			// Post text.
 			string postBody = collection.Get("text-input");
 			if (!String.IsNullOrEmpty(postBody))
@@ -78,7 +79,6 @@ namespace SozialWebApplication.Controllers
 				groupVM.GroupPosts = ps.GetLatestPostsForGroup(id);
 			}
 			
-
 			return View(groupVM);
 		}
 
@@ -145,7 +145,7 @@ namespace SozialWebApplication.Controllers
 			groupVM.GroupWithId = gs.GetGroupById(groupId);
 			groupVM.GroupPosts = ps.GetLatestPostsForGroup(groupId);
 
-            return View("NewsfeedGroups", groupVM);
+			return RedirectToAction("NewsfeedGroups", groupVM);
 		}
 
 		public ActionResult SearchGroups()

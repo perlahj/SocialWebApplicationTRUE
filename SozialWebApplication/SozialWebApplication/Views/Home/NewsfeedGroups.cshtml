@@ -40,21 +40,21 @@
         <div class="add-favgroup">
           
                 @if (Model.GroupWithId.GroupName != "News Feed")
-                { 
-                    using (Html.BeginForm("ClickAddToFavorite", "Home", FormMethod.Post))
+                {
+                    using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
                     {
 
                         if(!SozialWebApplication.Services.GroupService.Instance.IsUserInGroup(Model.GroupWithId.Id, User.Identity.Name))
                         {
                              <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
                             <input type="hidden" name="hidden-favgroup" value="add-group" />
-                            <input type="submit" value="Add group to favorite" class="fav-submit" />
+                            <input type="submit" value="Add group to favorite" class="add-group" />
                         }
                         else
                         {
                            <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
                             <input type="hidden" name="hidden-favgroup" value="remove-group" />
-                            <input type="submit" value="Remove group from favorite" class="fav-submit" /> 
+                            <input type="submit" value="Remove group from favorite" class="remove-group" /> 
                         }
 
                     }
@@ -116,7 +116,7 @@
                                 <!-- <input type="button" class="like-img" /> -->
                     
                                 <!--Form for like button-->
-                                @using (Html.BeginForm("ClickLike", "Home", FormMethod.Post))
+                                @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
                                 {
                                     <input type="submit" value=" " class="like-img" />
                                     <div class="number-of-likes"><p>#@post.Like</p></div>
@@ -127,7 +127,7 @@
                             </div>
                             <div class="comment-form">
                                 <!--Form for new comment-->
-                                @using (Html.BeginForm("AddComment", "Home", FormMethod.Post))
+                                @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
                                 {
                                     <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
                                     <input type="hidden" name="hidden-postId" value="@post.Id" />
