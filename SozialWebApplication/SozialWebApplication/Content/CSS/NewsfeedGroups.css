@@ -12,12 +12,16 @@
   font-weight: bold;
   margin-top: -5%;
   margin-left: 39%;
+  float: left;
+  width: 61px;
 }
 
 .groupName p{
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
+  font-size: 22px;
+  font-weight: bold;
+  float: left;
+  width: 61px;
+  margin-left: 550px;
 }
 
 .post-logo-settings {
@@ -214,4 +218,30 @@
 
 .post-size-settings-video{
     text-align: center;
+}
+
+.add-group {
+    background-image: url('/Myndir/addgroup.png');
+  background-size: 106%;
+  width: 54px;
+  height: 33px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: none;
+  margin-top: 21px;
+  float: right;
+  margin-right: 503px;
+}
+
+.remove-group {
+  background-image: url('/Myndir/leavegroup.png');
+  background-size: 101%;
+  width: 54px;
+  height: 33px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: none;
+  margin-top: 18px;
+  float: right;
+  margin-right: 503px;
 }
