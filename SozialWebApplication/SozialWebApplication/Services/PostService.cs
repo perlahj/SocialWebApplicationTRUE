@@ -89,20 +89,6 @@ namespace SozialWebApplication.Services
 			post.Like++;
 			db.SaveChanges();
 		}
- 
-		public void RemoveLike(int postId)
-		{
-			var post = (from p in db.Posts
-						where p.Id == postId
-						select p).FirstOrDefault();
-
-			if (post.Like > 0)
-			{
-				post.Like--;
-			}
-			
-			db.SaveChanges();
-		}
 
 		public void AddNewComment(string userName, int postId,string body)
 		{
