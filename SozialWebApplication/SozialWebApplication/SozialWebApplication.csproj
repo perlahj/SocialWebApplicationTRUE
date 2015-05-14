@@ -182,12 +182,7 @@
     <Compile Include="Services\GroupService.cs" />
     <Compile Include="Services\PostService.cs" />
     <Compile Include="Services\UserService.cs" />
-    <Compile Include="Services\ViewModelService.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModel\CommentViewModel.cs" />
-    <Compile Include="ViewModel\GroupViewModel.cs" />
-    <Compile Include="ViewModel\OtherUserProfileViewModel.cs" />
-    <Compile Include="ViewModel\UserProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\CSS\Banner.css" />
@@ -201,8 +196,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\CSS\Site.css" />
+    <Content Include="Myndir\add-group.jpg" />
+    <Content Include="Myndir\AddGroup.jpg" />
+    <Content Include="Myndir\AddGroups.jpg" />
     <Content Include="Myndir\Background.jpg" />
-    <Content Include="Myndir\black-heart.png" />
+    <Content Include="Myndir\remove-group.jpg" />
+    <Content Include="Myndir\RemoveGroup.jpg" />
+    <Content Include="Myndir\Unmatch.png" />
     <Content Include="Myndir\input.jpg" />
     <Content Include="Myndir\match.jpg" />
     <Content Include="Myndir\match.png" />
@@ -220,7 +220,6 @@
     <Content Include="Myndir\Matched.png" />
     <Content Include="Myndir\Mynd.png" />
     <Content Include="Myndir\Photo.png" />
-    <Content Include="Myndir\Plus_sign.png" />
     <Content Include="Myndir\search.jpg" />
     <Content Include="Myndir\takkar.jpg" />
     <Content Include="Myndir\TextLogo.png" />
@@ -279,7 +278,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Repositories\" />
     <Folder Include="Views\LoginRegister\" />
   </ItemGroup>
   <ItemGroup>

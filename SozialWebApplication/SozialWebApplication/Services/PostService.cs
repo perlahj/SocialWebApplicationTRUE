@@ -42,6 +42,7 @@ namespace SozialWebApplication.Services
 						 where p.GroupId == groupId
 						 orderby p.DateCreated descending
 						 select p).Take(25).ToList();
+			
 			return posts;
 		}
 
@@ -51,10 +52,10 @@ namespace SozialWebApplication.Services
 						 where p.GroupId == groupId
 						 orderby p.DateCreated descending
 						 select p).ToList();
+			
 			return posts;
 		}
 
-		// Has not been tested
 		public List<Post> GetLatestPostsForNewsFeed(string userName)
 		{
 			GroupService gs = new GroupService();
@@ -75,7 +76,6 @@ namespace SozialWebApplication.Services
 			List<Post> newsFeedPosts = (from nfp in allNewsFeedPosts
 										orderby nfp.DateCreated descending
 										select nfp).Take(25).ToList();
-
 			return newsFeedPosts;
 		}
 
@@ -89,8 +89,7 @@ namespace SozialWebApplication.Services
 			post.Like++;
 			db.SaveChanges();
 		}
-
-		// Has not been tested 
+ 
 		public void RemoveLike(int postId)
 		{
 			var post = (from p in db.Posts
@@ -127,9 +126,9 @@ namespace SozialWebApplication.Services
 
 		public string ParseVideoString(string str)
 		{
+			// User posts e.g.https://youtu.be/-xBro-i-rZQ, we only want to store "-xBro-i-rZQ".
 			int length = str.Length;
-			return str.Substring(32, (length - 32));
-            /*meikar ekki neinn sens ad hafa 17 her... midad vid vidjo url??*/
+			return str.Substring(17, (length - 17));
 		}
     }
 }
