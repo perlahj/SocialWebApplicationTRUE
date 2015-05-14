@@ -7,10 +7,10 @@
 .namecard-button, .feed-body
 {
     background-color: white;
+    height: 100px;
     margin-left: 2%;
     margin-right: 2%;
     border-radius: 25px;
-    height: 100px;
 }
 
 .namecard-button
@@ -29,8 +29,8 @@ h3
 {
     display: inline;
     font-size: 66px;
-    position: absolute;
     margin-left: 25%;
+    position: absolute;
 }
 
 .my-name
@@ -40,13 +40,13 @@ h3
 
 .my-name a
 {
-    text-decoration: none;
-    font-size: 50px;
     color: black;
+    font-size: 50px;
     font-weight: bold;
     margin-left: 414px;
-    position:absolute;
     margin-top: 2%;
+    position:absolute;
+    text-decoration: none;
 }
 
 iframe
@@ -58,18 +58,18 @@ iframe
 
 .feed-body
 {
-    overflow-y: scroll;
     height: 415px;
+    overflow-y: scroll;
 }
 
 .logout-button
 {
-    border: none;
-    width: 60px;
-    font-weight: bold;
     background-color: white;
+    border: none;
     cursor: pointer;
-    position: absolute;
+    font-weight: bold;
     margin-left: 527px;
     margin-top: -8%;
+    position: absolute;
+    width: 60px;
 }
