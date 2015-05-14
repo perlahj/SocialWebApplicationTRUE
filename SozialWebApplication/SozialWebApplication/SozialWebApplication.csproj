@@ -202,8 +202,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\CSS\Site.css" />
     <Content Include="Myndir\Background.jpg" />
+    <Content Include="Myndir\black-heart.png" />
     <Content Include="Myndir\input.jpg" />
     <Content Include="Myndir\match.jpg" />
+    <Content Include="Myndir\match.png" />
     <Content Include="Myndir\minus.jpg" />
     <Content Include="Myndir\myndlogo.jpg" />
     <Content Include="Myndir\AddFollower.png" />

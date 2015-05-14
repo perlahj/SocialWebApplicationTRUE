@@ -44,6 +44,16 @@ namespace SozialWebApplication.Controllers
 				us.RemoveFollow(User.Identity.Name, othersUserName);
 			}
 
+            string match = collection.Get("hidden-match-unmatch");
+            if (match == "match")
+            {
+                us.AddMatch(User.Identity.Name, othersUserName);
+            }
+            else if (match == "unmatch")
+            {
+                us.RemoveMatch(User.Identity.Name, othersUserName);
+            }
+
 			NameCardViewModel model = new NameCardViewModel();
 			model.userWithId = us.GetUserById(id);
 			return View(model);
