@@ -33,7 +33,7 @@
 
 .input-text 
 {
-    background-image: url('/Myndir/TextLogo.png');
+    background-image: url('/Myndir/PostText.png');
     background-repeat: no-repeat;
     background-size: 100%;
     border: none;
@@ -45,7 +45,7 @@
 
 .input-img 
 {
-    background-image: url('/Myndir/Mynd.png');
+    background-image: url('/Myndir/PostPicture.png');
     background-repeat: no-repeat;
     background-size: 100%;
     border: none;
@@ -57,7 +57,7 @@
 }
 
 .input-youtube {
-    background-image: url('/Myndir/Video.png');
+    background-image: url('/Myndir/PostVideo.png');
     background-repeat: no-repeat;
     background-size: 100%;
     border: none;
@@ -79,7 +79,7 @@
 
 .post-submit 
 {
-    background-image: url('/Myndir/takkar.jpg';
+    background-image: url('/Myndir/ButtonBackground.jpg');
     border-color: #faa61f;
     border-radius: 4px;
     font-weight: bold;
