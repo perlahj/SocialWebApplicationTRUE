@@ -128,7 +128,8 @@ namespace SozialWebApplication.Services
 		public string ParseVideoString(string str)
 		{
 			int length = str.Length;
-			return str.Substring(17, (length - 17));
+			return str.Substring(32, (length - 32));
+            /*meikar ekki neinn sens ad hafa 17 her... midad vid vidjo url??*/
 		}
     }
 }
