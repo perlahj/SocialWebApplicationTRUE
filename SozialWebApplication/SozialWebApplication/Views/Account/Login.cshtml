@@ -6,82 +6,81 @@
 @{
     ViewBag.Title = "Log in";
 }
+<div class="site-size">
+    <div>
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = "/Home/NewsfeedGroups/1" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="errorMessage">
+                @Html.ValidationSummary(true)
+            </div>
 
-<div>
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = "/Home/NewsfeedGroups/1" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-    {
-        @Html.AntiForgeryToken()
-    <div class="errorMessage">
-        @Html.ValidationSummary(true)
+            <div class="login-group">
+
+                <div class="login">
+                    @Html.LabelFor(m => m.LoginViewModel.UserName, new { @class = "login-label" })
+                    @Html.TextBoxFor(m => m.LoginViewModel.UserName, new { @class = "input" })
+                    <!--"att"Html.ValidationMessageFor(m => m.LoginViewModel.UserName)-->
+                    @Html.LabelFor(m => m.LoginViewModel.Password, new { @class = "login-label" })
+                    @Html.PasswordFor(m => m.LoginViewModel.Password, new { @class = "input" })
+                    <!--"att"Html.ValidationMessageFor(m => m.LoginViewModel.Password)-->
+
+                    <input type="submit" value="Log in" class="login-button" />
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <div class="checkbox">
+                    @Html.CheckBoxFor(m => m.LoginViewModel.RememberMe)
+                </div>
+
+                <div class="checkbox-label">
+                    @Html.LabelFor(m => m.LoginViewModel.RememberMe)
+                </div>
+            </div>
+        }
     </div>
 
-        <div class="login-group">
+    <div class="register-group">
+        <h2>Create new account!</h2>
 
-            <div class="login">
-                @Html.LabelFor(m => m.LoginViewModel.UserName, new { @class = "login-label" })
-                @Html.TextBoxFor(m => m.LoginViewModel.UserName, new { @class = "input" })
-                <!--"att"Html.ValidationMessageFor(m => m.LoginViewModel.UserName)-->
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
 
-                @Html.LabelFor(m => m.LoginViewModel.Password, new { @class = "login-label" })
-                @Html.PasswordFor(m => m.LoginViewModel.Password, new { @class = "input" })
-                <!--"att"Html.ValidationMessageFor(m => m.LoginViewModel.Password)-->
+            <div>
+                <div class="register">
 
-                <input type="submit" value="Log in" class="login-button" />
-            </div>
-        </div>
+                    <!-- "at"Html.LabelFor(m => m.Email, new { "at"class = "register-label" })
+                    "at"Html.PasswordFor(m => m.Email, new { "at"class = "input" }) -->
+                    @Html.LabelFor(m => m.RegisterViewModel.UserName, new { @class = "register-label" })
+                    @Html.TextBoxFor(m => m.RegisterViewModel.UserName, new { @class = "input" })
+                </div>
 
-        <div class="checkbox-group">
-            <div class="checkbox">
-                @Html.CheckBoxFor(m => m.LoginViewModel.RememberMe)
-            </div>
+                <div class="register">
+                    @Html.LabelFor(m => m.RegisterViewModel.Password, new { @class = "register-label" })
+                    @Html.PasswordFor(m => m.RegisterViewModel.Password, new { @class = "input" })
+                </div>
 
-            <div class="checkbox-label">
-                @Html.LabelFor(m => m.LoginViewModel.RememberMe)
-            </div>
-        </div>
-    }
-</div>
-
-<div class="register-group">
-    <h2>Create new account!</h2>
-
-    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary()
-
-        <div>
-            <div class="register">
-
-                <!-- "at"Html.LabelFor(m => m.Email, new { "at"class = "register-label" })
-                "at"Html.PasswordFor(m => m.Email, new { "at"class = "input" }) -->
-
-                @Html.LabelFor(m => m.RegisterViewModel.UserName, new { @class = "register-label" })
-                @Html.TextBoxFor(m => m.RegisterViewModel.UserName, new { @class = "input" })
+                <div class="register">
+                    @Html.LabelFor(m => m.RegisterViewModel.ConfirmPassword, new { @class = "register-label" })
+                    @Html.PasswordFor(m => m.RegisterViewModel.ConfirmPassword, new { @class = "input" })
+                </div>
             </div>
 
             <div class="register">
-                @Html.LabelFor(m => m.RegisterViewModel.Password, new { @class = "register-label" })
-                @Html.PasswordFor(m => m.RegisterViewModel.Password, new { @class = "input" })
+                <input type="submit" id="register-button" class="register-button" value="Sign Up" />
             </div>
+        }
+    </div>
 
-            <div class="register">
-                @Html.LabelFor(m => m.RegisterViewModel.ConfirmPassword, new { @class = "register-label" })
-                @Html.PasswordFor(m => m.RegisterViewModel.ConfirmPassword, new { @class = "input" })
-            </div>
-        </div>
-
-        <div class="register">
-            <input type="submit" id="register-button" class="register-button" value="Sign Up" />
-        </div>
-    }
+    <div class="logo">
+        <img src="/Myndir/logo.jpg" class="front-logo" alt="front-logo" />
+    </div>
 </div>
 
-<div class="logo">
-    <img src="/Myndir/logo.jpg" class="front-logo" alt="front-logo" />
-</div>
-
-<script>
+<!--<script>
     $(".register-button").click(function () {
         event.preventDefault();
 
@@ -93,7 +92,7 @@
             $('.feed-body').html(data);
         });
     });
-</script>
+</script>-->
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

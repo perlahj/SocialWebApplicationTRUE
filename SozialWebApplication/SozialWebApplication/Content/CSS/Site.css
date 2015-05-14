@@ -3,6 +3,10 @@
     font-size: 14px;
 }
 
+.site-size, .bc{
+    min-width: 1254px;
+}
+
 h2 {
     font-size: 30px;
 }
