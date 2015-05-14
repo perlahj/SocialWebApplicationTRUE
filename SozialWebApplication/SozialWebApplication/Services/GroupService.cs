@@ -28,23 +28,24 @@ namespace SozialWebApplication.Services
 			var groupWithId = (from gwi in db.Groups
 							   where gwi.Id == id
 							   select gwi).FirstOrDefault();
+			
 			return groupWithId;
 		}
 
-		// Returns the id of the most recently created group with groupName.
 		public int GetGroupIdbyName(string groupName)
 		{
 			var groupId = (from gi in db.Groups
 						   where gi.GroupName == groupName
 						   orderby gi.Id descending
 						   select gi.Id).FirstOrDefault();
+			
 			return groupId;
 		}
 		
-		// Return true if group was made false otherwise.
+		// Returns true if group was created false otherwise.
 		public bool AddNewGroup (string groupName)
 		{
-			// Check if another group with same name exists. 
+			// Check if another group with same name exists or groupName is empty. 
 			if ((GetGroupIdbyName(groupName) != 0) || String.IsNullOrEmpty(groupName))
 			{
 				return false;
@@ -54,11 +55,10 @@ namespace SozialWebApplication.Services
 			g.GroupName = groupName;
 			db.Groups.Add(g);
 			db.SaveChanges();
-
 			return true;
-			
 		}
 
+		// Used when initalizing the database.
 		public void AddNewsFeed()
 		{
 			Group g = new Group();
@@ -72,6 +72,7 @@ namespace SozialWebApplication.Services
 			var groupWithId = (from g in db.Groups
 									where g.Id == groupId
 									select g).FirstOrDefault();
+			
 			groupWithId.GroupName = newGroupName;
 			db.SaveChanges();
 		}
@@ -81,6 +82,7 @@ namespace SozialWebApplication.Services
 			var groups = (from g in db.Groups
 						  where g.GroupName != "News Feed"
 						  select g).ToList();
+			
 			return groups;
 		}
 
@@ -116,6 +118,7 @@ namespace SozialWebApplication.Services
 							where g.Id == gId &&
 							g.GroupName != "News Feed"
 							select g).FirstOrDefault();
+				
 				groups.Add(group);
 			}
 	
@@ -128,8 +131,8 @@ namespace SozialWebApplication.Services
 			{
 				return new List<Group>();
 			}
-			var allGroups = GetAllGroups();
 
+			var allGroups = GetAllGroups();
 			var searchResults = new List<Group>();
 			foreach (var item in allGroups)
 			{
@@ -138,7 +141,6 @@ namespace SozialWebApplication.Services
 					searchResults.Add(item);
 				}
 			}
-	
 
 			return searchResults;
 		}

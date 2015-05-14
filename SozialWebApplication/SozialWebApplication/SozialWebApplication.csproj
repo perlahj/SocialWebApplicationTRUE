@@ -182,12 +182,7 @@
     <Compile Include="Services\GroupService.cs" />
     <Compile Include="Services\PostService.cs" />
     <Compile Include="Services\UserService.cs" />
-    <Compile Include="Services\ViewModelService.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModel\CommentViewModel.cs" />
-    <Compile Include="ViewModel\GroupViewModel.cs" />
-    <Compile Include="ViewModel\OtherUserProfileViewModel.cs" />
-    <Compile Include="ViewModel\UserProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\CSS\Banner.css" />
@@ -279,7 +274,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Repositories\" />
     <Folder Include="Views\LoginRegister\" />
   </ItemGroup>
   <ItemGroup>
