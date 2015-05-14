@@ -92,7 +92,6 @@ namespace SozialWebApplication.Controllers
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);
-					//gs.AddNewsFeed();
 					// Add newly created user to group: News Feed.
 					int groupId = gs.GetGroupIdbyName("News Feed");
 					gs.AddUserToGroup(groupId, user.UserName);
