@@ -91,7 +91,6 @@ namespace SozialWebApplication.Controllers
 				profilePicture = currentUser.ProfilePicture;
 			}
 
-
 			NameCardViewModel nameCardVMmodel = new NameCardViewModel();
 			us.ChangeFullName(User.Identity.Name, fullName);
 			us.ChangeLineOfStudy(User.Identity.Name, lineOfStudy);
