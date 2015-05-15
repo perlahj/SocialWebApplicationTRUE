@@ -99,7 +99,6 @@
     background-repeat: no-repeat;
     background-size: 100%;
     border: none;
-    cursor: pointer;
     height: 50px;
     margin-left: 235px;
     margin-top: 2%;
@@ -112,7 +111,6 @@
     background-repeat: no-repeat;
     background-size: 100%;
     border: none;
-    cursor: pointer;
     height: 50px; 
     margin-left: -228px;
     width: 15%;
@@ -124,7 +122,6 @@
     background-repeat: no-repeat;
     background-size: 100%;
     border: none;
-    cursor: pointer;
     height: 50px;
     margin-left: 239px;
     margin-top: -10%;
@@ -178,6 +175,7 @@
     border: none;
     height: 103px;
     margin-left: 136px;
+    text-align: center;
 }
 
 .post-content 
@@ -297,6 +295,7 @@
     border: none;
     height: 103px;
     margin-left: 165px;
+    text-align: center;
 }
 
 .whole-each-post 
