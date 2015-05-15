@@ -39,7 +39,17 @@
                 <ul>
                     @foreach (var item in Model.AllMatches)
                     {
-                        <li>@Html.ActionLink(item.UserName, "OthersNameCard", "Home", new { id = item.Id })</li>
+                        if (item.FullName != null)
+                        {
+                           <li>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCards", new { id = item.Id }, null)</li> 
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCards", new { id = item.Id }, null)</li>
+                        }
+                            
+                        
+                        
                     }
 
                 </ul>

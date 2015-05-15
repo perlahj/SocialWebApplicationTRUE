@@ -218,7 +218,7 @@
 {
     font-weight: bold;
     margin-bottom: -4%;
-    margin-left: -32%;
+    margin-left: -23%;
 }
 
 .post-size-settings-photo
@@ -250,20 +250,21 @@
 
 .profile-picture-comment
 {
-    border-radius: 60px;
-    height: 100px;
+    border-radius: 100px;
+    border: 1px solid black;
+    height: 85px;
     margin-bottom: -52px;
-    /* margin-left: -353px; */
-    width: 95px;
+    width: 85px;
 }
 
 .profile-picture-post 
 {
-    border-radius: 60px;
-    height: 125px;
-    margin-bottom: -52px;
-    margin-left: -388px;
-    width: 115px;
+    border-radius: 100px;
+    border: 1px solid black;
+    height: 100px;
+    margin-bottom: -33px;
+    margin-left: -279px;
+    width: 100px;
 }
 
 .remove-group 

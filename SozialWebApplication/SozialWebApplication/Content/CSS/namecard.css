@@ -70,9 +70,10 @@
 .namecard img
 { 
     border: 1px solid;
-    border-radius: 143px;
+    border-radius: 150px;
     margin-left: 40px;
     width: 250px;
+    height: 250px;
 }
 
 .match 
@@ -143,14 +144,21 @@
     font-size: 25px;
 }
 
+.others-photo
+{
+    height: 200px;
+    width: 200px;
+    margin-top: 75%;
+}
+
 .others-photo img
 {
     border: 1px solid;
-    border-radius: 130px;
+    border-radius: 150px;
     margin-left: -624px;
     margin-top: -219px;
     width: 250px;
-    /*height: 250px; <-- gerir myndina minni og alveg hringlótta */ 
+    height: 250px;
 }
 
 .unfollow-others 

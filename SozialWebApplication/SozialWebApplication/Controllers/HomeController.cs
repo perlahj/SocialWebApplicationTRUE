@@ -180,7 +180,7 @@ namespace SozialWebApplication.Controllers
 
         public ActionResult CheckMatch()
         {
-			NameCardViewModel nameCardVM = new NameCardViewModel();
+            NameCardViewModel nameCardVM = new NameCardViewModel();
             nameCardVM.AllMatches = us.GetAllDoubleMatches(User.Identity.Name);
             return View( nameCardVM);
         }
