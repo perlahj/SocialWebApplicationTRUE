@@ -1,8 +1,6 @@
 ﻿@model SozialWebApplication.Models.LandingPageModel
 @using SozialWebApplication.Services
 
-<!--'att'SozialWebApplication.Services.GroupService-->
-
 @{
     ViewBag.Title = "Log in";
 }
@@ -21,11 +19,9 @@
                 <div class="login">
                     @Html.LabelFor(m => m.LoginViewModel.UserName, new { @class = "login-label" })
                     @Html.TextBoxFor(m => m.LoginViewModel.UserName, new { @class = "input" })
-                    <!--"att"Html.ValidationMessageFor(m => m.LoginViewModel.UserName)-->
 
                     @Html.LabelFor(m => m.LoginViewModel.Password, new { @class = "login-label" })
                     @Html.PasswordFor(m => m.LoginViewModel.Password, new { @class = "input" })
-                    <!--"att"Html.ValidationMessageFor(m => m.LoginViewModel.Password)-->
 
                     <input type="submit" value="Log in" class="login-button" />
                 </div>

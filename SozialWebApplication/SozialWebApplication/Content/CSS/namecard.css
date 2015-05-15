@@ -17,19 +17,10 @@
     font-size: 25px;
 }
 
-/*ATH*/
-
 .profile-picture 
 {
     margin-left: 96px;
     margin-top: 9px;
-}
-
-.profile-picture-edit 
-{
-    margin-left: -42.5%;
-    position: absolute;
-    width: 190px;
 }
 
 /* OwnNameCard */
@@ -67,9 +58,9 @@
 { 
     border: 1px solid;
     border-radius: 150px;
+    height: 250px;
     margin-left: 40px;
     width: 250px;
-    height: 250px;
 }
 
 .match 
@@ -87,7 +78,7 @@
 .send-email > a:hover 
 {
     color: #ffd600;
-    text-decoration:underline;
+    text-decoration: underline;
 }
 
 .send-email > a:link
@@ -117,8 +108,8 @@
 
 .match-others 
 {
-    background-image: url('/Myndir/Unmatch.png');
     background-color: white;
+    background-image: url('/Myndir/Unmatch.png');
     background-repeat: no-repeat;
     background-size: 100%;
     border: none;
@@ -143,17 +134,17 @@
 .others-photo
 {
     height: 300px;
-    width: 300px;
     margin-top: -61%;
     margin-left: -121%;
+    width: 300px;
 }
 
 .others-photo img
 {
     border: 1px solid;
     border-radius: 150px;
-    width: 250px;
     height: 250px;
+    width: 250px;
 }
 
 .unfollow-others 
@@ -185,8 +176,8 @@
 
 .back 
 {
-    background-image: url('/Myndir/ButtonBackground.jpg');
     border-color: #faa61f;
+    background-image: url('/Myndir/ButtonBackground.jpg');
     border-radius: 4px;
     font-weight: bold;
     line-height: 25px;

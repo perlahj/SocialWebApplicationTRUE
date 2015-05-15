@@ -201,7 +201,6 @@
     <Content Include="Myndir\InputBoxBackground.jpg" />
     <Content Include="Myndir\MatchList.jpg" />
     <Content Include="Myndir\Match.png" />
-    <Content Include="Myndir\DefaultProfile.jpg" />
     <Content Include="Myndir\AddFollower.png" />
     <Content Include="Myndir\Edit.png" />
     <Content Include="Myndir\Followers.png" />
@@ -209,7 +208,6 @@
     <Content Include="Myndir\Like.png" />
     <Content Include="Myndir\Logo.jpg" />
     <Content Include="Myndir\PostPicture.png" />
-    <Content Include="Myndir\Photo.png" />
     <Content Include="Myndir\SearchButton.jpg" />
     <Content Include="Myndir\ButtonBackground.jpg" />
     <Content Include="Myndir\PostText.png" />

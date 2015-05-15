@@ -41,7 +41,6 @@
                     {
                         using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
                         {
-
                             if (!SozialWebApplication.Services.GroupService.Instance.IsUserInGroup(Model.GroupWithId.Id, User.Identity.Name))
                             {
                                 <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
@@ -55,11 +54,10 @@
                                 <input type="hidden" name="hidden-favgroup" value="remove-group" />
                                 <input type="submit" value="" class="remove-group" />
                             }
-
                         }
                     }
                 </div>
-        
+      
             <div class="groupName">
                 <p>@Model.GroupWithId.GroupName</p>
             </div>
@@ -74,6 +72,7 @@
                             <input type="button" class="input-img" />
                             <input type="button" class="input-youtube" />
                         </div>
+
                         <div class="post-input-settings">
                             <input type="hidden" name="hidden-groupId" value="@Model.GroupWithId.Id" />
                             <input type="text" name="text-input" id="post-input" class="post-input" placeholder="Express yourself..." />
@@ -82,6 +81,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <input type="submit" value="Post" class="post-submit" />
             }
 
@@ -91,16 +91,18 @@
                 {
                     var postingUser = UserService.Instance.GetUserByUserName(post.UserName);
                     <div class="whole-each-post">
-                            <img src="@postingUser.ProfilePicture" class="profile-picture-post" alt="Profile picture">
+                        <img src="@postingUser.ProfilePicture" class="profile-picture-post" alt="Profile picture">
 
                         @if (postingUser.FullName != null)
                         {
                             <p class="post-name">@postingUser.FullName</p>
                         }
+                        
                         else
                         {
                             <p class="post-name">@post.UserName</p>
                         }
+
                         <p class="post-date">@post.DateCreated</p>
                         <div class="each-post">
                             <div class="post-content">
@@ -110,18 +112,19 @@
                                         <p>@post.Body</p>
                                     </div>
                                 }
+                                
                                 else if (post.PostType == SozialWebApplication.Models.PostType.Photo)
                                 {
                                     <div class="post-size-settings-photo">
                                         <img src="@post.Body" alt="Photo from @post.UserName" />
                                     </div>
                                 }
+                                
                                 else if (post.PostType == SozialWebApplication.Models.PostType.Video)
                                 {
                                     string source ="https://www.youtube.com/embed/" + post.Body;
                                     <div class="post-size-settings-video">
-                                         <iframe src="@source" frameborder="0"></iframe>
-                                        
+                                         <iframe src="@source" frameborder="0"></iframe>        
                                     </div>
                                 }
                                 
@@ -140,7 +143,6 @@
                             </div>
 
                             <div class="comment-form">
-
                                 <!--Form for new comment-->
                                 @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
                                 {
@@ -168,28 +170,32 @@
                                                 {
                                                     <p>@commentingUser.FullName</p>
                                                 }
+                                                
                                                 else
                                                 {
                                                     <p>@comment.UserName</p>
                                                 }
                                                 
                                             </div>
+
                                             <div class="comment-post-date">
                                                 <p>@comment.DateCreated</p>
                                             </div>
+
                                             <div class="comment-post-body">
                                                 <p>@comment.Body</p>
                                             </div>
                                         </div>
                                     </div>
                                 }
-
                             </div>
                         </div>
                     </div>
                 }
-        </div> <!--feed-body-->
-    </div> <!--overflowceeper-->
-    <br />
+            </div>
+        </div>
+     
+        <br />
+
     </div>
 </div>

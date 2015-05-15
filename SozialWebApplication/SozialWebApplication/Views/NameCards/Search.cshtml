@@ -51,7 +51,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- div class="my-followers" -->
                     @foreach (var item in Model.AllFollowing)
                     {
                         if (item.FullName != null)
@@ -79,7 +78,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- div class="all-followers" -->
                     @foreach (var item in Model.AllUsers)
                     {
                         if (item.FullName != null)
@@ -107,7 +105,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <!-- div class="search-followers" -->
                         @if (Model.SearchResultsUsers.Count() == 0)
                         {
                         }
@@ -133,8 +130,9 @@
                         }
                     </tbody>
             </table>
-        </div> <!-- feed-body-->
-      </div> <!-- overflowceeper-->
+        </div>
+      </div>
+     
       <br />
-</div> <!-- bc-->
 
+</div>
