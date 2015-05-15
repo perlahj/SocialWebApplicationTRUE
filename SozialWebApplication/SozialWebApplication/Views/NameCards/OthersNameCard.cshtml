@@ -33,6 +33,11 @@
     <div class="overflowceeper">
         <div class="feed-body">
             <div>
+
+                <div class="others-photo">
+                    <img src="@Model.userWithId.ProfilePicture" alt="Profile picture">
+                </div>
+
                 <div class="information">
                     
                     @if(String.IsNullOrEmpty(Model.userWithId.FullName))
@@ -50,12 +55,12 @@
                     <div class="send-email">
                         <a href="mailto:@Html.DisplayFor(model => model.userWithId.Email)">@Html.DisplayFor(model => model.userWithId.Email)</a>
                     </div>
-                    
-                    <div class="others-photo">
-                        <img src="@Model.userWithId.ProfilePicture" alt="Profile picture">
-                    </div>
                 </div>
+                    
+                
             </div>
+
+            <div class="others-namecard-buttons">
 
             @using (Html.BeginForm("OthersNameCard", "NameCards", FormMethod.Post))
             {
@@ -90,6 +95,7 @@
                     <a href="OthersNameCard"><input type="submit" value="" class="match-others" /></a>
                 }
             }
+                </div>
         </div>
     </div>
 
