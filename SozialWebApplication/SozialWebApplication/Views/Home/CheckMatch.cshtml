@@ -35,25 +35,27 @@
                 <h4 class="my-matches-label">My Matches</h4>
             </div>
 
-            <div class=" my-matches">
-                <ul>
-                    @foreach (var item in Model.AllMatches)
-                    {
-                        if (item.FullName != null)
+                <table class=" my-matches">
+                    <tbody>
+                        @foreach (var item in Model.AllMatches)
                         {
-                           <li>@Html.ActionLink(item.FullName, "OthersNameCard", "NameCards", new { id = item.Id }, null)</li> 
-                        }
-                        else
-                        {
-                            <li>@Html.ActionLink(item.UserName, "OthersNameCard", "NameCards", new { id = item.Id }, null)</li>
-                        }
-                            
-                        
-                        
-                    }
+                            <tr>
+                                <td><img src="@item.ProfilePicture" class="profile-picture-match" alt="Profile picture"></td>
 
-                </ul>
-            </div>
+                                @if (item.FullName != null)
+                                {
+                                    <td class="name-match">@Html.ActionLink(item.FullName, "OthersNameCard", "NameCards", new { id = item.Id }, null)</td>
+                                }
+
+                                else
+                                {
+                                    <td class="name-match">@Html.ActionLink(item.UserName, "OthersNameCard", "NameCards", new { id = item.Id }, null)</td>
+                                }
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
         </div>
     </div>
 

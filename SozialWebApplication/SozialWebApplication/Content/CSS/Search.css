@@ -41,6 +41,18 @@
     width: 90px;
 }
 
+.group-message
+{
+    margin-left: 10%;
+}
+
+.group-message > p
+{
+    font-size:14px;
+    font-weight: bold;
+
+}
+
 /* Search bar */
 
 .adding-groups-button, .searching-groups-button

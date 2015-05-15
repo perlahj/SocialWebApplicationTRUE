@@ -1,12 +1,42 @@
-﻿.match-label
+﻿.each-match
 {
-    font-size: 25px;
+    margin-bottom: 2%;
+}
+
+.name-match 
+{
+    margin-top: -37px;
+}
+
+.name-match > a
+{
+    font-size: 20px;
     font-weight: bold;
+}
+
+.match-label
+{
     margin-left: 49%;
-    text-decoration: none;
 }
 
 .my-matches
 {
-    text-align: center;
+    margin-left: 562px;
+}
+
+.my-matches-label
+{
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.profile-picture-match 
+{
+    border-radius: 100px;
+    border: 1px solid black;
+    height: 50px;
+    margin-left: -65px;
+    width: 50px;
+    margin-top: 5px;
 }
