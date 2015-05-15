@@ -1,5 +1,10 @@
 ﻿.information > p {
-     font-size: 25px;
+    font-size: 25px;
+}
+
+.others-information > p
+{
+    font-size: 25px;
 }
 
 .information {
@@ -80,7 +85,7 @@
    background-size: 100%;
   width: 55px;
   height: 43px;
-  margin-left: 66%;
+  margin-left: 94%;
   margin-top: 2.5%;
 }
 
@@ -90,13 +95,13 @@
    background-size: 100%;
    width: 52px;
    height: 47px;
-  margin-left: 66.5%;
+  margin-left: 94.5%;
   margin-top: 2%;
 }
 
 .match-others {
-  margin-left: 68%;
-  margin-top: 16%;
+  margin-left: 47%;
+  margin-top: 17%;
   margin-bottom: 4%;
   background-image: url('/Myndir/Unmatch.png');
   background-color: white;
@@ -140,6 +145,12 @@
 .edit-information {
   margin-left: 34%;
   margin-top: 5%;
+}
+
+.others-information
+{
+    font-weight: bold;
+    text-align: center;
 }
 
 .edit-input {
@@ -193,4 +204,13 @@
     border: 1px solid;
     margin-left: 40px;
 
+}
+
+.othersPhoto img
+{
+  border: 1px solid;
+  border-radius: 130px;
+  margin-left: -705px;
+  margin-top: -196px;
+  width: 250px;
 }

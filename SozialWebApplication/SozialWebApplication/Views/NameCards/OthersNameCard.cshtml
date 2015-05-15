@@ -34,9 +34,6 @@
         <div class="feed-body">
             <div>
                 <div class="information">
-
-                    <!-- Setja if setningu: ef notandi hefur ekki sett inn mynd, þá kemur þessi default -->
-                    <img src="/Myndir/DefaultProfile.jpg" class="profile-picture" alt="profilepic">
                     
                     @if(String.IsNullOrEmpty(Model.userWithId.FullName))
                     {
@@ -50,7 +47,9 @@
 
                     <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
                     <p>@Html.DisplayFor(model => model.userWithId.Email)</p>
-                    <img src="@Model.userWithId.ProfilePicture" alt="Profile picture">
+                    <div class="othersPhoto">
+                        <img src="@Model.userWithId.ProfilePicture" alt="Profile picture">
+                    </div>
                 </div>
             </div>
 
