@@ -1,19 +1,62 @@
-﻿.information > p {
-    font-size: 25px;
+﻿::-webkit-scrollbar
+{
+    display: block;
 }
 
-.others-information > p
+.information 
+{
+    font-weight: bold;
+    margin-left: 476px;
+    padding-top: 6%;
+    position: absolute;
+    text-align: center;
+}
+
+.information > p 
 {
     font-size: 25px;
 }
 
-.information {
+/*ATH*/
 
-    font-weight: bold;
-    margin-left: 476px;
+.profile-picture 
+{
+    margin-left: -332px;
     position: absolute;
-    padding-top: 6%;
-    text-align: center;
+    width: 190px;
+}
+
+.profile-picture-edit 
+{
+    margin-left: -42.5%;
+    position: absolute;
+    width: 190px;
+}
+
+/* OwnNameCard */
+
+.follow 
+{
+    background-image: url('/Myndir/Followers.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: none;
+    cursor: pointer;
+    height: 39px;
+    margin-left: 854px;
+    width: 45px;
+}
+
+.groups 
+{   
+    background-image: url('/Myndir/Groups.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: none;
+    cursor: pointer;
+    height: 39px;
+    margin-left: 48px;
+    width: 50px;  
 }
 
 .namecard
@@ -21,131 +64,69 @@
     margin-top: 2%;
 }
 
-.profile-picture {
-    margin-left: -332px;
-    width: 190px;
-    position: absolute;
+.namecard img
+{ 
+    border: 1px solid;
+    border-radius: 143px;
+    margin-left: 40px;
+    width: 250px;
 }
 
-.follow {
-   margin-left: 854px;
-   background-image: url('/Myndir/Followers.png');
-   background-repeat: no-repeat;
-   background-size: 100%;
-   cursor: pointer;
-   border: none;
-   width: 45px;
-   height: 39px;
+.match 
+{
+    background-image: url('/Myndir/MatchList.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: none;
+    cursor: pointer;
+    height: 39px;
+    margin-left: 40px;
+    width: 48px;
 }
 
-.edit {
-   margin-top: 334px;
-   margin-left: 35px;
-   background-image: url('/Myndir/Edit.png');
-   background-repeat: no-repeat;
-   background-size: 100%;
-   cursor: pointer;
-   border: none;
-   width: 37px;
-   height: 39px;
-   float: left;
+.send-email > a:hover 
+{
+    color: #ffd600;
+    text-decoration:underline;
 }
 
-.match {
-  margin-left: 40px;
-  background-image: url('/Myndir/MatchList.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  cursor: pointer;
-  border: none;
-  width: 48px;
-  height: 39px;
+.send-email > a:link
+{
+    color: black;
+    font-size: 25px;
 }
 
-.groups {
-   margin-left: 48px;
-   background-image: url('/Myndir/Groups.png');
-   background-repeat: no-repeat;
-   background-size: 100%;
-   cursor: pointer;
-   border: none;
-   width: 50px;
-   height: 39px;
+/* OthersNameCard */
+
+.follow-others 
+{
+    background-image: url('/Myndir/AddFollower.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 43px;
+    margin-left: 94%;
+    margin-top: 2.5%;
+    width: 55px;
 }
 
-.follow-others, .unfollow-others {
-
-   cursor: pointer;
-   border: none;
+.follow-others, .unfollow-others 
+{
+    border: none;
+    cursor: pointer;
 }
 
-.follow-others {
-   background-image: url('/Myndir/AddFollower.png');
-   background-repeat: no-repeat;
-   background-size: 100%;
-  width: 55px;
-  height: 43px;
-  margin-left: 94%;
-  margin-top: 2.5%;
-}
-
-.unfollow-others {
-   background-image: url('/Myndir/Unfollow.png');
-   background-repeat: no-repeat;
-   background-size: 100%;
-   width: 52px;
-   height: 47px;
-  margin-left: 94.5%;
-  margin-top: 2%;
-}
-
-.match-others {
-  margin-left: 47%;
-  margin-top: 17%;
-  margin-bottom: 4%;
-  background-image: url('/Myndir/Unmatch.png');
-  background-color: white;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  cursor: pointer;
-  border: none;
-  width: 41px;
-  height: 39px;
-}
-
-.unmatch-others {
-   margin-left: 68%;
-   margin-top: 16%;
-   margin-bottom: 4%;
-   background-image: url('/Myndir/Match.png');
-   background-color: white;
-   background-repeat: no-repeat;
-   background-size: 100%;
-   cursor: pointer;
-   border: none;
-  width: 44px;
-  height: 40px;
-}
-
-.save {
-  margin-left: 17%;
-  border-radius: 4px;
-  border-color: #faa61f;
-  line-height: 25px;
-  width: 70px;
-  font-weight: bold;
-  background-image: url('/Myndir/takkar.jpg');
-}
-
-.profile-picture-edit {
-  margin-left: -42.5%;
-  width: 190px;
-  position: absolute;
-}
-
-.edit-information {
-  margin-left: 34%;
-  margin-top: 5%;
+.match-others 
+{
+    background-image: url('/Myndir/Unmatch.png');
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: none;
+    cursor: pointer;
+    height: 39px;
+    margin-left: 95%;
+    margin-top: 22%;
+    width: 41px;
 }
 
 .others-information
@@ -154,64 +135,108 @@
     text-align: center;
 }
 
-.edit-input {
-  width: 36%;
-  margin-top: 6%;
-  margin-left: 10%;
-}
-
-.text-input {
-  background-image: url('/Myndir/input.jpg');
-  border: 1px solid #ffd600;
-  border-radius: 4px;
-  line-height: 25px;
-  width: 259px;
-  margin-right: 53px;
-  margin-bottom: 9%;
-}
-
-.label {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.send-email > a:link{
-  color: black;
-  font-size: 25px;
-}
-
-.send-email > a:hover {
-    text-decoration:underline;
-    color: #ffd600;
-}
-
-.back {
-    border-radius: 4px;
-    border-color: #faa61f;
-    line-height: 25px;
-    width: 70px;
-    font-weight: bold;
-    background-image: url('/Myndir/takkar.jpg');
-}
-
-::-webkit-scrollbar{
-    display: block;
-}
-
-.namecard img
+.others-information > p
 {
-    width: 250px;
-    border-radius: 143px;
+    font-size: 25px;
+}
+
+.others-photo img
+{
     border: 1px solid;
-    margin-left: 40px;
-
+    border-radius: 130px;
+    margin-left: -705px;
+    margin-top: -196px;
+    width: 250px;
 }
 
-.othersPhoto img
+.unfollow-others 
 {
-  border: 1px solid;
-  border-radius: 130px;
-  margin-left: -705px;
-  margin-top: -196px;
-  width: 250px;
+    background-image: url('/Myndir/Unfollow.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 47px;
+    margin-left: 94.5%;
+    margin-top: 2%;
+    width: 52px;
+}
+
+.unmatch-others
+{
+    background-color: white;
+    background-image: url('/Myndir/Match.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    margin-left: 95%;
+    margin-top: 22%;
+    width: 44px;
+}
+
+/* EditNameCard */
+
+.back 
+{
+    background-image: url('/Myndir/ButtonBackground.jpg');
+    border-color: #faa61f;
+    border-radius: 4px;
+    font-weight: bold;
+    line-height: 25px;
+    width: 70px; 
+}
+
+.edit 
+{
+    background-image: url('/Myndir/Edit.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: none;
+    cursor: pointer;
+    float: left;
+    height: 39px;
+    margin-left: 35px;
+    margin-top: 334px;
+    width: 37px;
+}
+
+.edit-information 
+{
+    margin-left: 34%;
+    margin-top: 5%;
+}
+
+.edit-input 
+{
+    margin-left: 10%;
+    margin-top: 6%;
+    width: 36%;
+}
+
+.label 
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.save 
+{
+    background-image: url('/Myndir/ButtonBackground.jpg');
+    border-color: #faa61f;
+    border-radius: 4px;
+    font-weight: bold;
+    line-height: 25px;
+    margin-left: 17%;
+    width: 70px;
+}
+
+.text-input 
+{
+    background-image: url('/Myndir/InputBoxBackground.jpg');
+    border: 1px solid #ffd600;
+    border-radius: 4px;
+    line-height: 25px;
+    margin-bottom: 9%;
+    margin-right: 53px;
+    width: 259px;
 }

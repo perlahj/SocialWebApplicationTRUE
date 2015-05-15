@@ -139,6 +139,7 @@
                             </div>
 
                             <div class="comment-form">
+
                                 <!--Form for new comment-->
                                 @using (Html.BeginForm("NewsfeedGroups", "Home", FormMethod.Post))
                                 {
@@ -158,9 +159,9 @@
                                 {
                                     var commentingUser = UserService.Instance.GetUserByUserName(comment.UserName);
                                     <div class="CommentDisplayParent">
-                                        <div class="CommentDisplay">
-
+                                        <div class="comment-display">
                                             <img src="@commentingUser.ProfilePicture" alt="@Profile picture">
+                                            
                                             <div class="comment-post-name">
                                                 @if (commentingUser.FullName != null)
                                                 {

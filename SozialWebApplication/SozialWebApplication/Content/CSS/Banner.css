@@ -4,25 +4,10 @@
     background-size: 100%;
 }
 
-.namecard-button, .feed-body
+.feed-body
 {
-    background-color: white;
-    height: 100px;
-    margin-left: 2%;
-    margin-right: 2%;
-    border-radius: 25px;
-}
-
-.namecard-button
-{
-    text-align: center;
-}
-
-.name-logo
-{
-    height: 80px;
-    margin: 1%;
-    margin-left: -1097px
+    height: 415px;
+    overflow-y: scroll;
 }
 
 h3
@@ -31,6 +16,46 @@ h3
     font-size: 66px;
     margin-left: 25%;
     position: absolute;
+}
+
+iframe
+{
+    border: none;
+    height: 350px;
+    width: 550px;
+}
+
+.logout-button
+{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 527px;
+    margin-top: -8%;
+    position: absolute;
+    width: 60px;
+}
+
+.namecard-button
+{
+    text-align: center;
+}
+
+.namecard-button, .feed-body
+{
+    background-color: white;
+    border-radius: 25px;
+    /*height: 100px;*/
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.name-logo
+{
+    height: 80px;
+    margin: 1%;
+    margin-left: -1097px
 }
 
 .my-name
@@ -47,44 +72,4 @@ h3
     margin-top: 2%;
     position:absolute;
     text-decoration: none;
-}
-
-
-
-/*
-.my-name a
-{
-   // text-decoration: none;
-  //  font-size: 50px;
-   // color: black;
-  //  font-weight: bold;
-   // margin-left: 38px;
-  //  position:absolute;
-    margin-top: 2%;
-}*/
-
-
-iframe
-{
-    border: none;
-    height: 350px;
-    width: 550px;
-}
-
-.feed-body
-{
-    height: 415px;
-    overflow-y: scroll;
-}
-
-.logout-button
-{
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    margin-left: 527px;
-    margin-top: -8%;
-    position: absolute;
-    width: 60px;
 }
