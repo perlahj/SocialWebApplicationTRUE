@@ -46,7 +46,9 @@
                     }
 
                     <p>@Html.DisplayFor(model => model.userWithId.LineOfStudy)</p>
-                    <p>@Html.DisplayFor(model => model.userWithId.Email)</p>
+                    <div class="send-email">
+                        <a href="mailto:@Html.DisplayFor(model => model.userWithId.Email)">@Html.DisplayFor(model => model.userWithId.Email)</a>
+                    </div>
                     
                     <div class="others-photo">
                         <img src="@Model.userWithId.ProfilePicture" alt="Profile picture">
