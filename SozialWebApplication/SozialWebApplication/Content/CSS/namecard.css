@@ -21,9 +21,12 @@
 
 .profile-picture 
 {
-    margin-left: -332px;
+    /*  margin-left: -332px;
     position: absolute;
-    width: 190px;
+    width: 190px;*/
+
+  margin-left: 96px;
+  margin-top: -43px;
 }
 
 .profile-picture-edit 
@@ -144,9 +147,10 @@
 {
     border: 1px solid;
     border-radius: 130px;
-    margin-left: -705px;
-    margin-top: -196px;
+    margin-left: -624px;
+    margin-top: -219px;
     width: 250px;
+    /*height: 250px; <-- gerir myndina minni og alveg hringlótta */ 
 }
 
 .unfollow-others 

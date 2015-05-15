@@ -91,7 +91,8 @@
                 {
                     var postingUser = UserService.Instance.GetUserByUserName(post.UserName);
                     <div class="whole-each-post">
-                        <img src="@postingUser.ProfilePicture" alt="@Profile picture">
+                            <img src="@postingUser.ProfilePicture" class="profile-picture-post" alt="@Profile picture">
+
                         @if (postingUser.FullName != null)
                         {
                             <p class="post-name">@postingUser.FullName</p>
@@ -160,7 +161,7 @@
                                     var commentingUser = UserService.Instance.GetUserByUserName(comment.UserName);
                                     <div class="CommentDisplayParent">
                                         <div class="comment-display">
-                                            <img src="@commentingUser.ProfilePicture" alt="@Profile picture">
+                                            <img src="@commentingUser.ProfilePicture" class="profile-picture-comment" alt="@Profile picture">
                                             
                                             <div class="comment-post-name">
                                                 @if (commentingUser.FullName != null)
@@ -176,7 +177,9 @@
                                             <div class="comment-post-date">
                                                 <p>@comment.DateCreated</p>
                                             </div>
-                                            <p>@comment.Body</p>
+                                            <div class="comment-post-body">
+                                                <p>@comment.Body</p>
+                                            </div>
                                         </div>
                                     </div>
                                 }

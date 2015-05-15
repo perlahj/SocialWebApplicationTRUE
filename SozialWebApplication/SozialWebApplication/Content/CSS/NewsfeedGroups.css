@@ -41,6 +41,12 @@
     display: inline;
 }
 
+.comment-post-body 
+{
+    margin-left: 12%;
+    margin-top: -1%;
+}
+
 .comment-post-date 
 {
     font-weight: bold;
@@ -50,8 +56,9 @@
 
 .comment-post-name
 {
-    font-weight: bold;
-    margin-left: 2%;
+  font-weight: bold;
+  margin-left: 10%;
+  margin-top: -6%;
 }
 
 .comment-textarea 
@@ -241,6 +248,24 @@
     width: 70px;
 }
 
+.profile-picture-comment
+{
+    border-radius: 60px;
+    height: 100px;
+    margin-bottom: -52px;
+    /* margin-left: -353px; */
+    width: 95px;
+}
+
+.profile-picture-post 
+{
+    border-radius: 60px;
+    height: 125px;
+    margin-bottom: -52px;
+    margin-left: -388px;
+    width: 115px;
+}
+
 .remove-group 
 {
     background-image: url('/Myndir/RemoveGroup.jpg');
@@ -274,5 +299,5 @@
 
 .whole-each-post 
 {
-    margin-bottom: 27%;
+    margin-bottom: 10%;
 }
