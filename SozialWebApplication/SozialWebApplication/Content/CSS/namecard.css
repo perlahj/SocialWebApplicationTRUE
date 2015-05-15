@@ -21,12 +21,8 @@
 
 .profile-picture 
 {
-    /*  margin-left: -332px;
-    position: absolute;
-    width: 190px;*/
-
-  margin-left: 96px;
-  margin-top: -43px;
+    margin-left: 96px;
+    margin-top: 9px;
 }
 
 .profile-picture-edit 
@@ -146,17 +142,16 @@
 
 .others-photo
 {
-    height: 200px;
-    width: 200px;
-    margin-top: 75%;
+    height: 300px;
+    width: 300px;
+    margin-top: -61%;
+    margin-left: -121%;
 }
 
 .others-photo img
 {
     border: 1px solid;
     border-radius: 150px;
-    margin-left: -624px;
-    margin-top: -219px;
     width: 250px;
     height: 250px;
 }
