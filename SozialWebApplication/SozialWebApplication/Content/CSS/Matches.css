@@ -1,9 +1,9 @@
 ﻿.match-label
 {
-    text-decoration: none;
     font-size: 25px;
     font-weight: bold;
     margin-left: 49%;
+    text-decoration: none;
 }
 
 .my-matches
