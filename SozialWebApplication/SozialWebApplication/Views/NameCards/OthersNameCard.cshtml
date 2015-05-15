@@ -38,8 +38,44 @@
                     <img src="@Model.userWithId.ProfilePicture" alt="Profile picture">
                 </div>
 
-                <div class="information">
-                    
+                <div class="others-namecard-buttons">
+
+                    @using (Html.BeginForm("OthersNameCard", "NameCards", FormMethod.Post))
+                    {
+                        if (SozialWebApplication.Services.UserService.Instance.IsFollowing(User.Identity.Name, Model.userWithId.UserName))
+                        {
+                            <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
+                            <input type="hidden" name="hidden-follow-unfollow" value="unfollow" />
+                            <a href="OthersNameCard"><input type="submit" value="" class="unfollow-others" /></a>
+                        }
+
+                        else
+                        {
+                            <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
+                            <input type="hidden" name="hidden-follow-unfollow" value="follow" />
+                            <a href="OthersNameCard"><input type="submit" value="" class="follow-others" /></a>
+                        }
+                    }
+
+                    @using (Html.BeginForm("OthersNameCard", "NameCards", FormMethod.Post))
+                    {
+                        if (SozialWebApplication.Services.UserService.Instance.IsSingleMatch(User.Identity.Name, Model.userWithId.UserName))
+                        {
+                            <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
+                            <input type="hidden" name="hidden-match-unmatch" value="unmatch" />
+                            <a href="OthersNameCard"><input type="submit" value="" class="unmatch-others" /></a>
+                        }
+
+                        else
+                        {
+                            <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
+                            <input type="hidden" name="hidden-match-unmatch" value="match" />
+                            <a href="OthersNameCard"><input type="submit" value="" class="match-others" /></a>
+                        }
+                    }
+                </div>
+
+                <div class="others-information"> 
                     @if(String.IsNullOrEmpty(Model.userWithId.FullName))
                     {
                        <p>@Html.DisplayFor(model => model.userWithId.UserName)</p>
@@ -56,46 +92,7 @@
                         <a href="mailto:@Html.DisplayFor(model => model.userWithId.Email)">@Html.DisplayFor(model => model.userWithId.Email)</a>
                     </div>
                 </div>
-                    
-                
             </div>
-
-            <div class="others-namecard-buttons">
-
-            @using (Html.BeginForm("OthersNameCard", "NameCards", FormMethod.Post))
-            {
-                if (SozialWebApplication.Services.UserService.Instance.IsFollowing(User.Identity.Name, Model.userWithId.UserName))
-                {
-                    <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
-                    <input type="hidden" name="hidden-follow-unfollow" value="unfollow" />
-                    <a href="OthersNameCard"><input type="submit" value="" class="unfollow-others" /></a>
-                }
-                
-                else
-                {
-                    <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
-                    <input type="hidden" name="hidden-follow-unfollow" value="follow" />
-                    <a href="OthersNameCard"><input type="submit" value="" class="follow-others" /></a>
-                }
-            }
-            
-            @using (Html.BeginForm("OthersNameCard", "NameCards", FormMethod.Post))
-            {
-                if (SozialWebApplication.Services.UserService.Instance.IsSingleMatch(User.Identity.Name, Model.userWithId.UserName))
-                {
-                    <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
-                    <input type="hidden" name="hidden-match-unmatch" value="unmatch" />
-                    <a href="OthersNameCard"><input type="submit" value="" class="unmatch-others" /></a>
-                }
-                
-                else
-                {
-                    <input type="hidden" name="hidden-othersUserName" value="@Model.userWithId.UserName" />
-                    <input type="hidden" name="hidden-match-unmatch" value="match" />
-                    <a href="OthersNameCard"><input type="submit" value="" class="match-others" /></a>
-                }
-            }
-                </div>
         </div>
     </div>
 

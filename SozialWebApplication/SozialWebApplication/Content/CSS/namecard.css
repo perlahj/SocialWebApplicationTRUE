@@ -3,30 +3,21 @@
     display: block;
 }
 
-/*Karlotta*/
-
-.information 
-{
-font-weight: bold;
-  margin-left: 15px;
-  /* padding-top: 6%; */
-  /* position: absolute; */
-  text-align: center;
-  margin-top: -295px;
-}
-
-.information > p 
-{
-    font-size: 25px;
-}
-
-.profile-picture 
-{
-    margin-left: 96px;
-    margin-top: 9px;
-}
-
 /* OwnNameCard */
+
+.edit 
+{
+    background-image: url('/Myndir/Edit.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: none;
+    cursor: pointer;
+    float: left;
+    height: 39px;
+    margin-left: 35px;
+    margin-top: 334px;
+    width: 37px;
+}
 
 .follow 
 {
@@ -50,6 +41,20 @@ font-weight: bold;
     height: 39px;
     margin-left: 48px;
     width: 50px;  
+}
+
+.information 
+{
+    font-weight: bold;
+    margin-left: 476px;
+    padding-top: 6%;
+    position: absolute;
+    text-align: center;
+}
+
+.information > p 
+{
+    font-size: 25px;
 }
 
 .namecard
@@ -76,6 +81,12 @@ font-weight: bold;
     height: 39px;
     margin-left: 40px;
     width: 48px;
+}
+
+.profile-picture 
+{
+    margin-left: 96px;
+    margin-top: 9px;
 }
 
 .send-email > a:hover 
@@ -126,6 +137,7 @@ font-weight: bold;
 .others-information
 {
     font-weight: bold;
+    margin-top: -260px;
     text-align: center;
 }
 
@@ -136,15 +148,15 @@ font-weight: bold;
 
 .others-namecard-buttons
 {
-
+    margin-top: -373px;
 }
 
 .others-photo
 {
-height: 300px;
-  /* margin-top: 5%; */
-  margin-left: 80px;
-  width: 300px;
+    height: 300px;
+    margin-left: 80px;
+    margin-top: 64px;
+    width: 300px;
 }
 
 .others-photo img
@@ -190,20 +202,6 @@ height: 300px;
     font-weight: bold;
     line-height: 25px;
     width: 70px; 
-}
-
-.edit 
-{
-    background-image: url('/Myndir/Edit.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    border: none;
-    cursor: pointer;
-    float: left;
-    height: 39px;
-    margin-left: 35px;
-    margin-top: 334px;
-    width: 37px;
 }
 
 .edit-information 
